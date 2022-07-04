@@ -1,0 +1,185 @@
+.todo {
+    background-color: var(--secondary-color);
+    margin: 15px 0px;
+    border-radius: 20px;
+
+}
+
+.list-item {
+    height: fit-content;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    cursor: pointer;
+    position: relative;
+
+
+}
+
+.checked {
+background-color: var(--font-color);
+}
+
+.unchecked {
+    background-color: var(--main-color);
+
+}
+
+.item-title {
+    font-family: var(--rocko);
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 3px 0;
+    margin-left: 40px;
+    transition: var(--default-transition);
+
+
+}
+
+.item-title::before {
+    position: absolute;
+    left: 0;
+    padding: 5px 10px;
+    font-family: "Font Awesome 5 Free";
+}
+
+.checked > .item-title::before {
+    color: var(--main-color);
+    content: "\f058";
+    font-weight: 900;
+}
+
+.unchecked > .item-title::before {
+    color: var(--font-color);
+    content: "\f111";
+    font-weight: 400;
+}
+
+
+.checked > .item-title {
+    color: var(--main-color);
+}
+
+.date,
+.flag,
+.tag,
+.new-tag {
+    padding: 4px;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+.date-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+    margin-right: 12px;
+}
+
+.date,
+.flag {
+    color: var(--main-color);
+    background-color: var(--font-color);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size:0.8rem;
+    height:fit-content;
+}
+
+.date::before,
+.flag::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    padding: 3px;
+}
+
+.date::before {
+    content: "\f133";
+    padding-right: 8px;
+}
+
+.flag::before {
+    content: "\f024";
+    color: var(--flag-color);
+}
+
+
+.item-details {
+    padding: 15px ;
+    padding-left: 40px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.description {
+    font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        font-size: 1.2em;
+
+}
+
+.tag-container {
+    display: flex;
+    align-items: center;
+padding-top: 10px;
+}
+
+.tag {
+    background-color: var(--opposite-color);
+    width: fit-content;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size:0.8rem;
+    text-align: center;
+    margin: 10px;
+    margin-left: 0;
+    padding: 5px 10px;
+}
+
+
+.toolbar {
+    font-family: "Font Awesome 5 Free";
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    align-items: center;
+    font-size: 1.2rem;
+    padding-top: 10px;
+}
+
+.trash,
+.edit {
+    color: var(--icon-color);
+    cursor: pointer;
+    border: 1px solid var(--icon-color);
+    border-radius: 50%;
+    font-size: 1.2rem;
+    text-align: center;
+    width: 42px;
+    aspect-ratio: 1;
+}
+
+.trash:active,
+.trash:active::before,
+.edit:active,
+.edit:active::before {
+    transform: scale(0.95);
+
+    color: var(--font-color);
+    background-color: var(--opposite-color);
+}
+
+.trash::before {
+    padding: 0 5px;
+    content: "\f2ed";
+}
+
+.edit::before {
+    content: "\f044";
+    padding: 0 5px;
+}
+
+
