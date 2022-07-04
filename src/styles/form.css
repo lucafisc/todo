@@ -38,7 +38,31 @@
     border: 0;
     outline: 0;
     border-radius: 0;
+    min-width: 120px;
 }
+
+.form > .list-item> .date-container > .flag,
+.form > .list-item> .date-container > .flag::before {
+    color: var(--opposite-color);
+    background-color: var(--opposite-color-lighter);
+}
+
+ 
+.due-date-input {
+    border: 1px solid var(--opposite-color);
+    color: var(--opposite-color);
+    background-color: var(--opposite-color-lighter) !important;
+    height: 25px;
+    width: 120px;
+    font-family: var(--rocko);
+    cursor: pointer;
+
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 3px 5px;
+    box-shadow: var(--default-shadow);
+
+  }
 
 
 
@@ -107,22 +131,6 @@
 opacity: 0.7;}
 
   
- 
-.due-date-input {
-    border: 1px solid var(--opposite-color);
-    color: var(--opposite-color);
-    background-color: var(--opposite-color-lighter) !important;
-    height: 24px;
-    width: 120px;
-    font-family: var(--rocko);
-    cursor: pointer;
-
-    border-radius: 5px;
-    background-color: #fff;
-    padding: 3px 5px;
-    box-shadow: var(--default-shadow);
-
-  }
 
 
 

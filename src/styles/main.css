@@ -45,7 +45,10 @@ background-color: hsl(241deg 10% 98%);
     margin: 15px;
 }
 
-.list {
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .title {
@@ -61,4 +64,12 @@ background-color: hsl(241deg 10% 98%);
     padding-right: 15px;
     padding-left: 10px;
     cursor: pointer;
+}
+
+.settings::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 700;
+    content: "\f053";
+    font-size: 1.5rem;
+    padding: 10px 5px 10px 40px;
 }

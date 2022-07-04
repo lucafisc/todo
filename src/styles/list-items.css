@@ -128,7 +128,7 @@ padding-top: 10px;
 }
 
 .tag {
-    background-color: var(--opposite-color);
+    background-color: var(--flag-color);
     width: fit-content;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
@@ -137,6 +137,10 @@ padding-top: 10px;
     margin: 10px;
     margin-left: 0;
     padding: 5px 10px;
+}
+
+.form > .item-details > .tag-container > .tag {
+    background-color: var(--opposite-color);
 }
 
 
@@ -160,6 +164,9 @@ padding-top: 10px;
     text-align: center;
     width: 42px;
     aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .trash:active,
@@ -173,13 +180,13 @@ padding-top: 10px;
 }
 
 .trash::before {
-    padding: 0 5px;
+  
     content: "\f2ed";
 }
 
 .edit::before {
-    content: "\f044";
-    padding: 0 5px;
+    content: "\f303";
+    font-weight: 900;
 }
 
 
