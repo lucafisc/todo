@@ -23,7 +23,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 :root {
-    --main-color: hsl(54, 79%, 63%);
+    --main-color: hsl(50, 80%, 58%);
     --secondary-color: ;
     --font-color: hsl(0, 0%, 0%);
     --gray-color: hsl(0, 0%, 50%);
@@ -51,25 +51,85 @@ background-color: hsl(241deg 10% 98%);
     align-items: center;
 }
 
+.main {
+    display: flex;
+    align-items: center;
+}
+
 .title {
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     padding: 25px 0;
 }
 
-.title::before {
+.hamburger {
+    cursor: pointer;
+}
+
+.hamburger::before {
     font-family: "Font Awesome 5 Free";
     font-weight: 700;
     content: "\f0c9";
     padding-right: 15px;
     padding-left: 10px;
+}
+
+.settings {
+    display: flex;
+align-items: center;
+}
+
+.settings::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 700;
+    content: "\f141";
+    padding: 10px 5px 10px 30px;
+}
+
+.choose-color {
+    width: fit-content;
+}
+
+.choose-color::after {
+    content: "\f00d";
+
+}
+
+.theme {
+    display: none;
     cursor: pointer;
 }
 
-.settings::before {
+.choose-color > .theme {
+    display: block;
+}
+
+.theme::before {
     font-family: "Font Awesome 5 Free";
     font-weight: 700;
-    content: "\f053";
-    font-size: 1.5rem;
-    padding: 10px 5px 10px 40px;
+    content: "\f111";
+    padding: 5px;
 }
+
+#theme-1 {
+    color: hsl(52, 79%, 63%);
+}
+
+#theme-2 {
+   color: hsl(96, 61%, 57%);
+}
+
+#theme-3 {
+    color: hsl(14, 86%, 59%);
+}
+
+#theme-4 {
+    color: blue;
+}
+
+#theme-5 {
+    color: blue;
+}
+
+
+
