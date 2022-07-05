@@ -78,17 +78,19 @@ background-color: hsl(241deg 10% 98%);
 .settings {
     display: flex;
 align-items: center;
+cursor: pointer;
 }
 
 .settings::after {
     font-family: "Font Awesome 5 Free";
     font-weight: 700;
     content: "\f141";
-    padding: 10px 5px 10px 30px;
+    padding: 10px;
 }
 
 .choose-color {
     width: fit-content;
+
 }
 
 .choose-color::after {
@@ -97,19 +99,30 @@ align-items: center;
 }
 
 .theme {
-    display: none;
+    opacity: 0;
     cursor: pointer;
+    transition: var(--default-transition);
 }
 
-.choose-color > .theme {
-    display: block;
+.theme:hover,
+.theme:active {
+    transform: scale(1.1);
 }
+
+
+
+.choose-color > .theme {
+opacity: 1;}
 
 .theme::before {
     font-family: "Font Awesome 5 Free";
     font-weight: 700;
     content: "\f111";
     padding: 5px;
+}
+
+.current-theme::before {
+    font-weight: 400;
 }
 
 #theme-1 {

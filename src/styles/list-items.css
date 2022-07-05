@@ -218,6 +218,11 @@
     background-color: var(--light-gray);
 }
 
+.checked>.item-details>.toolbar>#trash,
+.checked>.item-details>.toolbar>#edit {
+    color: var(--light-gray);
+}
+
 /* form <-> list item */
 
 .form>.list-item>#item-title,

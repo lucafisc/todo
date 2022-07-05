@@ -7,6 +7,15 @@ export const controller = (() => {
         pubsub.publish("check", event.target);
     });
   }
+
+const themes = document.querySelectorAll(".theme");
+for (const theme of themes) {
+    theme.addEventListener("click", (event) => {
+        pubsub.publish("theme", event);
+    })
+}
+
+  
 })();
 
 
