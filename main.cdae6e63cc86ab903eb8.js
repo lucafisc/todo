@@ -5723,7 +5723,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".todo {\n    background-color: var(--secondary-color);\n}\n\n.form {\n    background-color: var(--opposite-color-lighter);\n}\n\n.todo,\n.form {\n    margin: 15px 0px;\n    border-radius: 20px;\n}\n\n.list-item {\n    height: fit-content;\n    border-radius: 20px;\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-start;\n    cursor: pointer;\n    position: relative;\n\n}\n\n.checked > .list-item {\nbackground-color: var(--font-color);\n}\n\n.unchecked > .list-item {\n    background-color: var(--main-color);\n\n}\n\n.item-title {\n    font-family: var(--rocko);\n    font-weight: bold;\n    font-size: 1.5rem;\n    padding: 3px 0;\n    margin-left: 40px;\n    transition: var(--default-transition);\n\n\n}\n\n.item-title::before {\n    position: absolute;\n    left: 0;\n    padding: 5px 10px;\n    font-family: \"Font Awesome 5 Free\";\n}\n\n.item-title::before {\n    color: var(--font-color);\n    content: \"\\f111\";\n    font-weight: 400;\n}\n\n\n.checked > .list-item > .item-title {\n    color: var(--main-color);\n}\n\n.checked > .list-item > .item-title::before {\n    color: var(--main-color);\n    content: \"\\f058\";\n    font-weight: 900;\n}\n\n.date,\n.flag,\n.tag,\n.new-tag {\n    padding: 4px;\n    border-radius: 5px;\n    white-space: nowrap;\n}\n\n.date-container {\n    display: flex;\n    gap: 10px;\n    margin-top: 8px;\n    margin-right: 12px;\n}\n\n.date,\n.flag {\n    color: var(--main-color);\n    background-color: var(--font-color);\n    font-family: 'Roboto', sans-serif;\n    font-weight: 500;\n    font-size:0.8rem;\n    height:fit-content;\n}\n\n.date::before,\n.flag::before {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    padding: 3px;\n}\n\n.date::before {\n    content: \"\\f133\";\n    padding-right: 8px;\n}\n\n.flag::before {\n    content: \"\\f024\";\n    color: var(--flag-color);\n}\n\n\n.item-details {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    max-height: 0;\n    transition: all 0.2s ease-out;\n    overflow: hidden;\n    padding: 0 15px;\n\n}\n\n.collapsed {\n    max-height: 0;\n    margin: 0;\n    padding: 0;\n}\n\n.description {\n    font-family: 'Roboto', sans-serif;\n        font-weight: 400;\n        font-size: 1.2em;\n        margin-top: 15px;\n\n}\n\n.tag-container {\n    display: flex;\n    align-items: center;\npadding-top: 10px;\n}\n\n.tag {\n    background-color: var(--flag-color);\n    width: fit-content;\n    font-family: 'Roboto', sans-serif;\n    font-weight: 500;\n    font-size:0.8rem;\n    text-align: center;\n    margin: 10px;\n    margin-left: 0;\n    padding: 5px 10px;\n}\n\n\n.toolbar {\n    font-family: \"Font Awesome 5 Free\";\n    display: flex;\n    justify-content: flex-end;\n    gap: 10px;\n    align-items: center;\n    font-size: 1.2rem;\n    margin: 15px 0;\n}\n\n.trash,\n.edit {\n    color: var(--icon-color);\n    cursor: pointer;\n    border: 1px solid var(--icon-color);\n    border-radius: 50%;\n    font-size: 1.2rem;\n    text-align: center;\n    width: 42px;\n    aspect-ratio: 1;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.trash:active,\n.trash:active::before,\n.edit:active,\n.edit:active::before {\n    transform: scale(0.95);\n\n    color: var(--font-color);\n    background-color: var(--opposite-color);\n}\n\n.trash::before {\n  \n    content: \"\\f2ed\";\n}\n\n.edit::before {\n    content: \"\\f303\";\n    font-weight: 900;\n}\n\n/* form <-> list item */\n\n.form > .list-item > #item-title,\n.form > .list-item > .date-container > #item-date,\n.form > .item-details > #item-description,\n.form > .item-details > .toolbar > #trash,\n.form > .item-details > .toolbar > #edit,\n.todo > .list-item > #input-title,\n.todo > .list-item > .date-container > #input-date,\n.todo > .item-details > #input-description,\n.todo > .item-details > .toolbar > #save,\n.todo > .item-details > .tag-container > #input-tag\n {\n    display: none;\n}\n\n.form > .item-details > .tag-container > .tag {\n    background-color: var(--opposite-color);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".todo {\n    background-color: var(--secondary-color);\n}\n\n\n.form {\n    background-color: var(--opposite-color-lighter);\n}\n\n.todo,\n.form {\n    margin: 15px 0px;\n    border-radius: 20px;\n}\n\n.list-item {\n    height: fit-content;\n    border-radius: 20px;\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-start;\n    cursor: pointer;\n    position: relative;\n\n}\n\n\n.unchecked>.list-item {\n    background-color: var(--main-color);\n\n}\n\n.item-title {\n    font-family: var(--rocko);\n    font-weight: bold;\n    font-size: 1.5rem;\n    padding: 3px 0;\n    margin-left: 40px;\n    transition: color 0.3s ease-in-out;\n}\n\n.item-title::before {\n    position: absolute;\n    left: 0;\n    padding: 5px 10px;\n    font-family: \"Font Awesome 5 Free\";\n    color: var(--font-color);\n    content: \"\\f111\";\n    font-weight: 400;\n    transition: transform 0.3s ease-in-out;\n}\n\n.item-title:active::before\n {\n   transform: scale(0.8);\n}\n\n\n\n\n\n\n\n.date,\n.flag,\n.tag,\n.new-tag {\n    padding: 4px;\n    border-radius: 5px;\n    white-space: nowrap;\n}\n\n.date-container {\n    display: flex;\n    gap: 10px;\n    margin-top: 8px;\n    margin-right: 12px;\n}\n\n.date,\n.flag {\n    color: var(--main-color);\n    background-color: var(--font-color);\n    font-family: 'Roboto', sans-serif;\n    font-weight: 500;\n    font-size: 0.8rem;\n    height: fit-content;\n}\n\n.date::before,\n.flag::before {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    padding: 3px;\n}\n\n.date::before {\n    content: \"\\f133\";\n    padding-right: 8px;\n}\n\n.flag::before {\n    content: \"\\f024\";\n    color: var(--flag-color);\n}\n\n\n.item-details {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    max-height: 0;\n    transition: var(--default-transition);\n    overflow: hidden;\n    padding: 0 15px;\n\n}\n\n.collapsed {\n    max-height: 0;\n    margin: 0;\n    padding: 0;\n}\n\n.description {\n    font-family: 'Roboto', sans-serif;\n    font-weight: 400;\n    font-size: 1.2em;\n    margin-top: 15px;\n\n}\n\n.tag-container {\n    display: flex;\n    align-items: center;\n    padding-top: 10px;\n}\n\n.tag {\n    background-color: var(--flag-color);\n    width: fit-content;\n    font-family: 'Roboto', sans-serif;\n    font-weight: 500;\n    font-size: 0.8rem;\n    text-align: center;\n    margin: 10px;\n    margin-left: 0;\n    padding: 5px 10px;\n}\n\n\n.toolbar {\n    font-family: \"Font Awesome 5 Free\";\n    display: flex;\n    justify-content: flex-end;\n    gap: 10px;\n    align-items: center;\n    font-size: 1.2rem;\n    margin: 15px 0;\n}\n\n.trash,\n.edit {\n    color: var(--icon-color);\n    cursor: pointer;\n    border: 1px solid var(--icon-color);\n    border-radius: 50%;\n    font-size: 1.2rem;\n    text-align: center;\n    width: 42px;\n    aspect-ratio: 1;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.trash:active,\n.trash:active::before,\n.edit:active,\n.edit:active::before {\n    transform: scale(0.95);\n\n    color: var(--font-color);\n    background-color: var(--opposite-color);\n}\n\n.trash::before {\n\n    content: \"\\f2ed\";\n}\n\n.edit::before {\n    content: \"\\f303\";\n    font-weight: 900;\n}\n\n/* checked styles */\n.checked {\n    background-color: var(--gray-color);\n}\n\n.checked>.list-item {\n    background-color: var(--font-color);\n}\n\n.checked>.list-item>.item-title {\n    color: var(--main-color);\n    text-decoration: line-through;\n}\n\n.checked>.list-item>.item-title::before {\n    color: var(--main-color);\n    content: \"\\f058\";\n    font-weight: 900;\n}\n\n.checked>.item-details>.tag-container>.tag {\n    background-color: var(--light-gray);\n}\n\n/* form <-> list item */\n\n.form>.list-item>#item-title,\n.form>.list-item>.date-container>#item-date,\n.form>.item-details>#item-description,\n.form>.item-details>.toolbar>#trash,\n.form>.item-details>.toolbar>#edit,\n.todo>.list-item>#input-title,\n.todo>.list-item>.date-container>#input-date,\n.todo>.item-details>#input-description,\n.todo>.item-details>.toolbar>#save,\n.todo>.item-details>.tag-container>#input-tag {\n    display: none;\n}\n\n.form>.item-details>.tag-container>.tag {\n    background-color: var(--opposite-color);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5758,7 +5758,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.c
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "*, \n*::after, \n*::before { \n    box-sizing: border-box; \n    margin: 0;\n    padding: 0;\n}\n\n\n@font-face {\n    font-family: \"Rocko FLF\";\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n    font-weight: normal;\n    font-style: normal;\n}\n\n@font-face {\n    font-family: \"Rocko FLF\";\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n    font-weight: bold;\n    font-style: normal;\n}\n:root {\n    --main-color: hsl(50, 80%, 58%);\n    --secondary-color: ;\n    --font-color: hsl(0, 0%, 0%);\n    --gray-color: hsl(0, 0%, 50%);\n    --light-gray: hsl(0deg, 0%, 95%);\n    --opposite-color: ;\n    --icon-color: ;\n    --flag-color: ;\n    --opposite-color-lighter: ;\n    --rocko: \"Rocko FLF\";\n    --default-transition: all 0.2s ease-in-out;\n    --default-border-radius:  20px;\n    --default-shadow: inset 0 3px 6px rgba(0,0,0,0.1);\n}\n\nbody {\nbackground-color: hsl(241deg 10% 98%);\n}\n\n.content {\n    margin: 15px;\n}\n\n.header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n\n.main {\n    display: flex;\n    align-items: center;\n}\n\n.title {\n    font-family: 'Roboto', sans-serif;\n    font-weight: 500;\n    padding: 25px 0;\n}\n\n.hamburger {\n    cursor: pointer;\n}\n\n.hamburger::before {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 700;\n    content: \"\\f0c9\";\n    padding-right: 15px;\n    padding-left: 10px;\n}\n\n.settings {\n    display: flex;\nalign-items: center;\n}\n\n.settings::after {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 700;\n    content: \"\\f141\";\n    padding: 10px 5px 10px 30px;\n}\n\n.choose-color {\n    width: fit-content;\n}\n\n.choose-color::after {\n    content: \"\\f00d\";\n\n}\n\n.theme {\n    display: none;\n    cursor: pointer;\n}\n\n.choose-color > .theme {\n    display: block;\n}\n\n.theme::before {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 700;\n    content: \"\\f111\";\n    padding: 5px;\n}\n\n#theme-1 {\n    color: hsl(52, 79%, 63%);\n}\n\n#theme-2 {\n   color: hsl(96, 61%, 57%);\n}\n\n#theme-3 {\n    color: hsl(14, 86%, 59%);\n}\n\n#theme-4 {\n    color: blue;\n}\n\n#theme-5 {\n    color: blue;\n}\n\nnav {\n    display: none;\n    background-color: var(--light-gray);\n}\n\n@media only screen and (min-width: 800px) {\n    .content {\n      display: grid;\n      grid-template-columns: 300px 1fr;\n      grid-template-areas:\n      \"nav main\";\n      gap: 20px;\n\n      margin: 0 20px 0 0;\n\n    }\n    nav {\n        display: block;\n        height: 100vh;\n        position: fixed;\n        grid-area: nav;\n        width: 300px;\n        z-index: 1;\n        overflow-x: hidden;\n        top: 0;\n        left: 0;\n    }\n\n    main {\n        grid-area: main;\n    }\n\n    .hamburger {\n        display: none;\n    }\n  }", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "*, \n*::after, \n*::before { \n    box-sizing: border-box; \n    margin: 0;\n    padding: 0;\n}\n\n\n@font-face {\n    font-family: \"Rocko FLF\";\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n    font-weight: normal;\n    font-style: normal;\n}\n\n@font-face {\n    font-family: \"Rocko FLF\";\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n    font-weight: bold;\n    font-style: normal;\n}\n:root {\n    --main-color: hsl(50, 80%, 58%);\n    --secondary-color: ;\n    --font-color: hsl(0, 0%, 0%);\n    --gray-color: hsl(0, 0%, 72%);\n    --light-gray: hsl(0deg, 0%, 95%);\n    --opposite-color: ;\n    --icon-color: ;\n    --flag-color: ;\n    --opposite-color-lighter: ;\n    --rocko: \"Rocko FLF\";\n    --default-transition: all 0.2s ease-in-out;\n    --default-border-radius:  20px;\n    --default-shadow: inset 0 3px 6px rgba(0,0,0,0.1);\n}\n\nbody {\nbackground-color: hsl(241deg 10% 98%);\n}\n\n.content {\n    margin: 15px;\n}\n\n.header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n\n.main {\n    display: flex;\n    align-items: center;\n}\n\n.title {\n    font-family: 'Roboto', sans-serif;\n    font-weight: 500;\n    padding: 25px 0;\n}\n\n.hamburger {\n    cursor: pointer;\n}\n\n.hamburger::before {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 700;\n    content: \"\\f0c9\";\n    padding-right: 15px;\n    padding-left: 10px;\n}\n\n.settings {\n    display: flex;\nalign-items: center;\n}\n\n.settings::after {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 700;\n    content: \"\\f141\";\n    padding: 10px 5px 10px 30px;\n}\n\n.choose-color {\n    width: fit-content;\n}\n\n.choose-color::after {\n    content: \"\\f00d\";\n\n}\n\n.theme {\n    display: none;\n    cursor: pointer;\n}\n\n.choose-color > .theme {\n    display: block;\n}\n\n.theme::before {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 700;\n    content: \"\\f111\";\n    padding: 5px;\n}\n\n#theme-1 {\n    color: hsl(52, 79%, 63%);\n}\n\n#theme-2 {\n   color: hsl(96, 61%, 57%);\n}\n\n#theme-3 {\n    color: hsl(14, 86%, 59%);\n}\n\n#theme-4 {\n    color: blue;\n}\n\n#theme-5 {\n    color: blue;\n}\n\nnav {\n    display: none;\n    background-color: var(--light-gray);\n}\n\n@media only screen and (min-width: 800px) {\n    .content {\n      display: grid;\n      grid-template-columns: 300px 1fr;\n      grid-template-areas:\n      \"nav main\";\n      gap: 20px;\n\n      margin: 0 20px 0 0;\n\n    }\n    nav {\n        display: block;\n        height: 100vh;\n        position: fixed;\n        grid-area: nav;\n        width: 300px;\n        z-index: 1;\n        overflow-x: hidden;\n        top: 0;\n        left: 0;\n    }\n\n    main {\n        grid-area: main;\n    }\n\n    .hamburger {\n        display: none;\n    }\n  }", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -6593,8 +6593,8 @@ __webpack_require__.r(__webpack_exports__);
 const controller = (() => {
   const itemTitle = document.querySelectorAll("#item-title");
   for (const item of itemTitle) {
-    item.addEventListener("click", () => {
-        _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.publish("check", "a");
+    item.addEventListener("click", (event) => {
+        _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.publish("check", event.target);
     });
   }
 })();
@@ -6603,6 +6603,39 @@ const controller = (() => {
 
 
 
+
+
+
+/***/ }),
+
+/***/ "./src/modules/dom.js":
+/*!****************************!*\
+  !*** ./src/modules/dom.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "domControl": () => (/* binding */ domControl)
+/* harmony export */ });
+/* harmony import */ var _pubsub_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pubsub.js */ "./src/modules/pubsub.js");
+
+
+const domControl = () => {
+
+   const checkUncheck = _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("check", (data) => {
+    newFunction(data);
+})
+
+  };
+
+
+function newFunction(data) {
+    let card = data.parentNode.parentNode;
+    card.classList.toggle("checked");
+    card.classList.toggle("unchecked");
+}
 
 
 
@@ -6884,9 +6917,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_form_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles/form.css */ "./src/styles/form.css");
 /* harmony import */ var _modules_accordion_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/accordion.js */ "./src/modules/accordion.js");
 /* harmony import */ var _modules_controller_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/controller.js */ "./src/modules/controller.js");
-/* harmony import */ var _fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/all.js */ "./node_modules/@fortawesome/fontawesome-free/js/all.js");
-/* harmony import */ var _fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _fortawesome_fontawesome_free_css_all_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fortawesome/fontawesome-free/css/all.css */ "./node_modules/@fortawesome/fontawesome-free/css/all.css");
+/* harmony import */ var _modules_dom_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/dom.js */ "./src/modules/dom.js");
+/* harmony import */ var _fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/all.js */ "./node_modules/@fortawesome/fontawesome-free/js/all.js");
+/* harmony import */ var _fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _fortawesome_fontawesome_free_css_all_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @fortawesome/fontawesome-free/css/all.css */ "./node_modules/@fortawesome/fontawesome-free/css/all.css");
 
 
 
@@ -6896,10 +6930,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const onChecklist = pubsub.subscribe("check", (data) => {
-    console.log(data);
-})
 
+(0,_modules_dom_js__WEBPACK_IMPORTED_MODULE_6__.domControl)();
 
 
 const colorControl = (() => {
@@ -6917,8 +6949,6 @@ const colorControl = (() => {
     root.style.setProperty('--flag-color', flagColor);
     root.style.setProperty('--opposite-color', oppositeColorHSL);
     root.style.setProperty('--opposite-color-lighter', oppositeColorHSLLighter);
-
-
   })();
 
 
