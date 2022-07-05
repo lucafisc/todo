@@ -27,6 +27,7 @@
     --secondary-color: ;
     --font-color: hsl(0, 0%, 0%);
     --gray-color: hsl(0, 0%, 50%);
+    --light-gray: hsl(0deg, 0%, 95%);
     --opposite-color: ;
     --icon-color: ;
     --flag-color: ;
@@ -131,5 +132,39 @@ align-items: center;
     color: blue;
 }
 
+nav {
+    display: none;
+    background-color: var(--light-gray);
+}
 
+@media only screen and (min-width: 800px) {
+    .content {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      grid-template-areas:
+      "nav main";
+      gap: 20px;
 
+      margin: 0 20px 0 0;
+
+    }
+    nav {
+        display: block;
+        height: 100vh;
+        position: fixed;
+        grid-area: nav;
+        width: 300px;
+        z-index: 1;
+        overflow-x: hidden;
+        top: 0;
+        left: 0;
+    }
+
+    main {
+        grid-area: main;
+    }
+
+    .hamburger {
+        display: none;
+    }
+  }

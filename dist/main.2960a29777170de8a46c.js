@@ -5604,6 +5604,32 @@
 
 /***/ }),
 
+/***/ "./node_modules/PubSub/dist/PubSub.esm.min.js":
+/*!****************************************************!*\
+  !*** ./node_modules/PubSub/dist/PubSub.esm.min.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/*!
+ * PubSub
+ * Javascript implementation of the Publish/Subscribe pattern.
+ *
+ * @version v4.0.0
+ * @author George Raptis <georapbox@gmail.com>
+ * @homepage https://github.com/georapbox/PubSub#readme
+ * @repository https://github.com/georapbox/PubSub.git
+ * @license MIT
+ */
+function t(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,n.key,n)}}function e(t,e,r){return e in t?Object.defineProperty(t,e,{value:r,enumerable:!0,configurable:!0,writable:!0}):t[e]=r,t}function r(t,e){var r=Object.keys(t);if(Object.getOwnPropertySymbols){var n=Object.getOwnPropertySymbols(t);e&&(n=n.filter((function(e){return Object.getOwnPropertyDescriptor(t,e).enumerable}))),r.push.apply(r,n)}return r}function n(t){for(var n=1;n<arguments.length;n++){var o=null!=arguments[n]?arguments[n]:{};n%2?r(Object(o),!0).forEach((function(r){e(t,r,o[r])})):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(o)):r(Object(o)).forEach((function(e){Object.defineProperty(t,e,Object.getOwnPropertyDescriptor(o,e))}))}return t}function o(t){return function(t){if(Array.isArray(t))return i(t)}(t)||function(t){if("undefined"!=typeof Symbol&&Symbol.iterator in Object(t))return Array.from(t)}(t)||function(t,e){if(!t)return;if("string"==typeof t)return i(t,e);var r=Object.prototype.toString.call(t).slice(8,-1);"Object"===r&&t.constructor&&(r=t.constructor.name);if("Map"===r||"Set"===r)return Array.from(t);if("Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r))return i(t,e)}(t)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function i(t,e){(null==e||e>t.length)&&(e=t.length);for(var r=0,n=new Array(e);r<e;r++)n[r]=t[r];return n}var u=function(t,e,r){for(var n in t)if(Object.prototype.hasOwnProperty.call(t,n)&&e&&!1===e.call(r,t[n],n,t))return;return t},c=function(t,e,r){for(var n=r._pubsub_topics,i=n[t]?o(n[t]):[],u=0,c=i.length;u<c;u+=1){var a=i[u].token,s=i[u];if(r._options.immediateExceptions)s.callback(e,{name:t,token:a});else try{s.callback(e,{name:t,token:a})}catch(t){setTimeout((function(){throw t}),0)}!0===s.once&&r.unsubscribe(a)}},a=function(t){for(var e=arguments.length,r=new Array(e>1?e-1:0),n=1;n<e;n++)r[n-1]=arguments[n];return r.length<=1?r[0]:[].concat(r)},s=function(t,e,r,n){return!!t._pubsub_topics[e]&&(n?c(e,r,t):setTimeout((function(){c(e,r,t)}),0),!0)},b=function(){function e(t){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e);this._pubsub_topics={},this._pubsub_uid=-1,this._options=n(n({},{immediateExceptions:!1}),t)}var r,i,c;return r=e,(i=[{key:"subscribe",value:function(t,e,r){var n=this._pubsub_topics,o=this._pubsub_uid+=1,i={};if("function"!=typeof e)throw new TypeError("When subscribing for an event, a callback function must be defined.");return n[t]||(n[t]=[]),i.token=o,i.callback=e,i.once=!!r,n[t].push(i),o}},{key:"subscribeOnce",value:function(t,e){return this.subscribe(t,e,!0)}},{key:"publish",value:function(t){for(var e=arguments.length,r=new Array(e>1?e-1:0),n=1;n<e;n++)r[n-1]=arguments[n];return s(this,t,a.apply(void 0,[t].concat(r)),!1)}},{key:"publishSync",value:function(t){for(var e=arguments.length,r=new Array(e>1?e-1:0),n=1;n<e;n++)r[n-1]=arguments[n];return s(this,t,a.apply(void 0,[t].concat(r)),!0)}},{key:"unsubscribe",value:function(t){var e=this._pubsub_topics,r=!1;for(var n in e)if(Object.prototype.hasOwnProperty.call(e,n)&&e[n]){for(var o=e[n].length;o;){if(o-=1,e[n][o].token===t)return e[n].splice(o,1),0===e[n].length&&delete e[n],t;n===t&&(e[n].splice(o,1),0===e[n].length&&delete e[n],r=!0)}if(!0===r)return t}return!1}},{key:"unsubscribeAll",value:function(){return this._pubsub_topics={},this}},{key:"hasSubscribers",value:function(t){var e=this._pubsub_topics,r=!1;return null==t?(u(e,(function(t,e){if(e)return r=!0,!1})),r):Object.prototype.hasOwnProperty.call(e,t)}},{key:"subscribers",value:function(){var t={};return u(this._pubsub_topics,(function(e,r){t[r]=o(e)})),t}},{key:"subscribersByTopic",value:function(t){return this._pubsub_topics[t]?o(this._pubsub_topics[t]):[]}},{key:"alias",value:function(t){var r=this;return u(t,(function(n,o){var i,u;e.prototype[o]&&(e.prototype[t[o]]=(i=o,u=r,function(){for(var t=arguments.length,e=new Array(t),r=0;r<t;r++)e[r]=arguments[r];return u[i].apply(u,e)}))})),this}}])&&t(r.prototype,i),c&&t(r,c),e}();b.createInstance=function(t){return new b(t)};/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (b);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/@fortawesome/fontawesome-free/css/all.css":
 /*!******************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/@fortawesome/fontawesome-free/css/all.css ***!
@@ -5697,7 +5723,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".todo {\n    background-color: var(--secondary-color);\n    margin: 15px 0px;\n    border-radius: 20px;\n\n}\n\n.list-item {\n    height: fit-content;\n    border-radius: 20px;\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-start;\n    cursor: pointer;\n    position: relative;\n\n\n}\n\n.checked {\nbackground-color: var(--font-color);\n}\n\n.unchecked {\n    background-color: var(--main-color);\n\n}\n\n.item-title {\n    font-family: var(--rocko);\n    font-weight: bold;\n    font-size: 1.5rem;\n    padding: 3px 0;\n    margin-left: 40px;\n    transition: var(--default-transition);\n\n\n}\n\n.item-title::before {\n    position: absolute;\n    left: 0;\n    padding: 5px 10px;\n    font-family: \"Font Awesome 5 Free\";\n}\n\n.checked > .item-title::before {\n    color: var(--main-color);\n    content: \"\\f058\";\n    font-weight: 900;\n}\n\n.unchecked > .item-title::before {\n    color: var(--font-color);\n    content: \"\\f111\";\n    font-weight: 400;\n}\n\n\n.checked > .item-title {\n    color: var(--main-color);\n}\n\n.date,\n.flag,\n.tag,\n.new-tag {\n    padding: 4px;\n    border-radius: 5px;\n    white-space: nowrap;\n}\n\n.date-container {\n    display: flex;\n    gap: 10px;\n    margin-top: 8px;\n    margin-right: 12px;\n}\n\n.date,\n.flag {\n    color: var(--main-color);\n    background-color: var(--font-color);\n    font-family: 'Roboto', sans-serif;\n    font-weight: 500;\n    font-size:0.8rem;\n    height:fit-content;\n}\n\n.date::before,\n.flag::before {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    padding: 3px;\n}\n\n.date::before {\n    content: \"\\f133\";\n    padding-right: 8px;\n}\n\n.flag::before {\n    content: \"\\f024\";\n    color: var(--flag-color);\n}\n\n\n.item-details {\n    padding: 15px ;\n    padding-left: 40px;\n    height: fit-content;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n}\n\n.description {\n    font-family: 'Roboto', sans-serif;\n        font-weight: 400;\n        font-size: 1.2em;\n\n}\n\n.tag-container {\n    display: flex;\n    align-items: center;\npadding-top: 10px;\n}\n\n.tag {\n    background-color: var(--flag-color);\n    width: fit-content;\n    font-family: 'Roboto', sans-serif;\n    font-weight: 500;\n    font-size:0.8rem;\n    text-align: center;\n    margin: 10px;\n    margin-left: 0;\n    padding: 5px 10px;\n}\n\n.form > .item-details > .tag-container > .tag {\n    background-color: var(--opposite-color);\n}\n\n\n.toolbar {\n    font-family: \"Font Awesome 5 Free\";\n    display: flex;\n    justify-content: flex-end;\n    gap: 10px;\n    align-items: center;\n    font-size: 1.2rem;\n    padding-top: 10px;\n}\n\n.trash,\n.edit {\n    color: var(--icon-color);\n    cursor: pointer;\n    border: 1px solid var(--icon-color);\n    border-radius: 50%;\n    font-size: 1.2rem;\n    text-align: center;\n    width: 42px;\n    aspect-ratio: 1;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.trash:active,\n.trash:active::before,\n.edit:active,\n.edit:active::before {\n    transform: scale(0.95);\n\n    color: var(--font-color);\n    background-color: var(--opposite-color);\n}\n\n.trash::before {\n  \n    content: \"\\f2ed\";\n}\n\n.edit::before {\n    content: \"\\f303\";\n    font-weight: 900;\n}\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".todo {\n    background-color: var(--secondary-color);\n}\n\n.form {\n    background-color: var(--opposite-color-lighter);\n}\n\n.todo,\n.form {\n    margin: 15px 0px;\n    border-radius: 20px;\n}\n\n.list-item {\n    height: fit-content;\n    border-radius: 20px;\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-start;\n    cursor: pointer;\n    position: relative;\n\n}\n\n.checked > .list-item {\nbackground-color: var(--font-color);\n}\n\n.unchecked > .list-item {\n    background-color: var(--main-color);\n\n}\n\n.item-title {\n    font-family: var(--rocko);\n    font-weight: bold;\n    font-size: 1.5rem;\n    padding: 3px 0;\n    margin-left: 40px;\n    transition: var(--default-transition);\n\n\n}\n\n.item-title::before {\n    position: absolute;\n    left: 0;\n    padding: 5px 10px;\n    font-family: \"Font Awesome 5 Free\";\n}\n\n.item-title::before {\n    color: var(--font-color);\n    content: \"\\f111\";\n    font-weight: 400;\n}\n\n\n.checked > .list-item > .item-title {\n    color: var(--main-color);\n}\n\n.checked > .list-item > .item-title::before {\n    color: var(--main-color);\n    content: \"\\f058\";\n    font-weight: 900;\n}\n\n.date,\n.flag,\n.tag,\n.new-tag {\n    padding: 4px;\n    border-radius: 5px;\n    white-space: nowrap;\n}\n\n.date-container {\n    display: flex;\n    gap: 10px;\n    margin-top: 8px;\n    margin-right: 12px;\n}\n\n.date,\n.flag {\n    color: var(--main-color);\n    background-color: var(--font-color);\n    font-family: 'Roboto', sans-serif;\n    font-weight: 500;\n    font-size:0.8rem;\n    height:fit-content;\n}\n\n.date::before,\n.flag::before {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    padding: 3px;\n}\n\n.date::before {\n    content: \"\\f133\";\n    padding-right: 8px;\n}\n\n.flag::before {\n    content: \"\\f024\";\n    color: var(--flag-color);\n}\n\n\n.item-details {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    max-height: 0;\n    transition: all 0.2s ease-out;\n    overflow: hidden;\n    padding: 0 15px;\n\n}\n\n.collapsed {\n    max-height: 0;\n    margin: 0;\n    padding: 0;\n}\n\n.description {\n    font-family: 'Roboto', sans-serif;\n        font-weight: 400;\n        font-size: 1.2em;\n        margin-top: 15px;\n\n}\n\n.tag-container {\n    display: flex;\n    align-items: center;\npadding-top: 10px;\n}\n\n.tag {\n    background-color: var(--flag-color);\n    width: fit-content;\n    font-family: 'Roboto', sans-serif;\n    font-weight: 500;\n    font-size:0.8rem;\n    text-align: center;\n    margin: 10px;\n    margin-left: 0;\n    padding: 5px 10px;\n}\n\n\n.toolbar {\n    font-family: \"Font Awesome 5 Free\";\n    display: flex;\n    justify-content: flex-end;\n    gap: 10px;\n    align-items: center;\n    font-size: 1.2rem;\n    margin: 15px 0;\n}\n\n.trash,\n.edit {\n    color: var(--icon-color);\n    cursor: pointer;\n    border: 1px solid var(--icon-color);\n    border-radius: 50%;\n    font-size: 1.2rem;\n    text-align: center;\n    width: 42px;\n    aspect-ratio: 1;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.trash:active,\n.trash:active::before,\n.edit:active,\n.edit:active::before {\n    transform: scale(0.95);\n\n    color: var(--font-color);\n    background-color: var(--opposite-color);\n}\n\n.trash::before {\n  \n    content: \"\\f2ed\";\n}\n\n.edit::before {\n    content: \"\\f303\";\n    font-weight: 900;\n}\n\n/* form <-> list item */\n\n.form > .list-item > #item-title,\n.form > .list-item > .date-container > #item-date,\n.form > .item-details > #item-description,\n.form > .item-details > .toolbar > #trash,\n.form > .item-details > .toolbar > #edit,\n.todo > .list-item > #input-title,\n.todo > .list-item > .date-container > #input-date,\n.todo > .item-details > #input-description,\n.todo > .item-details > .toolbar > #save,\n.todo > .item-details > .tag-container > #input-tag\n {\n    display: none;\n}\n\n.form > .item-details > .tag-container > .tag {\n    background-color: var(--opposite-color);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5732,7 +5758,34 @@ ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.c
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "*, \n*::after, \n*::before { \n    box-sizing: border-box; \n    margin: 0;\n    padding: 0;\n}\n\n\n@font-face {\n    font-family: \"Rocko FLF\";\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n    font-weight: normal;\n    font-style: normal;\n}\n\n@font-face {\n    font-family: \"Rocko FLF\";\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n    font-weight: bold;\n    font-style: normal;\n}\n:root {\n    --main-color: hsl(50, 80%, 58%);\n    --secondary-color: ;\n    --font-color: hsl(0, 0%, 0%);\n    --gray-color: hsl(0, 0%, 50%);\n    --opposite-color: ;\n    --icon-color: ;\n    --flag-color: ;\n    --opposite-color-lighter: ;\n    --rocko: \"Rocko FLF\";\n    --default-transition: all 0.2s ease-in-out;\n    --default-border-radius:  20px;\n    --default-shadow: inset 0 3px 6px rgba(0,0,0,0.1);\n}\n\nbody {\nbackground-color: hsl(241deg 10% 98%);\n}\n\n.content {\n    margin: 15px;\n}\n\n.header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n\n.main {\n    display: flex;\n    align-items: center;\n}\n\n.title {\n    font-family: 'Roboto', sans-serif;\n    font-weight: 500;\n    padding: 25px 0;\n}\n\n.hamburger {\n    cursor: pointer;\n}\n\n.hamburger::before {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 700;\n    content: \"\\f0c9\";\n    padding-right: 15px;\n    padding-left: 10px;\n}\n\n.settings {\n    display: flex;\nalign-items: center;\n}\n\n.settings::after {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 700;\n    content: \"\\f141\";\n    padding: 10px 5px 10px 30px;\n}\n\n.choose-color {\n    width: fit-content;\n}\n\n.choose-color::after {\n    content: \"\\f00d\";\n\n}\n\n.theme {\n    display: none;\n    cursor: pointer;\n}\n\n.choose-color > .theme {\n    display: block;\n}\n\n.theme::before {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 700;\n    content: \"\\f111\";\n    padding: 5px;\n}\n\n#theme-1 {\n    color: hsl(52, 79%, 63%);\n}\n\n#theme-2 {\n   color: hsl(96, 61%, 57%);\n}\n\n#theme-3 {\n    color: hsl(14, 86%, 59%);\n}\n\n#theme-4 {\n    color: blue;\n}\n\n#theme-5 {\n    color: blue;\n}\n\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "*, \n*::after, \n*::before { \n    box-sizing: border-box; \n    margin: 0;\n    padding: 0;\n}\n\n\n@font-face {\n    font-family: \"Rocko FLF\";\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n    font-weight: normal;\n    font-style: normal;\n}\n\n@font-face {\n    font-family: \"Rocko FLF\";\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n    font-weight: bold;\n    font-style: normal;\n}\n:root {\n    --main-color: hsl(50, 80%, 58%);\n    --secondary-color: ;\n    --font-color: hsl(0, 0%, 0%);\n    --gray-color: hsl(0, 0%, 50%);\n    --light-gray: hsl(0deg, 0%, 95%);\n    --opposite-color: ;\n    --icon-color: ;\n    --flag-color: ;\n    --opposite-color-lighter: ;\n    --rocko: \"Rocko FLF\";\n    --default-transition: all 0.2s ease-in-out;\n    --default-border-radius:  20px;\n    --default-shadow: inset 0 3px 6px rgba(0,0,0,0.1);\n}\n\nbody {\nbackground-color: hsl(241deg 10% 98%);\n}\n\n.content {\n    margin: 15px;\n}\n\n.header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n\n.main {\n    display: flex;\n    align-items: center;\n}\n\n.title {\n    font-family: 'Roboto', sans-serif;\n    font-weight: 500;\n    padding: 25px 0;\n}\n\n.hamburger {\n    cursor: pointer;\n}\n\n.hamburger::before {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 700;\n    content: \"\\f0c9\";\n    padding-right: 15px;\n    padding-left: 10px;\n}\n\n.settings {\n    display: flex;\nalign-items: center;\n}\n\n.settings::after {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 700;\n    content: \"\\f141\";\n    padding: 10px 5px 10px 30px;\n}\n\n.choose-color {\n    width: fit-content;\n}\n\n.choose-color::after {\n    content: \"\\f00d\";\n\n}\n\n.theme {\n    display: none;\n    cursor: pointer;\n}\n\n.choose-color > .theme {\n    display: block;\n}\n\n.theme::before {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 700;\n    content: \"\\f111\";\n    padding: 5px;\n}\n\n#theme-1 {\n    color: hsl(52, 79%, 63%);\n}\n\n#theme-2 {\n   color: hsl(96, 61%, 57%);\n}\n\n#theme-3 {\n    color: hsl(14, 86%, 59%);\n}\n\n#theme-4 {\n    color: blue;\n}\n\n#theme-5 {\n    color: blue;\n}\n\nnav {\n    display: none;\n    background-color: var(--light-gray);\n}\n\n@media only screen and (min-width: 800px) {\n    .content {\n      display: grid;\n      grid-template-columns: 300px 1fr;\n      grid-template-areas:\n      \"nav main\";\n      gap: 20px;\n\n      margin: 0 20px 0 0;\n\n    }\n    nav {\n        display: block;\n        height: 100vh;\n        position: fixed;\n        grid-area: nav;\n        width: 300px;\n        z-index: 1;\n        overflow-x: hidden;\n        top: 0;\n        left: 0;\n    }\n\n    main {\n        grid-area: main;\n    }\n\n    .hamburger {\n        display: none;\n    }\n  }", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/styles/nav.css":
+/*!******************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/styles/nav.css ***!
+  \******************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/noSourceMaps.js */ "./node_modules/css-loader/dist/runtime/noSourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -6125,6 +6178,61 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./src/styles/nav.css":
+/*!****************************!*\
+  !*** ./src/styles/nav.css ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_nav_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js!./nav.css */ "./node_modules/css-loader/dist/cjs.js!./src/styles/nav.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_nav_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_nav_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_nav_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_nav_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
 /*!****************************************************************************!*\
   !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
@@ -6437,6 +6545,87 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/modules/accordion.js":
+/*!**********************************!*\
+  !*** ./src/modules/accordion.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "accordion": () => (/* binding */ accordion)
+/* harmony export */ });
+const accordion = (() => {
+  const headers = document.querySelectorAll(".accordion");
+  for (const header of headers) {
+    header.addEventListener("click", (event) => {
+        if (event.target.id === "item-title") {
+            return
+        }
+      let section = header.nextElementSibling;
+      if (section.style.maxHeight) {
+        section.style.maxHeight = null;
+      } else {
+        section.style.maxHeight = section.scrollHeight + "px";
+      }
+    });
+  }
+})();
+
+
+/***/ }),
+
+/***/ "./src/modules/controller.js":
+/*!***********************************!*\
+  !*** ./src/modules/controller.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "controller": () => (/* binding */ controller)
+/* harmony export */ });
+/* harmony import */ var _pubsub_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pubsub.js */ "./src/modules/pubsub.js");
+
+
+const controller = (() => {
+  const itemTitle = document.querySelectorAll("#item-title");
+  for (const item of itemTitle) {
+    item.addEventListener("click", () => {
+        _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.publish("check", "a");
+    });
+  }
+})();
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./src/modules/pubsub.js":
+/*!*******************************!*\
+  !*** ./src/modules/pubsub.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "pubsub": () => (/* binding */ pubsub)
+/* harmony export */ });
+/* harmony import */ var PubSub__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! PubSub */ "./node_modules/PubSub/dist/PubSub.esm.min.js");
+
+const pubsub = new PubSub__WEBPACK_IMPORTED_MODULE_0__["default"]();
+
+
+/***/ }),
+
 /***/ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf":
 /*!*******************************************************************************!*\
   !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf ***!
@@ -6690,11 +6879,14 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.css */ "./src/styles/main.css");
-/* harmony import */ var _styles_list_items_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/list-items.css */ "./src/styles/list-items.css");
-/* harmony import */ var _styles_form_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/form.css */ "./src/styles/form.css");
-/* harmony import */ var _fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/all.js */ "./node_modules/@fortawesome/fontawesome-free/js/all.js");
-/* harmony import */ var _fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _fortawesome_fontawesome_free_css_all_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/fontawesome-free/css/all.css */ "./node_modules/@fortawesome/fontawesome-free/css/all.css");
+/* harmony import */ var _styles_nav_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/nav.css */ "./src/styles/nav.css");
+/* harmony import */ var _styles_list_items_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/list-items.css */ "./src/styles/list-items.css");
+/* harmony import */ var _styles_form_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles/form.css */ "./src/styles/form.css");
+/* harmony import */ var _modules_accordion_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/accordion.js */ "./src/modules/accordion.js");
+/* harmony import */ var _modules_controller_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/controller.js */ "./src/modules/controller.js");
+/* harmony import */ var _fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/all.js */ "./node_modules/@fortawesome/fontawesome-free/js/all.js");
+/* harmony import */ var _fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _fortawesome_fontawesome_free_css_all_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fortawesome/fontawesome-free/css/all.css */ "./node_modules/@fortawesome/fontawesome-free/css/all.css");
 
 
 
@@ -6703,6 +6895,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+const onChecklist = pubsub.subscribe("check", (data) => {
+    console.log(data);
+})
 
 
 
@@ -6724,6 +6920,8 @@ const colorControl = (() => {
 
 
   })();
+
+
 
 })();
 

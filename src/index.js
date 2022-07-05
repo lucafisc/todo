@@ -1,11 +1,15 @@
 import "./styles/main.css";
+import "./styles/nav.css";
 import "./styles/list-items.css";
 import "./styles/form.css";
-
-
+import { accordion } from "./modules/accordion.js";
+import { controller } from "./modules/controller.js";
 import "@fortawesome/fontawesome-free/js/all.js";
 import "@fortawesome/fontawesome-free/css/all.css";
 
+const onChecklist = pubsub.subscribe("check", (data) => {
+    console.log(data);
+})
 
 
 
@@ -27,3 +31,5 @@ const colorControl = (() => {
 
 
   })();
+
+

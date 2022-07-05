@@ -6,10 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-<script defer src="main.17aa2a5f55b5096964b0.js"></script></head>
+<script defer src="main.2960a29777170de8a46c.js"></script></head>
 
 <body>
     <div class="content">
+        <nav class="sidebar">
+            <h1>Inbox</h1>
+        </nav>
+        <main>
         <div class="header">
             <div class="main">
             <div class="hamburger"></div>
@@ -25,82 +29,97 @@
             </div>
         </div>
         <div class="list">
-            <div class="todo">
 
-                <div class="list-item checked">
-                    <h2 class="item-title">buy milk</h2>
+            <div class="todo checked">
+                <div id="list-item" class="list-item accordion">
+                    <h2 id="item-title" class="item-title">yet another list item</h2>
+                    <span id="input-title" class="item-title input-title" placeholder="todo title" contenteditable></span>
                     <div class="date-container">
                         <div class="flag"></div>
-
-                        <div class="date">14 jul</div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="todo">
-
-                <div class="list-item unchecked">
-                    <h2 class="item-title">pay bill pay pay pay pay pay paypays</h2>
-                    <div class="date-container">
-                        <div class="flag"></div>
-
-                        <div class="date">14 jul</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="todo">
-                <div class="list-item unchecked">
-                    <h2 class="item-title">yet another list item</h2>
-                    <div class="date-container">
-                        <div class="flag"></div>
-
-                        <div class="date">14 jul</div>
+                        <div id="item-date" class="date">14 jul</div>
+                        <input type="date" id="input-date" name="due-date" class="due-date-input">
                     </div>
                 </div>
                 <div class="item-details">
-                    <h3 class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                    <h3  id="item-description" class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                         tempor incididunt ut labore et dolore magna aliqua.</h3>
+                    <span id="input-description" class=" description input-description" role="textbox" contenteditable></span>
                     <div class="tag-container">
                         <div class="tag">home</div>
                         <div class="tag">project</div>
+                        <span id="input-tag" type="text" class="new-tag" placeholder="new" contenteditable></span>
                     </div>
 
                     <div class="toolbar">
-                        <div class="edit"></div>
-                        <div class="trash"></div>
+                        <div id="edit" class="edit"></div>
+                        <div id="trash" class="trash"></div>
+                       <button id="save" class="save-btn"></button>
                     </div>
                 </div>
             </div>
 
-            <div class="todo form">
-                <div class="list-item unchecked">
 
-                    <span class="item-title input-title" placeholder="todo title" contenteditable></span>
+            <div class="todo  unchecked">
+                <div id="list-item" class="list-item accordion">
+                    <h2 id="item-title" class="item-title">yet another list item</h2>
+                    <span id="input-title" class="item-title input-title" placeholder="todo title" contenteditable></span>
                     <div class="date-container">
                         <div class="flag"></div>
-
-                        <input type="date" id="due-date" name="due-date" class="due-date-input">
+                        <div id="item-date" class="date">14 jul</div>
+                        <input type="date" id="input-date" name="due-date" class="due-date-input">
                     </div>
                 </div>
                 <div class="item-details">
-                    <span class=" description input-description" role="textbox" contenteditable></span>
+                    <h3  id="item-description" class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua.</h3>
+                    <span id="input-description" class=" description input-description" role="textbox" contenteditable></span>
                     <div class="tag-container">
                         <div class="tag">home</div>
                         <div class="tag">project</div>
-                        <span type="text" class="new-tag" placeholder="new" contenteditable></span>
+                        <span id="input-tag" type="text" class="new-tag" placeholder="new" contenteditable></span>
                     </div>
 
                     <div class="toolbar">
-                       <button class="save-btn"></button>
+                        <div id="edit" class="edit"></div>
+                        <div id="trash" class="trash"></div>
+                       <button id="save" class="save-btn"></button>
                     </div>
                 </div>
             </div>
+
+            <div class="form">
+                <div id="list-item"  class="list-item unchecked accordion">
+                    <h2 id="item-title" class="item-title">yet another list item</h2>
+                    <span id="input-title" class="item-title input-title" placeholder="todo title" contenteditable></span>
+                    <div class="date-container">
+                        <div class="flag"></div>
+                        <div id="item-date" class="date">14 jul</div>
+                        <input type="date" id="input-date" name="due-date" class="due-date-input">
+                    </div>
+                </div>
+                <div class="item-details">
+                    <h3  id="item-description" class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua.</h3>
+                    <span id="input-description" class=" description input-description" role="textbox" contenteditable></span>
+                    <div class="tag-container">
+                        <div class="tag">home</div>
+                        <div class="tag">project</div>
+                        <span id="input-tag" type="text" class="new-tag" placeholder="new" contenteditable></span>
+                    </div>
+
+                    <div class="toolbar">
+                        <div id="edit" class="edit"></div>
+                        <div id="trash" class="trash"></div>
+                       <button id="save" class="save-btn"></button>
+                    </div>
+                </div>
+            </div>
+
         <div id="new-note-container">
-            <button class="new-note"></button>
+            <button id="new-note-btn" class="new-note"></button>
         </div>
         </div>
+    </main>
     </div>
 </body>
 

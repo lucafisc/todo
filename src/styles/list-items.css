@@ -1,8 +1,15 @@
 .todo {
     background-color: var(--secondary-color);
+}
+
+.form {
+    background-color: var(--opposite-color-lighter);
+}
+
+.todo,
+.form {
     margin: 15px 0px;
     border-radius: 20px;
-
 }
 
 .list-item {
@@ -14,14 +21,13 @@
     cursor: pointer;
     position: relative;
 
-
 }
 
-.checked {
+.checked > .list-item {
 background-color: var(--font-color);
 }
 
-.unchecked {
+.unchecked > .list-item {
     background-color: var(--main-color);
 
 }
@@ -44,21 +50,21 @@ background-color: var(--font-color);
     font-family: "Font Awesome 5 Free";
 }
 
-.checked > .item-title::before {
-    color: var(--main-color);
-    content: "\f058";
-    font-weight: 900;
-}
-
-.unchecked > .item-title::before {
+.item-title::before {
     color: var(--font-color);
     content: "\f111";
     font-weight: 400;
 }
 
 
-.checked > .item-title {
+.checked > .list-item > .item-title {
     color: var(--main-color);
+}
+
+.checked > .list-item > .item-title::before {
+    color: var(--main-color);
+    content: "\f058";
+    font-weight: 900;
 }
 
 .date,
@@ -106,18 +112,27 @@ background-color: var(--font-color);
 
 
 .item-details {
-    padding: 15px ;
-    padding-left: 40px;
-    height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    max-height: 0;
+    transition: all 0.2s ease-out;
+    overflow: hidden;
+    padding: 0 15px;
+
+}
+
+.collapsed {
+    max-height: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .description {
     font-family: 'Roboto', sans-serif;
         font-weight: 400;
         font-size: 1.2em;
+        margin-top: 15px;
 
 }
 
@@ -139,10 +154,6 @@ padding-top: 10px;
     padding: 5px 10px;
 }
 
-.form > .item-details > .tag-container > .tag {
-    background-color: var(--opposite-color);
-}
-
 
 .toolbar {
     font-family: "Font Awesome 5 Free";
@@ -151,7 +162,7 @@ padding-top: 10px;
     gap: 10px;
     align-items: center;
     font-size: 1.2rem;
-    padding-top: 10px;
+    margin: 15px 0;
 }
 
 .trash,
@@ -189,4 +200,22 @@ padding-top: 10px;
     font-weight: 900;
 }
 
+/* form <-> list item */
 
+.form > .list-item > #item-title,
+.form > .list-item > .date-container > #item-date,
+.form > .item-details > #item-description,
+.form > .item-details > .toolbar > #trash,
+.form > .item-details > .toolbar > #edit,
+.todo > .list-item > #input-title,
+.todo > .list-item > .date-container > #input-date,
+.todo > .item-details > #input-description,
+.todo > .item-details > .toolbar > #save,
+.todo > .item-details > .tag-container > #input-tag
+ {
+    display: none;
+}
+
+.form > .item-details > .tag-container > .tag {
+    background-color: var(--opposite-color);
+}
