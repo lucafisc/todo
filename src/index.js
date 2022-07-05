@@ -4,13 +4,11 @@ import "./styles/list-items.css";
 import "./styles/form.css";
 import { accordion } from "./modules/accordion.js";
 import { controller } from "./modules/controller.js";
+import { domControl } from "./modules/dom.js";
 import "@fortawesome/fontawesome-free/js/all.js";
 import "@fortawesome/fontawesome-free/css/all.css";
 
-const onChecklist = pubsub.subscribe("check", (data) => {
-    console.log(data);
-})
-
+domControl();
 
 
 const colorControl = (() => {
@@ -28,8 +26,6 @@ const colorControl = (() => {
     root.style.setProperty('--flag-color', flagColor);
     root.style.setProperty('--opposite-color', oppositeColorHSL);
     root.style.setProperty('--opposite-color-lighter', oppositeColorHSLLighter);
-
-
   })();
 
 

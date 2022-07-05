@@ -2,6 +2,7 @@
     background-color: var(--secondary-color);
 }
 
+
 .form {
     background-color: var(--opposite-color-lighter);
 }
@@ -23,11 +24,8 @@
 
 }
 
-.checked > .list-item {
-background-color: var(--font-color);
-}
 
-.unchecked > .list-item {
+.unchecked>.list-item {
     background-color: var(--main-color);
 
 }
@@ -38,9 +36,7 @@ background-color: var(--font-color);
     font-size: 1.5rem;
     padding: 3px 0;
     margin-left: 40px;
-    transition: var(--default-transition);
-
-
+    transition: color 0.3s ease-in-out;
 }
 
 .item-title::before {
@@ -48,24 +44,22 @@ background-color: var(--font-color);
     left: 0;
     padding: 5px 10px;
     font-family: "Font Awesome 5 Free";
-}
-
-.item-title::before {
     color: var(--font-color);
     content: "\f111";
     font-weight: 400;
+    transition: transform 0.3s ease-in-out;
+}
+
+.item-title:active::before
+ {
+   transform: scale(0.8);
 }
 
 
-.checked > .list-item > .item-title {
-    color: var(--main-color);
-}
 
-.checked > .list-item > .item-title::before {
-    color: var(--main-color);
-    content: "\f058";
-    font-weight: 900;
-}
+
+
+
 
 .date,
 .flag,
@@ -89,8 +83,8 @@ background-color: var(--font-color);
     background-color: var(--font-color);
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
-    font-size:0.8rem;
-    height:fit-content;
+    font-size: 0.8rem;
+    height: fit-content;
 }
 
 .date::before,
@@ -116,7 +110,7 @@ background-color: var(--font-color);
     flex-direction: column;
     justify-content: space-between;
     max-height: 0;
-    transition: all 0.2s ease-out;
+    transition: var(--default-transition);
     overflow: hidden;
     padding: 0 15px;
 
@@ -130,16 +124,16 @@ background-color: var(--font-color);
 
 .description {
     font-family: 'Roboto', sans-serif;
-        font-weight: 400;
-        font-size: 1.2em;
-        margin-top: 15px;
+    font-weight: 400;
+    font-size: 1.2em;
+    margin-top: 15px;
 
 }
 
 .tag-container {
     display: flex;
     align-items: center;
-padding-top: 10px;
+    padding-top: 10px;
 }
 
 .tag {
@@ -147,7 +141,7 @@ padding-top: 10px;
     width: fit-content;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
-    font-size:0.8rem;
+    font-size: 0.8rem;
     text-align: center;
     margin: 10px;
     margin-left: 0;
@@ -191,7 +185,7 @@ padding-top: 10px;
 }
 
 .trash::before {
-  
+
     content: "\f2ed";
 }
 
@@ -200,22 +194,45 @@ padding-top: 10px;
     font-weight: 900;
 }
 
+/* checked styles */
+.checked {
+    background-color: var(--gray-color);
+}
+
+.checked>.list-item {
+    background-color: var(--font-color);
+}
+
+.checked>.list-item>.item-title {
+    color: var(--main-color);
+    text-decoration: line-through;
+}
+
+.checked>.list-item>.item-title::before {
+    color: var(--main-color);
+    content: "\f058";
+    font-weight: 900;
+}
+
+.checked>.item-details>.tag-container>.tag {
+    background-color: var(--light-gray);
+}
+
 /* form <-> list item */
 
-.form > .list-item > #item-title,
-.form > .list-item > .date-container > #item-date,
-.form > .item-details > #item-description,
-.form > .item-details > .toolbar > #trash,
-.form > .item-details > .toolbar > #edit,
-.todo > .list-item > #input-title,
-.todo > .list-item > .date-container > #input-date,
-.todo > .item-details > #input-description,
-.todo > .item-details > .toolbar > #save,
-.todo > .item-details > .tag-container > #input-tag
- {
+.form>.list-item>#item-title,
+.form>.list-item>.date-container>#item-date,
+.form>.item-details>#item-description,
+.form>.item-details>.toolbar>#trash,
+.form>.item-details>.toolbar>#edit,
+.todo>.list-item>#input-title,
+.todo>.list-item>.date-container>#input-date,
+.todo>.item-details>#input-description,
+.todo>.item-details>.toolbar>#save,
+.todo>.item-details>.tag-container>#input-tag {
     display: none;
 }
 
-.form > .item-details > .tag-container > .tag {
+.form>.item-details>.tag-container>.tag {
     background-color: var(--opposite-color);
 }
