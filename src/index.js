@@ -8,7 +8,9 @@ import { domControl } from "./modules/dom.js";
 import "@fortawesome/fontawesome-free/js/all.js";
 import "@fortawesome/fontawesome-free/css/all.css";
 
+controller();
 domControl();
+
 
 
 const colorControl = (() => {
