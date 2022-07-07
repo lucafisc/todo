@@ -5723,7 +5723,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".todo,\n.form {\n    margin: 15px 0px;\n    border-radius: 20px;\n}\n\n.todo {\n    background-color: var(--secondary-color);\n}\n\n.form {\n    background-color: var(--opposite-color-lighter);\n}\n\n.item-container {\n    height: fit-content;\n    border-radius: 20px;\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-start;\n    cursor: pointer;\n    position: relative;\n}\n\n.unchecked>.item-container {\n    background-color: var(--main-color);\n}\n\n.item-title,\n.input-title {\n    font-family: var(--rocko);\n    font-weight: bold;\n    font-size: 1.5rem;\n    padding: 3px 0;\n    margin-left: 40px;\n    transition: color 0.3s ease-in-out;\n}\n\n.item-title::before,\n.input-title::before {\n    position: absolute;\n    left: 0;\n    padding: 5px 10px;\n    font-family: \"Font Awesome 5 Free\";\n    color: var(--font-color);\n    font-weight: 400;\n    transition: transform 0.3s ease-in-out;\n}\n\n.item-title:active::before,\n.input-title:active::before {\n    transform: scale(0.8);\n}\n\n.item-title::before {\n    content: \"\\f111\";\n}\n\n\n.input-title::before {\n    content: \"\\f057\";\n}\n\n\n\n.btn-container {\n    display: flex;\n    align-items: center;\n    gap: 10px;\n    margin-top: 8px;\n    margin-right: 12px;\n}\n\n/* flag */\n\n.item-flag,\n.input-flag,\n.item-date {\n    padding: 4px 10px;\n    border-radius: 5px;\n    white-space: nowrap;\n    text-align: center;\n    display: flex;\n    align-items: center;\n    height: fit-content;\n\n}\n\n.item-flag {\n    background-color: var(--font-color);\n}\n\n.input-flag {\n    background-color: var(--opposite-color-lighter);\n}\n\n.item-flag::before,\n.input-flag::before {\n    content: \"\\f024\";\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    font-size: 0.8rem;\n    color: var(--flag-color);\n}\n\n.item-date {\n    color: var(--main-color);\n    background-color: var(--font-color);\n    font-family: var(--rocko);\n    font-weight: 600;\n    font-size: 0.8rem;\n}\n\n.item-date::before {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    content: \"\\f133\";\n    padding-right: 8px;\n}\n\n.tag,\n.input-tag {\n    padding: 4px;\n    border-radius: 5px;\n    white-space: nowrap;\n}\n\n/* edit, trash and save buttons */\n.edit,\n.trash,\n.save {\n    cursor: pointer;\n    border: none;\n    outline: none;\n    font-size: 1rem;\n    height: fit-content;\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    transition: var(--default-transition);\n}\n\n.edit:active,\n.trash:active,\n.save:active {\n    transform: scale(0.85);\n}\n\n.edit,\n.trash {\n    background-color: var(--main-color);\n}\n\n.form>.item-container>.btn-container>.trash {\n    background-color: var(--opposite-color);\n}\n\n\n.edit::before {\n    content: \"\\f303\";\n}\n\n.trash::before {\n    content: \"\\f2ed\";\n}\n\n.save {\n    background-color: var(--opposite-color);\n}\n\n.save::before {\n    font-size: 1.2rem;\n    content: \"\\f00c\";\n}\n\n\n\n/* item details */\n.item-details {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    max-height: 0;\n    transition: var(--default-transition);\n    overflow: hidden;\n    padding: 0 15px;\n}\n\n.form>.item-details {\n    max-height: fit-content;\n}\n\n.collapsed {\n    max-height: 0;\n    margin: 0;\n    padding: 0;\n}\n\n.item-description,\n.input-description {\n    font-family: 'Roboto', sans-serif;\n    font-weight: 400;\n    font-size: 1.2em;\n    margin-top: 15px;\n}\n\n.tag-container {\n    display: flex;\n    align-items: center;\n    padding-top: 10px;\n}\n\n.tag {\n    background-color: var(--flag-color);\n    width: fit-content;\n    font-family: 'Roboto', sans-serif;\n    font-weight: 500;\n    font-size: 0.8rem;\n    text-align: center;\n    margin: 10px;\n    margin-left: 0;\n    padding: 5px 10px;\n}\n\n\n\n\n/* checked styles */\n.checked {\n    background-color: var(--gray-color);\n}\n\n.checked>.item-container {\n    background-color: var(--font-color);\n}\n\n.checked>.item-container>.item-title {\n    color: var(--main-color);\n    text-decoration: line-through;\n}\n\n.checked>.item-container>.item-title::before {\n    color: var(--main-color);\n    content: \"\\f058\";\n    font-weight: 400;\n}\n\n.checked>.item-details>.tag-container>.tag {\n    background-color: var(--light-gray);\n}\n\n.checked>.item-details>.toolbar>.trash,\n.checked>.item-details>.toolbar>.edit {\n    color: var(--light-gray);\n}\n\n/* form <-> list item */\n\n.form>.item-container>.item-title,\n.form>.item-container>.btn-container>.item-flag,\n.form>.item-container>.btn-container>.item-date,\n.form>.item-container>.btn-container>.edit,\n\n.form>.item-details>.item-description,\n\n.todo>.item-container>.input-title,\n.todo>.item-container>.btn-container>.input-flag,\n.todo>.item-container>.btn-container>.input-date,\n.todo>.item-container>.btn-container>.save,\n\n.todo>.item-details>.input-description,\n.todo>.item-details>.tag-container>.input-tag {\n    display: none;\n}\n\n.form>.item-details>.tag-container>.tag {\n    background-color: var(--opposite-color);\n}\n\n/* form */\n\n.new-note {\n    color: var(--opposite-color);\n    background-color: var(--opposite-color-lighter);\n    height: 86px;\n    text-align: center;\n    font-size: 3rem;\n    border: none;\n    border-radius: 20px;\n    width: 100%;\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    transition: var(--default-transition);\n    cursor: pointer;\n\n}\n\n.new-note::before {\n    content: \"\\f055\"\n}\n\n.new-note:active {\n    color: var(--opposite-color-lighter);\n    background-color: var(--opposite-color);\n    transform: scale(0.96);\n}\n\n.todo.form {\n    background-color: var(--opposite-color-lighter);\n}\n\n.form>.item-container {\n    background-color: var(--opposite-color)\n}\n\n\n.input-title {\n    background-color: var(--opposite-color);\n    border: 0;\n    outline: 0;\n    border-radius: 0;\n    min-width: 120px;\n}\n\n.form>.item-container>.date-container>.item-flag,\n.form>.item-container>.date-container>.item-flag::before {\n    color: var(--opposite-color);\n    background-color: var(--opposite-color-lighter);\n}\n\n.input-date {\n    border: 1px solid var(--opposite-color);\n    color: var(--opposite-color);\n    background-color: var(--opposite-color-lighter) !important;\n    height: 25px;\n    width: 120px;\n    font-family: var(--rocko);\n    cursor: pointer;\n\n    border-radius: 5px;\n    background-color: #fff;\n    padding: 3px 5px;\n    box-shadow: var(--default-shadow);\n}\n\n.input-description {\n    min-height: 2.5em;\n    border: 1px dashed var(--opposite-color);\n    border-radius: 5px;\n    outline: none;\n}\n\n.input-tag {\n    color: var(--opposite-color);\n    background-color: var(--opposite-color-lighter);\n    border: 1px dashed var(--opposite-color);\n    cursor: pointer;\n    width: fit-content;\n    font-family: 'Roboto', sans-serif;\n    font-weight: 500;\n    font-size: 0.8rem;\n    margin-left: 0;\n    padding: 5px 10px;\n}\n\n.input-tag::before {\n    content: \"new\";\n}\n\n.form>.item-details>.tag-container>.tag:hover {\n    cursor: pointer;\n    text-decoration: line-through;\n    opacity: 0.7;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".todo,\n.form {\n    margin: 15px 0px;\n    border-radius: 20px;\n    position: relative;\n    transition: position 10s ease-out;\n    -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;\n    animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;\n}\n\n.todo {\n    background-color: var(--secondary-color);\n}\n\n.form {\n    background-color: var(--opposite-color-lighter);\n   \n}\n\n@-webkit-keyframes scale-in-center{0%{-webkit-transform:scale(0);transform:scale(0);opacity:1}100%{-webkit-transform:scale(1);transform:scale(1);opacity:1}}@keyframes scale-in-center{0%{-webkit-transform:scale(0);transform:scale(0);opacity:1}100%{-webkit-transform:scale(1);transform:scale(1);opacity:1}}\n\n.item-container {\n    height: fit-content;\n    border-radius: 20px;\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-start;\n    cursor: pointer;\n    position: relative;\n}\n\n.unchecked>.item-container {\n    background-color: var(--main-color);\n}\n\n.item-title,\n.input-title {\n    font-family: var(--rocko);\n    font-weight: bold;\n    font-size: 1.5rem;\n    padding: 3px 0;\n    margin-left: 40px;\n    transition: color 0.3s ease-in-out;\n}\n\n.item-title::before,\n.input-title::before {\n    position: absolute;\n    left: 0;\n    padding: 5px 10px;\n    font-family: \"Font Awesome 5 Free\";\n    color: var(--font-color);\n    font-weight: 400;\n    transition: transform 0.3s ease-in-out;\n}\n\n.item-title:active::before,\n.input-title:active::before {\n    transform: scale(0.8);\n}\n\n.item-title::before {\n    content: \"\\f111\";\n}\n\n\n.input-title::before {\n    content: \"\\f057\";\n}\n\n\n\n.btn-container {\n    display: flex;\n    align-items: center;\n    gap: 10px;\n    margin-top: 8px;\n    margin-right: 12px;\n}\n\n/* flag */\n\n.item-flag,\n.input-flag,\n.item-date {\n    padding: 4px 10px;\n    border-radius: 5px;\n    white-space: nowrap;\n    text-align: center;\n    display: flex;\n    align-items: center;\n    height: fit-content;\n\n}\n\n.item-flag {\n    background-color: var(--font-color);\n}\n\n.input-flag {\n    background-color: var(--opposite-color-lighter);\n}\n\n.item-flag::before,\n.input-flag::before {\n    content: \"\\f024\";\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    font-size: 0.8rem;\n    color: var(--flag-color);\n}\n\n.item-date {\n    color: var(--main-color);\n    background-color: var(--font-color);\n    font-family: var(--rocko);\n    font-weight: 600;\n    font-size: 0.8rem;\n}\n\n.item-date::before {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    content: \"\\f133\";\n    padding-right: 8px;\n}\n\n.tag,\n.input-tag {\n    padding: 4px;\n    border-radius: 5px;\n    white-space: nowrap;\n}\n\n/* edit, trash and save buttons */\n.edit,\n.trash,\n.save {\n    cursor: pointer;\n    border: none;\n    outline: none;\n    font-size: 1rem;\n    height: fit-content;\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    transition: var(--default-transition);\n}\n\n.edit:active,\n.trash:active,\n.save:active {\n    transform: scale(0.85);\n}\n\n.edit,\n.trash {\n    background-color: var(--main-color);\n}\n\n.form>.item-container>.btn-container>.trash {\n    background-color: var(--opposite-color);\n}\n\n\n.edit::before {\n    content: \"\\f303\";\n}\n\n.trash::before {\n    content: \"\\f2ed\";\n}\n\n.save {\n    background-color: var(--opposite-color);\n}\n\n.save::before {\n    font-size: 1.2rem;\n    content: \"\\f00c\";\n}\n\n\n\n/* item details */\n.item-details {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    max-height: 0;\n    transition: var(--default-transition);\n    overflow: hidden;\n    padding: 0 15px;\n}\n\n.form>.item-details {\n    max-height: fit-content;\n}\n\n.collapsed {\n    max-height: 0;\n    margin: 0;\n    padding: 0;\n}\n\n.item-description,\n.input-description {\n    font-family: 'Roboto', sans-serif;\n    font-weight: 400;\n    font-size: 1.2em;\n    margin-top: 15px;\n}\n\n.tag-container {\n    display: flex;\n    align-items: center;\n    padding-top: 10px;\n}\n\n.tag {\n    background-color: var(--flag-color);\n    width: fit-content;\n    font-family: 'Roboto', sans-serif;\n    font-weight: 500;\n    font-size: 0.8rem;\n    text-align: center;\n    margin: 10px;\n    margin-left: 0;\n    padding: 5px 10px;\n}\n\n\n\n\n/* checked styles */\n.checked {\n    background-color: var(--gray-color);\n}\n\n.checked>.item-container {\n    background-color: var(--font-color);\n}\n\n.checked>.item-container>.item-title {\n    color: var(--main-color);\n    text-decoration: line-through;\n}\n\n.checked>.item-container>.item-title::before {\n    color: var(--main-color);\n    content: \"\\f058\";\n    font-weight: 400;\n}\n\n.checked>.item-details>.tag-container>.tag {\n    background-color: var(--light-gray);\n}\n\n.checked>.item-details>.toolbar>.trash,\n.checked>.item-details>.toolbar>.edit {\n    color: var(--light-gray);\n}\n\n/* form <-> list item */\n\n.form>.item-container>.item-title,\n.form>.item-container>.btn-container>.item-flag,\n.form>.item-container>.btn-container>.item-date,\n.form>.item-container>.btn-container>.edit,\n\n.form>.item-details>.item-description,\n\n.todo>.item-container>.input-title,\n.todo>.item-container>.btn-container>.input-flag,\n.todo>.item-container>.btn-container>.input-date,\n.todo>.item-container>.btn-container>.save,\n\n.todo>.item-details>.input-description,\n.todo>.item-details>.tag-container>.input-tag {\n    display: none;\n}\n\n.form>.item-details>.tag-container>.tag {\n    background-color: var(--opposite-color);\n}\n\n/* form */\n\n.new-note {\n    color: var(--opposite-color);\n    background-color: var(--opposite-color-lighter);\n    height: 90px;\n    max-height: 150px;\n    text-align: center;\n    font-size: 3rem;\n    border: none;\n    border-radius: 20px;\n    width: 100%;\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    transition: var(--default-transition);\n    cursor: pointer;\n    overflow: hidden;\n    -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;\n    animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;\n}\n\n.new-note::before {\n    content: \"\\f055\";\n    overflow: hidden;\n\n}\n\n.new-note:active {\n    color: var(--opposite-color-lighter);\n    background-color: var(--opposite-color);\n    transform: scale(0.96);\n}\n\n.todo.form {\n    background-color: var(--opposite-color-lighter);\n}\n\n.form>.item-container {\n    background-color: var(--opposite-color)\n}\n\n\n.input-title {\n    background-color: var(--opposite-color);\n    border: 0;\n    outline: 0;\n    border-radius: 0;\n    min-width: 120px;\n}\n\n.form>.item-container>.date-container>.item-flag,\n.form>.item-container>.date-container>.item-flag::before {\n    color: var(--opposite-color);\n    background-color: var(--opposite-color-lighter);\n}\n\n.input-date {\n    border: 1px solid var(--opposite-color);\n    color: var(--opposite-color);\n    background-color: var(--opposite-color-lighter) !important;\n    height: 25px;\n    width: 120px;\n    font-family: var(--rocko);\n    cursor: pointer;\n\n    border-radius: 5px;\n    background-color: #fff;\n    padding: 3px 5px;\n    box-shadow: var(--default-shadow);\n}\n\n.input-description {\n    min-height: 2.5em;\n    border: 1px dashed var(--opposite-color);\n    border-radius: 5px;\n    outline: none;\n}\n\n.input-tag {\n    color: var(--opposite-color);\n    background-color: var(--opposite-color-lighter);\n    border: 1px dashed var(--opposite-color);\n    cursor: pointer;\n    width: fit-content;\n    font-family: 'Roboto', sans-serif;\n    font-weight: 500;\n    font-size: 0.8rem;\n    margin-left: 0;\n    padding: 5px 10px;\n}\n\n.input-tag::before {\n    content: \"new\";\n}\n\n.form>.item-details>.tag-container>.tag:hover {\n    cursor: pointer;\n    text-decoration: line-through;\n    opacity: 0.7;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -5758,7 +5758,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.c
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "*, \n*::after, \n*::before { \n    box-sizing: border-box; \n    margin: 0;\n    padding: 0;\n}\n\n\n@font-face {\n    font-family: \"Rocko FLF\";\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n    font-weight: normal;\n    font-style: normal;\n}\n\n@font-face {\n    font-family: \"Rocko FLF\";\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n    font-weight: bold;\n    font-style: normal;\n}\n:root {\n    --main-color: hsl(50, 80%, 58%);\n    --secondary-color: ;\n    --font-color: hsl(0, 0%, 0%);\n    --gray-color: hsl(0, 0%, 72%);\n    --light-gray: hsl(0deg, 0%, 95%);\n    --opposite-color: ;\n    --icon-color: ;\n    --flag-color: ;\n    --opposite-color-lighter: ;\n    --rocko: \"Rocko FLF\";\n    --default-transition: all 0.2s ease-in-out;\n    --default-border-radius:  20px;\n    --default-shadow: inset 0 3px 6px rgba(0,0,0,0.1);\n}\n\n.hidden {\n    display: none !important;\n}\n\nbody {\nbackground-color: hsl(241deg 10% 98%);\n}\n\n.content {\n    margin: 15px;\n}\n\n.header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n\n.main {\n    display: flex;\n    align-items: center;\n}\n\n.title {\n    font-family: 'Roboto', sans-serif;\n    font-weight: 500;\n    padding: 25px 0;\n}\n\n.hamburger {\n    cursor: pointer;\n}\n\n.hamburger::before {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 700;\n    content: \"\\f0c9\";\n    padding-right: 15px;\n    padding-left: 10px;\n}\n\n.settings {\n    display: flex;\nalign-items: center;\ncursor: pointer;\n}\n\n.settings::after {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 700;\n    content: \"\\f141\";\n    padding: 10px;\n}\n\n.choose-color {\n    width: fit-content;\n\n}\n\n.choose-color::after {\n    content: \"\\f00d\";\n\n}\n\n.theme {\n    opacity: 0;\n    cursor: pointer;\n    transition: var(--default-transition);\n}\n\n.theme:hover,\n.theme:active {\n    transform: scale(1.1);\n}\n\n\n\n.choose-color > .theme {\nopacity: 1;}\n\n.theme::before {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 700;\n    content: \"\\f111\";\n    padding: 5px;\n}\n\n.current-theme::before {\n    font-weight: 400;\n}\n\n#theme-1 {\n    color: hsl(52, 79%, 63%);\n}\n\n#theme-2 {\n   color: hsl(96, 61%, 57%);\n}\n\n#theme-3 {\n    color: hsl(14, 86%, 59%);\n}\n\nnav {\n    display: none;\n    background-color: var(--light-gray);\n}\n\n@media only screen and (min-width: 800px) {\n    .content {\n      display: grid;\n      grid-template-columns: 300px 1fr;\n      grid-template-areas:\n      \"nav main\";\n      gap: 20px;\n\n      margin: 0 20px 0 0;\n\n    }\n    nav {\n        display: block;\n        height: 100vh;\n        position: fixed;\n        grid-area: nav;\n        width: 300px;\n        z-index: 1;\n        overflow-x: hidden;\n        top: 0;\n        left: 0;\n    }\n\n    main {\n        grid-area: main;\n    }\n\n    .hamburger {\n        display: none;\n    }\n  }", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "*, \n*::after, \n*::before { \n    box-sizing: border-box; \n    margin: 0;\n    padding: 0;\n}\n\n\n@font-face {\n    font-family: \"Rocko FLF\";\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n    font-weight: normal;\n    font-style: normal;\n}\n\n@font-face {\n    font-family: \"Rocko FLF\";\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n    font-weight: bold;\n    font-style: normal;\n}\n:root {\n    --main-color: hsl(50, 80%, 58%);\n    --secondary-color: ;\n    --font-color: hsl(0, 0%, 0%);\n    --gray-color: hsl(0, 0%, 72%);\n    --light-gray: hsl(0deg, 0%, 95%);\n    --opposite-color: ;\n    --icon-color: ;\n    --flag-color: ;\n    --opposite-color-lighter: ;\n    --rocko: \"Rocko FLF\";\n    --default-transition: all 0.2s ease-in-out;\n    --default-border-radius:  20px;\n    --default-shadow: inset 0 3px 6px rgba(0,0,0,0.1);\n}\n\n.hidden {\n    display: none !important;\n}\n\nbody {\nbackground-color: hsl(241deg 10% 98%);\n}\n\n.content {\n    margin: 15px;\n}\n\n.disappear {\n    -webkit-animation: scale-out-vertical 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both !important;\n    animation: scale-out-vertical 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both !important;\n}\n\n@-webkit-keyframes scale-out-vertical{0%{-webkit-transform:scaleY(1);transform:scaleY(1);opacity:1}100%{-webkit-transform:scaleY(0);transform:scaleY(0);opacity:1}}@keyframes scale-out-vertical{0%{-webkit-transform:scaleY(1);transform:scaleY(1);opacity:1}100%{-webkit-transform:scaleY(0);transform:scaleY(0);opacity:1}}\n\n\n.header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n\n.main {\n    display: flex;\n    align-items: center;\n}\n\n.title {\n    font-family: 'Roboto', sans-serif;\n    font-weight: 500;\n    padding: 25px 0;\n}\n\n.hamburger {\n    cursor: pointer;\n}\n\n.hamburger::before {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 700;\n    content: \"\\f0c9\";\n    padding-right: 15px;\n    padding-left: 10px;\n}\n\n.settings {\n    display: flex;\nalign-items: center;\ncursor: pointer;\n}\n\n.settings::after {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 700;\n    content: \"\\f141\";\n    padding: 10px;\n}\n\n.choose-color {\n    width: fit-content;\n\n}\n\n.choose-color::after {\n    content: \"\\f00d\";\n\n}\n\n.theme {\n    opacity: 0;\n    cursor: pointer;\n    transition: var(--default-transition);\n}\n\n.theme:hover,\n.theme:active {\n    transform: scale(1.1);\n}\n\n\n\n.choose-color > .theme {\nopacity: 1;}\n\n.theme::before {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 700;\n    content: \"\\f111\";\n    padding: 5px;\n}\n\n.current-theme::before {\n    font-weight: 400;\n}\n\n#theme-1 {\n    color: hsl(52, 79%, 63%);\n}\n\n#theme-2 {\n   color: hsl(96, 61%, 57%);\n}\n\n#theme-3 {\n    color: hsl(14, 86%, 59%);\n}\n\nnav {\n    display: none;\n    background-color: var(--light-gray);\n}\n\n@media only screen and (min-width: 800px) {\n    .content {\n      display: grid;\n      grid-template-columns: 300px 1fr;\n      grid-template-areas:\n      \"nav main\";\n      gap: 20px;\n\n      margin: 0 20px 0 0;\n\n    }\n    nav {\n        display: block;\n        height: 100vh;\n        position: fixed;\n        grid-area: nav;\n        width: 300px;\n        z-index: 1;\n        overflow-x: hidden;\n        top: 0;\n        left: 0;\n    }\n\n    main {\n        grid-area: main;\n    }\n\n    .hamburger {\n        display: none;\n    }\n  }", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10444,10 +10444,21 @@ const controller = () => {
             _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.publish("edit-btn-click", clicked);
         }
 
+        //trash button click
+        else if (clicked.id === "trash"){
+            _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.publish("trash-btn-click", clicked);
+        }
+
         //new note button click
         else if (clicked.id === "new-note") {
             _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.publish("new-note-btn-click", clicked);
         }
+
+        //item container click
+        else if (clicked.id === "item-container") {
+            _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.publish("item-container-click", clicked);
+        }
+
 
     })
 
@@ -10496,84 +10507,113 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 const domControl = () => {
-
   //item title click event
-_pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("item-title-click", (data) => {
+  _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("item-title-click", (data) => {
     let card = data.parentNode.parentNode;
     card.classList.toggle("checked");
     card.classList.toggle("unchecked");
   });
 
   //save click event
-_pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("save-btn-click", (btn) => {
+  _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("save-btn-click", (btn) => {
     changeColor(btn);
     getNoteInput(btn);
- })
+  });
 
-   //edit click event
-_pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("edit-btn-click", (btn) => {
+  //edit click event
+  _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("edit-btn-click", (btn) => {
     changeColor(btn);
- })
+  });
 
+  //trash click event
+  _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("trash-btn-click", (btn) => {
+    if(confirm("Are you sure you want to delete this note?")) {
+        let card = btn.parentNode.parentNode.parentNode;
+        card.classList.add("disappear");
+        card.onanimationend = function() {
+            card.remove();
+        };
 
- //new note button event
- _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("new-note-btn-click", (btn) => {
+    }
+  })
+
+  //new note button event
+  _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("new-note-btn-click", (btn) => {
+    // btn.classList.add("hidden");
     const list = document.getElementById("list");
-    list.append((0,_newNote_js__WEBPACK_IMPORTED_MODULE_1__.newNote)());
- })
+    list.insertBefore((0,_newNote_js__WEBPACK_IMPORTED_MODULE_1__.newNote)(), btn);
+  });
 
-
+  //item container click event
+  _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("item-container-click", (header) => {
+    console.log(header);
+    if (header.parentNode.classList.contains("form")) {
+      return;
+    } else {
+      let section = header.nextElementSibling;
+      if (section.scrollHeight <= 25) {
+        return;
+      } else if (section.style.maxHeight) {
+        section.style.maxHeight = null;
+      } else {
+        section.style.maxHeight = section.scrollHeight + "px";
+      }
+    }
+  });
 };
 
 function changeColor(btn) {
-    let card = btn.parentNode.parentNode.parentNode;
-    card.classList.toggle("form");
-    card.classList.toggle("todo");
-    if (!card.classList.contains("checked")) {
-        card.classList.add("unchecked");
-    }
+  let card = btn.parentNode.parentNode.parentNode;
+  card.classList.toggle("form");
+  card.classList.toggle("todo");
+  if (!card.classList.contains("checked")) {
+    card.classList.add("unchecked");
+  }
 }
 
 function getNoteInput(btn) {
-    let card = btn.parentNode.parentNode.parentNode;
-    let items = getItems(card);
+  let card = btn.parentNode.parentNode.parentNode;
+  let items = getItems(card);
 
-    //title
-    items.itemTitle.textContent = items.inputTitle.textContent;
-    //description
-    items.itemDescription.textContent = items.inputDescription.textContent;
-    //date
-    let newDate = (0,date_fns__WEBPACK_IMPORTED_MODULE_3__["default"])(items.inputDate.value);
-    if (newDate){
-        items.itemDate.classList.remove("hidden");
-        if ((0,date_fns__WEBPACK_IMPORTED_MODULE_4__["default"])(newDate)){
-            items.itemDate.textContent = "Today";
-        } else if ((0,date_fns__WEBPACK_IMPORTED_MODULE_5__["default"])(newDate)) {
-            items.itemDate.textContent = "Tomorrow";
-        } else {
-        items.itemDate.textContent = (0,date_fns__WEBPACK_IMPORTED_MODULE_6__["default"])(new Date(newDate), "MMM d");}
+  //title
+  items.itemTitle.textContent = items.inputTitle.textContent;
+  //description
+  items.itemDescription.textContent = items.inputDescription.textContent;
+  //date
+  let newDate = items.inputDate.value;
+  if (newDate) {
+    newDate = (0,date_fns__WEBPACK_IMPORTED_MODULE_3__["default"])(newDate);
+    items.itemDate.classList.remove("hidden");
+    if ((0,date_fns__WEBPACK_IMPORTED_MODULE_4__["default"])(newDate)) {
+      items.itemDate.textContent = "Today";
+    } else if ((0,date_fns__WEBPACK_IMPORTED_MODULE_5__["default"])(newDate)) {
+      items.itemDate.textContent = "Tomorrow";
+    } else {
+      items.itemDate.textContent = (0,date_fns__WEBPACK_IMPORTED_MODULE_6__["default"])(new Date(newDate), "MMM d");
     }
-    else {
-        items.itemDate.classList.add("hidden");
-    }
-
-
+  } else {
+    items.itemDate.classList.add("hidden");
+  }
 }
-
-
 
 function getItems(card) {
-    let itemTitle = card.querySelector(".item-title");
-    let inputTitle = card.querySelector(".input-title");
-    let itemDescription = card.querySelector(".item-description");
-    let inputDescription = card.querySelector(".input-description");
-    let itemDate = card.querySelector(".item-date");
-    let inputDate = card.querySelector(".input-date");
-    return { itemTitle, inputTitle, itemDescription, inputDescription, itemDate, inputDate };
+  let itemTitle = card.querySelector(".item-title");
+  let inputTitle = card.querySelector(".input-title");
+  let itemDescription = card.querySelector(".item-description");
+  let inputDescription = card.querySelector(".input-description");
+  let itemDate = card.querySelector(".item-date");
+  let inputDate = card.querySelector(".input-date");
+  return {
+    itemTitle,
+    inputTitle,
+    itemDescription,
+    inputDescription,
+    itemDate,
+    inputDate,
+  };
 }
-  //set theme
+//set theme
 //   const themeMenu = document.getElementById("set-theme");
 //   themeMenu.addEventListener("click", () => {
 //     if (themeMenu !== event.target) {
@@ -10586,9 +10626,9 @@ function getItems(card) {
 //     console.log(newColor);
 //   });
 
-
 // MMM d
 // format(new Date(), "MMM d");
+
 
 /***/ }),
 
@@ -10640,16 +10680,16 @@ editBtn.classList.add("edit");
 saveBtn.classList.add("save");
 trashBtn.classList.add("trash");
 
-inputTitle.contentEditable = true;
-inputDate.type = "date";
-
+itemContainer.id = "item-container";
 itemTitle.id = "item-title";
 editBtn.id = "edit";
 saveBtn.id = "save";
+trashBtn.id = "trash";
 
-itemTitle.textContent = "yet another list item";
-itemDescription.textContent = "yet another list description!";
-itemDate.textContent = "14 may"
+inputTitle.contentEditable = true;
+inputDescription.contentEditable = true;
+inputTag.contentEditable = true;
+inputDate.type = "date";
 
 btnContainer.append(
   itemFlag,

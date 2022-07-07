@@ -2,6 +2,10 @@
 .form {
     margin: 15px 0px;
     border-radius: 20px;
+    position: relative;
+    transition: position 10s ease-out;
+    -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .todo {
@@ -10,7 +14,10 @@
 
 .form {
     background-color: var(--opposite-color-lighter);
+   
 }
+
+@-webkit-keyframes scale-in-center{0%{-webkit-transform:scale(0);transform:scale(0);opacity:1}100%{-webkit-transform:scale(1);transform:scale(1);opacity:1}}@keyframes scale-in-center{0%{-webkit-transform:scale(0);transform:scale(0);opacity:1}100%{-webkit-transform:scale(1);transform:scale(1);opacity:1}}
 
 .item-container {
     height: fit-content;
@@ -281,7 +288,8 @@
 .new-note {
     color: var(--opposite-color);
     background-color: var(--opposite-color-lighter);
-    height: 86px;
+    height: 90px;
+    max-height: 150px;
     text-align: center;
     font-size: 3rem;
     border: none;
@@ -291,11 +299,15 @@
     font-weight: 900;
     transition: var(--default-transition);
     cursor: pointer;
-
+    overflow: hidden;
+    -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .new-note::before {
-    content: "\f055"
+    content: "\f055";
+    overflow: hidden;
+
 }
 
 .new-note:active {

@@ -23,10 +23,21 @@ export const controller = () => {
             pubsub.publish("edit-btn-click", clicked);
         }
 
+        //trash button click
+        else if (clicked.id === "trash"){
+            pubsub.publish("trash-btn-click", clicked);
+        }
+
         //new note button click
         else if (clicked.id === "new-note") {
             pubsub.publish("new-note-btn-click", clicked);
         }
+
+        //item container click
+        else if (clicked.id === "item-container") {
+            pubsub.publish("item-container-click", clicked);
+        }
+
 
     })
 

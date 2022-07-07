@@ -50,6 +50,14 @@ background-color: hsl(241deg 10% 98%);
     margin: 15px;
 }
 
+.disappear {
+    -webkit-animation: scale-out-vertical 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both !important;
+    animation: scale-out-vertical 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both !important;
+}
+
+@-webkit-keyframes scale-out-vertical{0%{-webkit-transform:scaleY(1);transform:scaleY(1);opacity:1}100%{-webkit-transform:scaleY(0);transform:scaleY(0);opacity:1}}@keyframes scale-out-vertical{0%{-webkit-transform:scaleY(1);transform:scaleY(1);opacity:1}100%{-webkit-transform:scaleY(0);transform:scaleY(0);opacity:1}}
+
+
 .header {
     display: flex;
     justify-content: space-between;

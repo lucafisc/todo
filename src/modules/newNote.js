@@ -35,16 +35,16 @@ editBtn.classList.add("edit");
 saveBtn.classList.add("save");
 trashBtn.classList.add("trash");
 
-inputTitle.contentEditable = true;
-inputDate.type = "date";
-
+itemContainer.id = "item-container";
 itemTitle.id = "item-title";
 editBtn.id = "edit";
 saveBtn.id = "save";
+trashBtn.id = "trash";
 
-itemTitle.textContent = "yet another list item";
-itemDescription.textContent = "yet another list description!";
-itemDate.textContent = "14 may"
+inputTitle.contentEditable = true;
+inputDescription.contentEditable = true;
+inputTag.contentEditable = true;
+inputDate.type = "date";
 
 btnContainer.append(
   itemFlag,
