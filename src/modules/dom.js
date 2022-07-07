@@ -1,5 +1,6 @@
 import { pubsub } from "./pubsub.js";
 import { newNote } from "./newNote.js";
+import { newInputTag } from "./newNote.js"
 import { doc } from "prettier";
 import { format, parseISO, isToday, isTomorrow } from "date-fns";
 
@@ -30,8 +31,37 @@ export const domControl = () => {
         card.onanimationend = function() {
             card.remove();
         };
-
     }
+  })
+
+  //input flag click event
+  pubsub.subscribe("input-flag-click", (btn) => {
+    btn.classList.toggle("selected")
+  });
+
+  //input tag keydown event
+  pubsub.subscribe("input-tag-keydown", ([key, tag,]) => {
+
+    if (key === "Enter" || key === "Tab" || key === " ") {
+        pubsub.publish("new-tag", [key,tag]);
+    }
+    if (tag.classList.contains("placeholder")) {
+        tag.classList.remove("placeholder");
+    } 
+  });
+
+  //new tag
+  pubsub.subscribe("new-tag", ([key,tag]) => {
+    if (tag.textContent === "") {
+        return
+    }
+    else {
+    tag.contentEditable = false;
+    tag.classList.remove("input-tag");
+    tag.classList.add("item-tag");
+    let newInput = newInputTag()
+    tag.parentNode.append(newInput);
+    newInput.focus();}
   })
 
   //new note button event
@@ -57,6 +87,9 @@ export const domControl = () => {
       }
     }
   });
+
+
+
 };
 
 function changeColor(btn) {

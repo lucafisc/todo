@@ -110,6 +110,21 @@
     color: var(--flag-color);
 }
 
+.input-flag::before {
+    color: var(--gray-color);
+}
+
+
+.input-flag:hover::before,
+.selected.input-flag::before {
+    color: var(--main-color);
+}
+
+.input-flag:active {
+    box-shadow: var(--default-shadow);
+}
+
+
 .item-date {
     color: var(--main-color);
     background-color: var(--font-color);
@@ -125,7 +140,7 @@
     padding-right: 8px;
 }
 
-.tag,
+.item-tag,
 .input-tag {
     padding: 4px;
     border-radius: 5px;
@@ -213,10 +228,10 @@
 .tag-container {
     display: flex;
     align-items: center;
-    padding-top: 10px;
+    padding: 10px 0;
 }
 
-.tag {
+.item-tag {
     background-color: var(--flag-color);
     width: fit-content;
     font-family: 'Roboto', sans-serif;
@@ -251,7 +266,7 @@
     font-weight: 400;
 }
 
-.checked>.item-details>.tag-container>.tag {
+.checked>.item-details>.tag-container>.item-tag {
     background-color: var(--light-gray);
 }
 
@@ -279,7 +294,7 @@
     display: none;
 }
 
-.form>.item-details>.tag-container>.tag {
+.form>.item-details>.tag-container>.item-tag {
     background-color: var(--opposite-color);
 }
 
@@ -374,11 +389,11 @@
     padding: 5px 10px;
 }
 
-.input-tag::before {
+.placeholder::before {
     content: "new";
 }
 
-.form>.item-details>.tag-container>.tag:hover {
+.form>.item-details>.tag-container>.item-tag:hover {
     cursor: pointer;
     text-decoration: line-through;
     opacity: 0.7;

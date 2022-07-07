@@ -1,4 +1,5 @@
 export const newNote = () => {
+
 const container = document.createElement("section");
 const itemContainer = document.createElement("div");
 const itemTitle = document.createElement("h2");
@@ -15,7 +16,8 @@ const itemDetails = document.createElement("div");
 const itemDescription = document.createElement("h3");
 const inputDescription = document.createElement("span");
 const tagContainer = document.createElement("div");
-const inputTag = document.createElement("span");
+const inputTag = newInputTag();
+
 
 container.classList.add("form");
 itemContainer.classList.add("item-container");
@@ -30,20 +32,19 @@ itemDetails.classList.add("item-details");
 itemDescription.classList.add("item-description");
 inputDescription.classList.add("input-description");
 tagContainer.classList.add("tag-container");
-inputTag.classList.add("input-tag");
 editBtn.classList.add("edit");
 saveBtn.classList.add("save");
 trashBtn.classList.add("trash");
 
 itemContainer.id = "item-container";
 itemTitle.id = "item-title";
+inputFlag.id = "input-flag";
 editBtn.id = "edit";
 saveBtn.id = "save";
 trashBtn.id = "trash";
 
 inputTitle.contentEditable = true;
 inputDescription.contentEditable = true;
-inputTag.contentEditable = true;
 inputDate.type = "date";
 
 btnContainer.append(
@@ -59,5 +60,14 @@ itemContainer.append(itemTitle, inputTitle, btnContainer);
 tagContainer.append(inputTag);
 itemDetails.append(itemDescription, inputDescription, tagContainer);
 container.append(itemContainer, itemDetails);
+
 return container;
+}
+
+export const newInputTag = () => {
+  const inputTag = document.createElement("span");
+  inputTag.classList.add("input-tag", "placeholder");
+  inputTag.id = "input-tag";
+  inputTag.contentEditable = true;
+  return inputTag;
 }

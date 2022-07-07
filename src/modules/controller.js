@@ -2,7 +2,7 @@ import { pubsub } from "./pubsub.js";
 
 export const controller = () => {
 
-    //list controller
+    //click events on list
     const list = document.getElementById("list");
     list.addEventListener("click", (event) => {
         let clicked = event.target;
@@ -38,9 +38,24 @@ export const controller = () => {
             pubsub.publish("item-container-click", clicked);
         }
 
+        //input flag click
+        else if (clicked.id === "input-flag") {
+            pubsub.publish("input-flag-click", clicked);
+        }
 
     })
 
+    //keydown event on list
+    list.addEventListener("keydown", (event => {
+        let clicked = event.target;
+        let key = event.key;
+        // input tag keydown
+        if (clicked.id === "input-tag") {
+            if (!key.match(/[a-zA-Z0-9,]/) || key === "Enter") {
+                event.preventDefault();}
+            pubsub.publish("input-tag-keydown", [key, clicked])
+        }
+    }))
 
   
 };
