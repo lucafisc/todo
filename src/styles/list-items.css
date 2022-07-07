@@ -150,6 +150,11 @@
     background-color: var(--main-color);
 }
 
+.form>.item-container>.btn-container>.trash {
+    background-color: var(--opposite-color);
+}
+
+
 .edit::before {
     content: "\f303";
 }
@@ -163,6 +168,7 @@
 }
 
 .save::before {
+    font-size: 1.2rem;
     content: "\f00c";
 }
 

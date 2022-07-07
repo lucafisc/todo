@@ -38,6 +38,10 @@
     --default-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
 }
 
+.hidden {
+    display: none !important;
+}
+
 body {
 background-color: hsl(241deg 10% 98%);
 }
@@ -135,14 +139,6 @@ opacity: 1;}
 
 #theme-3 {
     color: hsl(14, 86%, 59%);
-}
-
-#theme-4 {
-    color: blue;
-}
-
-#theme-5 {
-    color: blue;
 }
 
 nav {
