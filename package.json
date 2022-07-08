@@ -30,6 +30,7 @@
     "file-loader": "^6.2.0",
     "html-loader": "^3.1.2",
     "PubSub": "^4.0.0",
+    "uuid": "^8.3.2",
     "vanilla-pubsub": "^1.1.2"
   }
 }

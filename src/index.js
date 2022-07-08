@@ -5,11 +5,13 @@ import "./styles/form.css";
 import { accordion } from "./modules/accordion.js";
 import { controller } from "./modules/controller.js";
 import { domControl } from "./modules/dom.js";
+import { data } from "./modules/data.js"
 import "@fortawesome/fontawesome-free/js/all.js";
 import "@fortawesome/fontawesome-free/css/all.css";
 
 controller();
 domControl();
+data();
 
 const colorControl = (() => {
     let root = document.documentElement;
