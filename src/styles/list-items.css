@@ -298,7 +298,7 @@
 }
 
 .form>.item-details>.tag-container>.item-tag {
-    background-color: var(--opposite-color);
+    background-color: var(--opposite-color) !important;
 }
 
 /* form */
@@ -374,6 +374,8 @@
     border: 1px dashed var(--opposite-color);
     border-radius: 5px;
     outline: none;
+    background-color: var(--opposite-color-lighter);
+    resize: none;
 }
 
 
