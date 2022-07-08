@@ -11,8 +11,6 @@ import "@fortawesome/fontawesome-free/css/all.css";
 controller();
 domControl();
 
-
-
 const colorControl = (() => {
     let root = document.documentElement;
     let mainColorHSL = getComputedStyle(root).getPropertyValue("--main-color").match(/(\d+)/gm);

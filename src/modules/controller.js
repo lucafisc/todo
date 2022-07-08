@@ -43,17 +43,27 @@ export const controller = () => {
             pubsub.publish("input-flag-click", clicked);
         }
 
+        //tag click
+        else if (clicked.id === "item-tag") {
+            pubsub.publish("item-tag-click", clicked)
+        }
+
     })
 
     //keydown event on list
     list.addEventListener("keydown", (event => {
         let clicked = event.target;
         let key = event.key;
+
         // input tag keydown
         if (clicked.id === "input-tag") {
             if (!key.match(/[a-zA-Z0-9,]/) || key === "Enter") {
                 event.preventDefault();}
             pubsub.publish("input-tag-keydown", [key, clicked])
+        }
+
+        if (clicked.id === "input-description") {
+            pubsub.publish("input-description-keydown", clicked)
         }
     }))
 

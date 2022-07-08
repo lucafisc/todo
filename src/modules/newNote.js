@@ -13,8 +13,8 @@ const editBtn = document.createElement("button");
 const trashBtn = document.createElement("button");
 const saveBtn = document.createElement("button");
 const itemDetails = document.createElement("div");
-const itemDescription = document.createElement("h3");
-const inputDescription = document.createElement("span");
+const itemDescription = document.createElement("span");
+const inputDescription = document.createElement("textarea");
 const tagContainer = document.createElement("div");
 const inputTag = newInputTag();
 
@@ -42,16 +42,17 @@ inputFlag.id = "input-flag";
 editBtn.id = "edit";
 saveBtn.id = "save";
 trashBtn.id = "trash";
+inputDescription.id = "input-description";
 
 inputTitle.contentEditable = true;
 inputDescription.contentEditable = true;
 inputDate.type = "date";
 
 btnContainer.append(
-  itemFlag,
   itemDate,
-  inputFlag,
+  // itemFlag,
   inputDate,
+  inputFlag,
   editBtn,
   saveBtn,
   trashBtn
@@ -66,7 +67,7 @@ return container;
 
 export const newInputTag = () => {
   const inputTag = document.createElement("span");
-  inputTag.classList.add("input-tag", "placeholder");
+  inputTag.classList.add("input-tag");
   inputTag.id = "input-tag";
   inputTag.contentEditable = true;
   return inputTag;

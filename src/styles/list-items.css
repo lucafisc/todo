@@ -21,6 +21,7 @@
 
 .item-container {
     height: fit-content;
+    min-height: 40px;
     border-radius: 20px;
     display: flex;
     justify-content: space-between;
@@ -70,44 +71,40 @@
 
 
 
-.btn-container {
+.btn-container {    
+    height: 40px;
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 10px;
-    margin-top: 8px;
     margin-right: 12px;
 }
 
 /* flag */
 
-.item-flag,
 .input-flag,
 .item-date {
-    padding: 4px 10px;
+    height: 25px;
+    width: fit-content;
     border-radius: 5px;
     white-space: nowrap;
     text-align: center;
     display: flex;
     align-items: center;
-    height: fit-content;
 
-}
-
-.item-flag {
-    background-color: var(--font-color);
 }
 
 .input-flag {
     background-color: var(--opposite-color-lighter);
 }
 
-.item-flag::before,
 .input-flag::before {
     content: "\f024";
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     color: var(--flag-color);
+    padding: 0 10px;
 }
 
 .input-flag::before {
@@ -116,14 +113,18 @@
 
 
 .input-flag:hover::before,
-.selected.input-flag::before {
-    color: var(--main-color);
+.flagged.input-flag::before {
+    color: var(--flag-color);
 }
 
 .input-flag:active {
     box-shadow: var(--default-shadow);
 }
 
+.form>.item-container>.btn-container>.input-flag,
+.form>.item-container>.btn-container>.flagged {
+    background-color: var(--opposite-color-lighter) !important;
+}
 
 .item-date {
     color: var(--main-color);
@@ -131,6 +132,8 @@
     font-family: var(--rocko);
     font-weight: 600;
     font-size: 0.8rem;
+    padding: 0 10px;
+
 }
 
 .item-date::before {
@@ -167,7 +170,8 @@
 }
 
 .form>.item-container>.btn-container>.trash {
-    background-color: var(--opposite-color);
+    background-color: var(--opposite-color) !important;
+    color: var(--font-color) !important;
 }
 
 
@@ -213,6 +217,7 @@
 
 .item-description,
 .input-description {
+    white-space: pre-wrap !important;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 1.2em;
@@ -242,6 +247,11 @@
     align-items: center;
 }
 
+.input-tag[contenteditable]:empty::before {
+    content: "new tag";
+  }
+  
+
 .item-tag:hover,
 .input-tag:hover {
     cursor: pointer;
@@ -264,41 +274,9 @@
     min-width: 70px;
 }
 
-
-/* checked styles */
-.checked {
-    background-color: var(--gray-color);
-}
-
-.checked>.item-container {
-    background-color: var(--font-color);
-}
-
-.checked>.item-container>.item-title {
-    color: var(--main-color);
-    text-decoration: line-through;
-}
-
-
-.checked>.item-container>.item-title::before {
-    color: var(--main-color);
-    content: "\f058";
-    font-weight: 400;
-}
-
-.checked>.item-details>.tag-container>.item-tag {
-    background-color: var(--light-gray);
-}
-
-.checked>.item-details>.toolbar>.trash,
-.checked>.item-details>.toolbar>.edit {
-    color: var(--light-gray);
-}
-
 /* form <-> list item */
 
 .form>.item-container>.item-title,
-.form>.item-container>.btn-container>.item-flag,
 .form>.item-container>.btn-container>.item-date,
 .form>.item-container>.btn-container>.edit,
 
@@ -312,6 +290,11 @@
 .todo>.item-details>.input-description,
 .todo>.item-details>.tag-container>.input-tag {
     display: none;
+}
+
+.todo>.item-container>.btn-container>.flagged {
+    display: flex;
+    background-color: var(--font-color);
 }
 
 .form>.item-details>.tag-container>.item-tag {
@@ -356,7 +339,7 @@
 }
 
 .form>.item-container {
-    background-color: var(--opposite-color)
+    background-color: var(--opposite-color) !important;
 }
 
 
@@ -366,12 +349,6 @@
     outline: 0;
     border-radius: 0;
     min-width: 120px;
-}
-
-.form>.item-container>.date-container>.item-flag,
-.form>.item-container>.date-container>.item-flag::before {
-    color: var(--opposite-color);
-    background-color: var(--opposite-color-lighter);
 }
 
 .input-date {
@@ -386,11 +363,14 @@
     border-radius: 5px;
     background-color: #fff;
     padding: 3px 5px;
+}
+
+.input-date:active {
     box-shadow: var(--default-shadow);
+
 }
 
 .input-description {
-    min-height: 2.5em;
     border: 1px dashed var(--opposite-color);
     border-radius: 5px;
     outline: none;
@@ -398,6 +378,42 @@
 
 
 
-.placeholder::before {
-    content: "new tag";
+/* checked styles */
+.checked {
+    /* background-color: var(--gray-color); */
+}
+
+.checked>.item-container {
+    background-color: var(--font-color);
+}
+
+.checked>.item-container>.item-title {
+    color: var(--main-color);
+    text-decoration: line-through !important;
+}
+
+
+.checked>.item-container>.item-title::before {
+    color: var(--main-color);
+    content: "\f058";
+    font-weight: 400;
+}
+
+.checked>.item-details>.tag-container>.item-tag {
+    background-color: var(--light-gray);
+}
+
+.checked>.item-container>.btn-container>.trash,
+.checked>.item-container>.btn-container>.edit {
+    color: var(--main-color);
+    background-color: var(--font-color);
+}
+
+.checked>.item-container>.btn-container>.flagged {
+    background-color: var(--main-color);
+}
+.checked>.item-container>.btn-container>.item-date {
+    color: var(--font-color);
+    background-color: var(--main-color);
+
 }

@@ -21,6 +21,8 @@ export const domControl = () => {
   //edit click event
   pubsub.subscribe("edit-btn-click", (btn) => {
     changeColor(btn);
+
+
   });
 
   //trash click event
@@ -36,8 +38,23 @@ export const domControl = () => {
 
   //input flag click event
   pubsub.subscribe("input-flag-click", (btn) => {
-    btn.classList.toggle("selected")
+    btn.classList.toggle("flagged")
   });
+
+  //input description keydown event
+  pubsub.subscribe("input-description-keydown", (textarea) => {
+    updateTextareaHeight(textarea);
+})
+
+  //item tag click event
+  pubsub.subscribe("item-tag-click", (tag) => {
+   let card = tag.parentNode.parentNode.parentNode;
+   if (card.classList.contains("todo")) {
+    return
+   } else {
+    tag.remove();
+   }
+  })
 
   //input tag keydown event
   pubsub.subscribe("input-tag-keydown", ([key, tag,]) => {
@@ -45,9 +62,7 @@ export const domControl = () => {
     if (key === "Enter" || key === "Tab" || key === " ") {
         pubsub.publish("new-tag", [key,tag]);
     }
-    if (tag.classList.contains("placeholder")) {
-        tag.classList.remove("placeholder");
-    } 
+
   });
 
   //new tag
@@ -59,6 +74,7 @@ export const domControl = () => {
     tag.contentEditable = false;
     tag.classList.remove("input-tag");
     tag.classList.add("item-tag");
+    tag.id = "item-tag";
     let newInput = newInputTag()
     tag.parentNode.append(newInput);
     newInput.focus();}
@@ -83,7 +99,7 @@ export const domControl = () => {
       } else if (section.style.maxHeight) {
         section.style.maxHeight = null;
       } else {
-        section.style.maxHeight = section.scrollHeight + "px";
+        section.style.maxHeight = "500px"; // section.scrollHeight +
       }
     }
   });
@@ -91,6 +107,14 @@ export const domControl = () => {
 
 
 };
+
+function updateTextareaHeight(textarea) {
+    let content = textarea.value;
+    let numberOfLines = (content.match(/\n/g) || []).length;
+    let newHeight = 45 + numberOfLines * 22.5 + 2;
+    textarea.style.height = newHeight + "px";
+    console.log(newHeight);
+}
 
 function changeColor(btn) {
   let card = btn.parentNode.parentNode.parentNode;
@@ -108,7 +132,7 @@ function getNoteInput(btn) {
   //title
   items.itemTitle.textContent = items.inputTitle.textContent;
   //description
-  items.itemDescription.textContent = items.inputDescription.textContent;
+  items.itemDescription.textContent = items.inputDescription.value;
   //date
   let newDate = items.inputDate.value;
   if (newDate) {

@@ -5723,7 +5723,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".todo,\n.form {\n    margin: 15px 0px;\n    border-radius: 20px;\n    position: relative;\n    transition: position 10s ease-out;\n    -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;\n    animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;\n}\n\n.todo {\n    background-color: var(--secondary-color);\n}\n\n.form {\n    background-color: var(--opposite-color-lighter);\n   \n}\n\n@-webkit-keyframes scale-in-center{0%{-webkit-transform:scale(0);transform:scale(0);opacity:1}100%{-webkit-transform:scale(1);transform:scale(1);opacity:1}}@keyframes scale-in-center{0%{-webkit-transform:scale(0);transform:scale(0);opacity:1}100%{-webkit-transform:scale(1);transform:scale(1);opacity:1}}\n\n.item-container {\n    height: fit-content;\n    border-radius: 20px;\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-start;\n    cursor: pointer;\n    position: relative;\n}\n\n.unchecked>.item-container {\n    background-color: var(--main-color);\n}\n\n.item-title,\n.input-title {\n    font-family: var(--rocko);\n    font-weight: bold;\n    font-size: 1.5rem;\n    padding: 3px 0;\n    margin-left: 40px;\n    transition: color 0.3s ease-in-out;\n}\n\n.item-title::before,\n.input-title::before {\n    position: absolute;\n    left: 0;\n    padding: 5px 10px;\n    font-family: \"Font Awesome 5 Free\";\n    color: var(--font-color);\n    font-weight: 400;\n    transition: transform 0.3s ease-in-out;\n}\n\n.item-title:active::before,\n.input-title:active::before {\n    transform: scale(0.8);\n}\n\n.item-title::before {\n    content: \"\\f111\";\n}\n\n\n.input-title::before {\n    content: \"\\f057\";\n}\n\n\n\n.btn-container {\n    display: flex;\n    align-items: center;\n    gap: 10px;\n    margin-top: 8px;\n    margin-right: 12px;\n}\n\n/* flag */\n\n.item-flag,\n.input-flag,\n.item-date {\n    padding: 4px 10px;\n    border-radius: 5px;\n    white-space: nowrap;\n    text-align: center;\n    display: flex;\n    align-items: center;\n    height: fit-content;\n\n}\n\n.item-flag {\n    background-color: var(--font-color);\n}\n\n.input-flag {\n    background-color: var(--opposite-color-lighter);\n}\n\n.item-flag::before,\n.input-flag::before {\n    content: \"\\f024\";\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    font-size: 0.8rem;\n    color: var(--flag-color);\n}\n\n.input-flag::before {\n    color: var(--gray-color);\n}\n\n\n.input-flag:hover::before,\n.selected.input-flag::before {\n    color: var(--main-color);\n}\n\n.input-flag:active {\n    box-shadow: var(--default-shadow);\n}\n\n\n.item-date {\n    color: var(--main-color);\n    background-color: var(--font-color);\n    font-family: var(--rocko);\n    font-weight: 600;\n    font-size: 0.8rem;\n}\n\n.item-date::before {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    content: \"\\f133\";\n    padding-right: 8px;\n}\n\n\n/* edit, trash and save buttons */\n.edit,\n.trash,\n.save {\n    cursor: pointer;\n    border: none;\n    outline: none;\n    font-size: 1rem;\n    height: fit-content;\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    transition: var(--default-transition);\n}\n\n.edit:active,\n.trash:active,\n.save:active {\n    transform: scale(0.85);\n}\n\n.edit,\n.trash {\n    background-color: var(--main-color);\n}\n\n.form>.item-container>.btn-container>.trash {\n    background-color: var(--opposite-color);\n}\n\n\n.edit::before {\n    content: \"\\f303\";\n}\n\n.trash::before {\n    content: \"\\f2ed\";\n}\n\n.save {\n    background-color: var(--opposite-color);\n}\n\n.save::before {\n    font-size: 1.2rem;\n    content: \"\\f00c\";\n}\n\n\n\n/* item details */\n.item-details {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    max-height: 0;\n    transition: var(--default-transition);\n    overflow: hidden;\n    padding: 0 15px;\n}\n\n.form>.item-details {\n    max-height: fit-content;\n}\n\n.collapsed {\n    max-height: 0;\n    margin: 0;\n    padding: 0;\n}\n\n.item-description,\n.input-description {\n    font-family: 'Roboto', sans-serif;\n    font-weight: 400;\n    font-size: 1.2em;\n    margin-top: 15px;\n}\n\n.tag-container {\n    display: flex;\n    align-items: center;\n    padding: 10px 0;\n    flex-wrap: wrap;\n}\n\n.item-tag,\n.input-tag {\n    background-color: var(--flag-color);\n    font-family: 'Roboto', sans-serif;\n    font-weight: 500;\n    font-size: 0.8rem;\n    text-align: center;\n    padding: 5px 10px;\n    margin-right: 10px;\n    margin-top: 5px;\n    border-radius: 12.5px;\n    white-space: nowrap;\n    display: flex;\n    align-items: center;\n}\n\n.item-tag:hover,\n.input-tag:hover {\n    cursor: pointer;\n    opacity: 0.7;\n}\n\n.item-tag::after {\n    padding-left: 10px;\n    content: \"\\f00d\";\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    font-size: 0.6rem;\n}\n\n.input-tag {\n    color: var(--opposite-color);\n    background-color: var(--opposite-color-lighter);\n    border: 1px dashed var(--opposite-color);\n    cursor: pointer;\n    min-width: 70px;\n}\n\n\n/* checked styles */\n.checked {\n    background-color: var(--gray-color);\n}\n\n.checked>.item-container {\n    background-color: var(--font-color);\n}\n\n.checked>.item-container>.item-title {\n    color: var(--main-color);\n    text-decoration: line-through;\n}\n\n\n.checked>.item-container>.item-title::before {\n    color: var(--main-color);\n    content: \"\\f058\";\n    font-weight: 400;\n}\n\n.checked>.item-details>.tag-container>.item-tag {\n    background-color: var(--light-gray);\n}\n\n.checked>.item-details>.toolbar>.trash,\n.checked>.item-details>.toolbar>.edit {\n    color: var(--light-gray);\n}\n\n/* form <-> list item */\n\n.form>.item-container>.item-title,\n.form>.item-container>.btn-container>.item-flag,\n.form>.item-container>.btn-container>.item-date,\n.form>.item-container>.btn-container>.edit,\n\n.form>.item-details>.item-description,\n\n.todo>.item-container>.input-title,\n.todo>.item-container>.btn-container>.input-flag,\n.todo>.item-container>.btn-container>.input-date,\n.todo>.item-container>.btn-container>.save,\n\n.todo>.item-details>.input-description,\n.todo>.item-details>.tag-container>.input-tag {\n    display: none;\n}\n\n.form>.item-details>.tag-container>.item-tag {\n    background-color: var(--opposite-color);\n}\n\n/* form */\n\n.new-note {\n    color: var(--opposite-color);\n    background-color: var(--opposite-color-lighter);\n    height: 90px;\n    max-height: 150px;\n    text-align: center;\n    font-size: 3rem;\n    border: none;\n    border-radius: 20px;\n    width: 100%;\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    transition: var(--default-transition);\n    cursor: pointer;\n    overflow: hidden;\n    -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;\n    animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;\n}\n\n.new-note::before {\n    content: \"\\f055\";\n    overflow: hidden;\n\n}\n\n.new-note:active {\n    color: var(--opposite-color-lighter);\n    background-color: var(--opposite-color);\n    transform: scale(0.96);\n}\n\n.todo.form {\n    background-color: var(--opposite-color-lighter);\n}\n\n.form>.item-container {\n    background-color: var(--opposite-color)\n}\n\n\n.input-title {\n    background-color: var(--opposite-color);\n    border: 0;\n    outline: 0;\n    border-radius: 0;\n    min-width: 120px;\n}\n\n.form>.item-container>.date-container>.item-flag,\n.form>.item-container>.date-container>.item-flag::before {\n    color: var(--opposite-color);\n    background-color: var(--opposite-color-lighter);\n}\n\n.input-date {\n    border: 1px solid var(--opposite-color);\n    color: var(--opposite-color);\n    background-color: var(--opposite-color-lighter) !important;\n    height: 25px;\n    width: 120px;\n    font-family: var(--rocko);\n    cursor: pointer;\n\n    border-radius: 5px;\n    background-color: #fff;\n    padding: 3px 5px;\n    box-shadow: var(--default-shadow);\n}\n\n.input-description {\n    min-height: 2.5em;\n    border: 1px dashed var(--opposite-color);\n    border-radius: 5px;\n    outline: none;\n}\n\n\n\n.placeholder::before {\n    content: \"new tag\";\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".todo,\n.form {\n    margin: 15px 0px;\n    border-radius: 20px;\n    position: relative;\n    transition: position 10s ease-out;\n    -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;\n    animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;\n}\n\n.todo {\n    background-color: var(--secondary-color);\n}\n\n.form {\n    background-color: var(--opposite-color-lighter);\n   \n}\n\n@-webkit-keyframes scale-in-center{0%{-webkit-transform:scale(0);transform:scale(0);opacity:1}100%{-webkit-transform:scale(1);transform:scale(1);opacity:1}}@keyframes scale-in-center{0%{-webkit-transform:scale(0);transform:scale(0);opacity:1}100%{-webkit-transform:scale(1);transform:scale(1);opacity:1}}\n\n.item-container {\n    height: fit-content;\n    min-height: 40px;\n    border-radius: 20px;\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-start;\n    cursor: pointer;\n    position: relative;\n}\n\n.unchecked>.item-container {\n    background-color: var(--main-color);\n}\n\n.item-title,\n.input-title {\n    font-family: var(--rocko);\n    font-weight: bold;\n    font-size: 1.5rem;\n    padding: 3px 0;\n    margin-left: 40px;\n    transition: color 0.3s ease-in-out;\n}\n\n.item-title::before,\n.input-title::before {\n    position: absolute;\n    left: 0;\n    padding: 5px 10px;\n    font-family: \"Font Awesome 5 Free\";\n    color: var(--font-color);\n    font-weight: 400;\n    transition: transform 0.3s ease-in-out;\n}\n\n.item-title:active::before,\n.input-title:active::before {\n    transform: scale(0.8);\n}\n\n.item-title::before {\n    content: \"\\f111\";\n}\n\n\n.input-title::before {\n    content: \"\\f057\";\n}\n\n\n\n.btn-container {    \n    height: 40px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    gap: 10px;\n    margin-right: 12px;\n}\n\n/* flag */\n\n.input-flag,\n.item-date {\n    height: 25px;\n    width: fit-content;\n    border-radius: 5px;\n    white-space: nowrap;\n    text-align: center;\n    display: flex;\n    align-items: center;\n\n}\n\n.input-flag {\n    background-color: var(--opposite-color-lighter);\n}\n\n.input-flag::before {\n    content: \"\\f024\";\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    font-size: 0.6rem;\n    color: var(--flag-color);\n    padding: 0 10px;\n}\n\n.input-flag::before {\n    color: var(--gray-color);\n}\n\n\n.input-flag:hover::before,\n.flagged.input-flag::before {\n    color: var(--flag-color);\n}\n\n.input-flag:active {\n    box-shadow: var(--default-shadow);\n}\n\n.form>.item-container>.btn-container>.input-flag,\n.form>.item-container>.btn-container>.flagged {\n    background-color: var(--opposite-color-lighter) !important;\n}\n\n.item-date {\n    color: var(--main-color);\n    background-color: var(--font-color);\n    font-family: var(--rocko);\n    font-weight: 600;\n    font-size: 0.8rem;\n    padding: 0 10px;\n\n}\n\n.item-date::before {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    content: \"\\f133\";\n    padding-right: 8px;\n}\n\n\n/* edit, trash and save buttons */\n.edit,\n.trash,\n.save {\n    cursor: pointer;\n    border: none;\n    outline: none;\n    font-size: 1rem;\n    height: fit-content;\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    transition: var(--default-transition);\n}\n\n.edit:active,\n.trash:active,\n.save:active {\n    transform: scale(0.85);\n}\n\n.edit,\n.trash {\n    background-color: var(--main-color);\n}\n\n.form>.item-container>.btn-container>.trash {\n    background-color: var(--opposite-color) !important;\n    color: var(--font-color) !important;\n}\n\n\n.edit::before {\n    content: \"\\f303\";\n}\n\n.trash::before {\n    content: \"\\f2ed\";\n}\n\n.save {\n    background-color: var(--opposite-color);\n}\n\n.save::before {\n    font-size: 1.2rem;\n    content: \"\\f00c\";\n}\n\n\n\n/* item details */\n.item-details {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    max-height: 0;\n    transition: var(--default-transition);\n    overflow: hidden;\n    padding: 0 15px;\n}\n\n.form>.item-details {\n    max-height: fit-content;\n}\n\n.collapsed {\n    max-height: 0;\n    margin: 0;\n    padding: 0;\n}\n\n.item-description,\n.input-description {\n    white-space: pre-wrap !important;\n    font-family: 'Roboto', sans-serif;\n    font-weight: 400;\n    font-size: 1.2em;\n    margin-top: 15px;\n}\n\n.tag-container {\n    display: flex;\n    align-items: center;\n    padding: 10px 0;\n    flex-wrap: wrap;\n}\n\n.item-tag,\n.input-tag {\n    background-color: var(--flag-color);\n    font-family: 'Roboto', sans-serif;\n    font-weight: 500;\n    font-size: 0.8rem;\n    text-align: center;\n    padding: 5px 10px;\n    margin-right: 10px;\n    margin-top: 5px;\n    border-radius: 12.5px;\n    white-space: nowrap;\n    display: flex;\n    align-items: center;\n}\n\n.input-tag[contenteditable]:empty::before {\n    content: \"new tag\";\n  }\n  \n\n.item-tag:hover,\n.input-tag:hover {\n    cursor: pointer;\n    opacity: 0.7;\n}\n\n.item-tag::after {\n    padding-left: 10px;\n    content: \"\\f00d\";\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    font-size: 0.6rem;\n}\n\n.input-tag {\n    color: var(--opposite-color);\n    background-color: var(--opposite-color-lighter);\n    border: 1px dashed var(--opposite-color);\n    cursor: pointer;\n    min-width: 70px;\n}\n\n/* form <-> list item */\n\n.form>.item-container>.item-title,\n.form>.item-container>.btn-container>.item-date,\n.form>.item-container>.btn-container>.edit,\n\n.form>.item-details>.item-description,\n\n.todo>.item-container>.input-title,\n.todo>.item-container>.btn-container>.input-flag,\n.todo>.item-container>.btn-container>.input-date,\n.todo>.item-container>.btn-container>.save,\n\n.todo>.item-details>.input-description,\n.todo>.item-details>.tag-container>.input-tag {\n    display: none;\n}\n\n.todo>.item-container>.btn-container>.flagged {\n    display: flex;\n    background-color: var(--font-color);\n}\n\n.form>.item-details>.tag-container>.item-tag {\n    background-color: var(--opposite-color);\n}\n\n/* form */\n\n.new-note {\n    color: var(--opposite-color);\n    background-color: var(--opposite-color-lighter);\n    height: 90px;\n    max-height: 150px;\n    text-align: center;\n    font-size: 3rem;\n    border: none;\n    border-radius: 20px;\n    width: 100%;\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    transition: var(--default-transition);\n    cursor: pointer;\n    overflow: hidden;\n    -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;\n    animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;\n}\n\n.new-note::before {\n    content: \"\\f055\";\n    overflow: hidden;\n\n}\n\n.new-note:active {\n    color: var(--opposite-color-lighter);\n    background-color: var(--opposite-color);\n    transform: scale(0.96);\n}\n\n.todo.form {\n    background-color: var(--opposite-color-lighter);\n}\n\n.form>.item-container {\n    background-color: var(--opposite-color) !important;\n}\n\n\n.input-title {\n    background-color: var(--opposite-color);\n    border: 0;\n    outline: 0;\n    border-radius: 0;\n    min-width: 120px;\n}\n\n.input-date {\n    border: 1px solid var(--opposite-color);\n    color: var(--opposite-color);\n    background-color: var(--opposite-color-lighter) !important;\n    height: 25px;\n    width: 120px;\n    font-family: var(--rocko);\n    cursor: pointer;\n\n    border-radius: 5px;\n    background-color: #fff;\n    padding: 3px 5px;\n}\n\n.input-date:active {\n    box-shadow: var(--default-shadow);\n\n}\n\n.input-description {\n    border: 1px dashed var(--opposite-color);\n    border-radius: 5px;\n    outline: none;\n}\n\n\n\n/* checked styles */\n.checked {\n    /* background-color: var(--gray-color); */\n}\n\n.checked>.item-container {\n    background-color: var(--font-color);\n}\n\n.checked>.item-container>.item-title {\n    color: var(--main-color);\n    text-decoration: line-through !important;\n}\n\n\n.checked>.item-container>.item-title::before {\n    color: var(--main-color);\n    content: \"\\f058\";\n    font-weight: 400;\n}\n\n.checked>.item-details>.tag-container>.item-tag {\n    background-color: var(--light-gray);\n}\n\n.checked>.item-container>.btn-container>.trash,\n.checked>.item-container>.btn-container>.edit {\n    color: var(--main-color);\n    background-color: var(--font-color);\n}\n\n.checked>.item-container>.btn-container>.flagged {\n    background-color: var(--main-color);\n}\n.checked>.item-container>.btn-container>.item-date {\n    color: var(--font-color);\n    background-color: var(--main-color);\n\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10464,17 +10464,27 @@ const controller = () => {
             _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.publish("input-flag-click", clicked);
         }
 
+        //tag click
+        else if (clicked.id === "item-tag") {
+            _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.publish("item-tag-click", clicked)
+        }
+
     })
 
     //keydown event on list
     list.addEventListener("keydown", (event => {
         let clicked = event.target;
         let key = event.key;
+
         // input tag keydown
         if (clicked.id === "input-tag") {
             if (!key.match(/[a-zA-Z0-9,]/) || key === "Enter") {
                 event.preventDefault();}
             _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.publish("input-tag-keydown", [key, clicked])
+        }
+
+        if (clicked.id === "input-description") {
+            _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.publish("input-description-keydown", clicked)
         }
     }))
 
@@ -10540,6 +10550,8 @@ const domControl = () => {
   //edit click event
   _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("edit-btn-click", (btn) => {
     changeColor(btn);
+
+
   });
 
   //trash click event
@@ -10555,8 +10567,23 @@ const domControl = () => {
 
   //input flag click event
   _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("input-flag-click", (btn) => {
-    btn.classList.toggle("selected")
+    btn.classList.toggle("flagged")
   });
+
+  //input description keydown event
+  _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("input-description-keydown", (textarea) => {
+    updateTextareaHeight(textarea);
+})
+
+  //item tag click event
+  _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("item-tag-click", (tag) => {
+   let card = tag.parentNode.parentNode.parentNode;
+   if (card.classList.contains("todo")) {
+    return
+   } else {
+    tag.remove();
+   }
+  })
 
   //input tag keydown event
   _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("input-tag-keydown", ([key, tag,]) => {
@@ -10564,9 +10591,7 @@ const domControl = () => {
     if (key === "Enter" || key === "Tab" || key === " ") {
         _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.publish("new-tag", [key,tag]);
     }
-    if (tag.classList.contains("placeholder")) {
-        tag.classList.remove("placeholder");
-    } 
+
   });
 
   //new tag
@@ -10578,6 +10603,7 @@ const domControl = () => {
     tag.contentEditable = false;
     tag.classList.remove("input-tag");
     tag.classList.add("item-tag");
+    tag.id = "item-tag";
     let newInput = (0,_newNote_js__WEBPACK_IMPORTED_MODULE_1__.newInputTag)()
     tag.parentNode.append(newInput);
     newInput.focus();}
@@ -10602,7 +10628,7 @@ const domControl = () => {
       } else if (section.style.maxHeight) {
         section.style.maxHeight = null;
       } else {
-        section.style.maxHeight = section.scrollHeight + "px";
+        section.style.maxHeight = "500px"; // section.scrollHeight +
       }
     }
   });
@@ -10610,6 +10636,14 @@ const domControl = () => {
 
 
 };
+
+function updateTextareaHeight(textarea) {
+    let content = textarea.value;
+    let numberOfLines = (content.match(/\n/g) || []).length;
+    let newHeight = 45 + numberOfLines * 22.5 + 2;
+    textarea.style.height = newHeight + "px";
+    console.log(newHeight);
+}
 
 function changeColor(btn) {
   let card = btn.parentNode.parentNode.parentNode;
@@ -10627,7 +10661,7 @@ function getNoteInput(btn) {
   //title
   items.itemTitle.textContent = items.inputTitle.textContent;
   //description
-  items.itemDescription.textContent = items.inputDescription.textContent;
+  items.itemDescription.textContent = items.inputDescription.value;
   //date
   let newDate = items.inputDate.value;
   if (newDate) {
@@ -10707,8 +10741,8 @@ const editBtn = document.createElement("button");
 const trashBtn = document.createElement("button");
 const saveBtn = document.createElement("button");
 const itemDetails = document.createElement("div");
-const itemDescription = document.createElement("h3");
-const inputDescription = document.createElement("span");
+const itemDescription = document.createElement("span");
+const inputDescription = document.createElement("textarea");
 const tagContainer = document.createElement("div");
 const inputTag = newInputTag();
 
@@ -10736,16 +10770,17 @@ inputFlag.id = "input-flag";
 editBtn.id = "edit";
 saveBtn.id = "save";
 trashBtn.id = "trash";
+inputDescription.id = "input-description";
 
 inputTitle.contentEditable = true;
 inputDescription.contentEditable = true;
 inputDate.type = "date";
 
 btnContainer.append(
-  itemFlag,
   itemDate,
-  inputFlag,
+  // itemFlag,
   inputDate,
+  inputFlag,
   editBtn,
   saveBtn,
   trashBtn
@@ -10760,7 +10795,7 @@ return container;
 
 const newInputTag = () => {
   const inputTag = document.createElement("span");
-  inputTag.classList.add("input-tag", "placeholder");
+  inputTag.classList.add("input-tag");
   inputTag.id = "input-tag";
   inputTag.contentEditable = true;
   return inputTag;
@@ -11061,8 +11096,6 @@ __webpack_require__.r(__webpack_exports__);
 
 (0,_modules_controller_js__WEBPACK_IMPORTED_MODULE_5__.controller)();
 (0,_modules_dom_js__WEBPACK_IMPORTED_MODULE_6__.domControl)();
-
-
 
 const colorControl = (() => {
     let root = document.documentElement;
