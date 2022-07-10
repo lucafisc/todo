@@ -1,4 +1,6 @@
-export const newNote = (data) => {
+import { el } from "date-fns/locale";
+
+export const newNote = (data, type) => {
 
 const container = document.createElement("section");
 const itemContainer = document.createElement("div");
@@ -18,8 +20,9 @@ const inputDescription = document.createElement("textarea");
 const tagContainer = document.createElement("div");
 const inputTag = newInputTag();
 
-
-container.classList.add("form");
+if (type === "form") {container.classList.add("form");}
+else if (type === "checked"){container.classList.add("todo", "checked")}
+else {container.classList.add("todo", "unchecked")}
 itemContainer.classList.add("item-container");
 itemTitle.classList.add("item-title");
 inputTitle.classList.add("input-title");

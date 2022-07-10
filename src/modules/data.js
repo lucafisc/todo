@@ -55,6 +55,8 @@ function getKey(card) {
 function getNoteInput(card, key) {
   let items = getItems(card);
 
+  //status
+  let status = "";
   //title
   let title = items.inputTitle.textContent;
   //date
@@ -75,6 +77,7 @@ function getNoteInput(card, key) {
   let data = key;
 
   return {
+    status,
     title,
     date,
     flagged,

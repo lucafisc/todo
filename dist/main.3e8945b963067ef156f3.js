@@ -10614,6 +10614,8 @@ function getKey(card) {
 function getNoteInput(card, key) {
   let items = getItems(card);
 
+  //status
+  let status = "";
   //title
   let title = items.inputTitle.textContent;
   //date
@@ -10634,6 +10636,7 @@ function getNoteInput(card, key) {
   let data = key;
 
   return {
+    status,
     title,
     date,
     flagged,
@@ -10674,26 +10677,43 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _pubsub_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pubsub.js */ "./src/modules/pubsub.js");
 /* harmony import */ var _newNote_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./newNote.js */ "./src/modules/newNote.js");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/parseISO/index.js");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/isToday/index.js");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/isTomorrow/index.js");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
+/* harmony import */ var _todo_object_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./todo-object.js */ "./src/modules/todo-object.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/parseISO/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/isToday/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/isTomorrow/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
+
+
 
 
 
 
 
 const domControl = () => {
+  const list = document.getElementById("list");
+
+
 //load existing todos
 _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("on-load", () => {
   console.log("loaded")
 })
 
 //update DOM
+_pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("change-in-todos", (index) => {
+  for (let i=0; i<_todo_object_js__WEBPACK_IMPORTED_MODULE_2__.todoStorage.length; i++){
+let props = _todo_object_js__WEBPACK_IMPORTED_MODULE_2__.todoStorage[i];
+console.log(props);
+
+// list.prepend(newNote(data));
+
+  }
+})
+
+//update DOM
 _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("todo-list-new", (todo) => {
-  const list = document.getElementById("list");
-  let data = todo.data;
-  list.prepend((0,_newNote_js__WEBPACK_IMPORTED_MODULE_1__.newNote)(data));
+  let props = []
+  props.data = todo.data;
+  list.prepend((0,_newNote_js__WEBPACK_IMPORTED_MODULE_1__.newNote)(props));
   })
 
   //item title click event
@@ -10811,14 +10831,14 @@ function changeColor(card) {
 }
 function formatDate(newDate) {
 if (newDate) {
-  newDate = (0,date_fns__WEBPACK_IMPORTED_MODULE_2__["default"])(newDate);
+  newDate = (0,date_fns__WEBPACK_IMPORTED_MODULE_3__["default"])(newDate);
   items.itemDate.classList.remove("hidden");
-  if ((0,date_fns__WEBPACK_IMPORTED_MODULE_3__["default"])(newDate)) {
+  if ((0,date_fns__WEBPACK_IMPORTED_MODULE_4__["default"])(newDate)) {
     items.itemDate.textContent = "Today";
-  } else if ((0,date_fns__WEBPACK_IMPORTED_MODULE_4__["default"])(newDate)) {
+  } else if ((0,date_fns__WEBPACK_IMPORTED_MODULE_5__["default"])(newDate)) {
     items.itemDate.textContent = "Tomorrow";
   } else {
-    items.itemDate.textContent = (0,date_fns__WEBPACK_IMPORTED_MODULE_5__["default"])(new Date(newDate), "MMM d");
+    items.itemDate.textContent = (0,date_fns__WEBPACK_IMPORTED_MODULE_6__["default"])(new Date(newDate), "MMM d");
   }
 } else {
   items.itemDate.classList.add("hidden");
@@ -10885,7 +10905,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "newInputTag": () => (/* binding */ newInputTag),
 /* harmony export */   "newNote": () => (/* binding */ newNote)
 /* harmony export */ });
-const newNote = (data) => {
+
+
+const newNote = (data, type) => {
 
 const container = document.createElement("section");
 const itemContainer = document.createElement("div");
@@ -10905,8 +10927,9 @@ const inputDescription = document.createElement("textarea");
 const tagContainer = document.createElement("div");
 const inputTag = newInputTag();
 
-
-container.classList.add("form");
+if (type === "form") {container.classList.add("form");}
+else if (type === "checked"){container.classList.add("todo", "checked")}
+else {container.classList.add("todo", "unchecked")}
 itemContainer.classList.add("item-container");
 itemTitle.classList.add("item-title");
 inputTitle.classList.add("input-title");
@@ -10997,8 +11020,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "updateStorage": () => (/* binding */ updateStorage),
 /* harmony export */   "updateTodo": () => (/* binding */ updateTodo)
 /* harmony export */ });
-const todoFactory = (title = "", date = "", flagged = false, description = "", tags = "",  project = "", data = "") => {
-    return { title, date, flagged, description, tags,  project, data }
+/* harmony import */ var _pubsub__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pubsub */ "./src/modules/pubsub.js");
+
+
+const todoFactory = (status = "", title = "", date = "", flagged = false, description = "", tags = "",  project = "", data = "") => {
+    return { status, title, date, flagged, description, tags,  project, data }
   }
 
 let todoStorage = [];
@@ -11008,10 +11034,8 @@ const updateStorage = (newArray) => {
 }
 
 const updateTodo = (index, input) => {
-  console.log(todoStorage[index]);
-
   todoStorage[index] = input;
-  console.log(todoStorage[index]);
+  _pubsub__WEBPACK_IMPORTED_MODULE_0__.pubsub.publish("change-in-todos", index);
 }
 
 /***/ }),

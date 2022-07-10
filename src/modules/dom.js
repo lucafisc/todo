@@ -1,19 +1,35 @@
 import { pubsub } from "./pubsub.js";
 import { newNote } from "./newNote.js";
 import { newInputTag } from "./newNote.js"
+import { todoStorage } from "./todo-object.js";
+
 import { format, parseISO, isToday, isTomorrow } from "date-fns";
 
 export const domControl = () => {
+  const list = document.getElementById("list");
+
+
 //load existing todos
 pubsub.subscribe("on-load", () => {
   console.log("loaded")
 })
 
 //update DOM
+pubsub.subscribe("change-in-todos", (index) => {
+  for (let i=0; i<todoStorage.length; i++){
+let props = todoStorage[i];
+console.log(props);
+
+// list.prepend(newNote(data));
+
+  }
+})
+
+//update DOM
 pubsub.subscribe("todo-list-new", (todo) => {
-  const list = document.getElementById("list");
-  let data = todo.data;
-  list.prepend(newNote(data));
+  let props = []
+  props.data = todo.data;
+  list.prepend(newNote(props));
   })
 
   //item title click event
