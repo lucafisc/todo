@@ -2,6 +2,11 @@ import { pubsub } from "./pubsub.js";
 
 export const controller = () => {
 
+    //on load
+    window.onload = function() {
+        pubsub.publish("on-load");
+    }
+
     //click events on list
     const list = document.getElementById("list");
     list.addEventListener("click", (event) => {
@@ -15,17 +20,20 @@ export const controller = () => {
 
         //save button click
         else if (clicked.id === "save"){
-            pubsub.publish("save-btn-click", clicked);
+            let card = clicked.parentNode.parentNode.parentNode;
+            pubsub.publish("save-btn-click", card);
         }
 
         //edit button click
         else if (clicked.id === "edit"){
-            pubsub.publish("edit-btn-click", clicked);
+            let card = clicked.parentNode.parentNode.parentNode;
+            pubsub.publish("edit-btn-click", card);
         }
 
         //trash button click
         else if (clicked.id === "trash"){
-            pubsub.publish("trash-btn-click", clicked);
+            let card = clicked.parentNode.parentNode.parentNode;
+            pubsub.publish("trash-btn-click", card);
         }
 
         //new note button click

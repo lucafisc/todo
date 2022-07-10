@@ -1,4 +1,4 @@
-export const newNote = () => {
+export const newNote = (data) => {
 
 const container = document.createElement("section");
 const itemContainer = document.createElement("div");
@@ -61,6 +61,8 @@ itemContainer.append(itemTitle, inputTitle, btnContainer);
 tagContainer.append(inputTag);
 itemDetails.append(itemDescription, inputDescription, tagContainer);
 container.append(itemContainer, itemDetails);
+
+container.setAttribute('data-id', data);
 
 return container;
 }
