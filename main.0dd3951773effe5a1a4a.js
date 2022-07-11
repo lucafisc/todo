@@ -5723,7 +5723,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".todo,\n.form {\n    margin: 15px 0px;\n    border-radius: 20px;\n    position: relative;\n    transition: position 10s ease-out;\n    -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;\n    animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;\n}\n\n.todo {\n    background-color: var(--secondary-color);\n}\n\n.form {\n    background-color: var(--opposite-color-lighter);\n   \n}\n\n@-webkit-keyframes scale-in-center{0%{-webkit-transform:scale(0);transform:scale(0);opacity:1}100%{-webkit-transform:scale(1);transform:scale(1);opacity:1}}@keyframes scale-in-center{0%{-webkit-transform:scale(0);transform:scale(0);opacity:1}100%{-webkit-transform:scale(1);transform:scale(1);opacity:1}}\n\n.item-container {\n    height: fit-content;\n    min-height: 40px;\n    border-radius: 20px;\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-start;\n    cursor: pointer;\n    position: relative;\n}\n\n.unchecked>.item-container {\n    background-color: var(--main-color);\n}\n\n.item-title,\n.input-title {\n    font-family: var(--rocko);\n    font-weight: bold;\n    font-size: 1.5rem;\n    padding: 3px 0;\n    margin-left: 40px;\n    transition: color 0.3s ease-in-out;\n}\n\n.item-title::before,\n.input-title::before {\n    position: absolute;\n    left: 0;\n    padding: 5px 10px;\n    font-family: \"Font Awesome 5 Free\";\n    color: var(--font-color);\n    font-weight: 400;\n    transition: transform 0.3s ease-in-out;\n}\n\n.item-title:active::before,\n.input-title:active::before {\n    transform: scale(0.8);\n}\n\n.item-title::before {\n    content: \"\\f111\";\n}\n\n\n.input-title::before {\n    content: \"\\f057\";\n}\n\n\n\n.btn-container {    \n    height: 40px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    gap: 10px;\n    margin-right: 12px;\n}\n\n/* flag */\n\n.input-flag,\n.item-date {\n    height: 25px;\n    width: fit-content;\n    border-radius: 5px;\n    white-space: nowrap;\n    text-align: center;\n    display: flex;\n    align-items: center;\n\n}\n\n.input-flag {\n    background-color: var(--opposite-color-lighter);\n}\n\n.input-flag::before {\n    content: \"\\f024\";\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    font-size: 0.6rem;\n    color: var(--flag-color);\n    padding: 0 10px;\n}\n\n.input-flag::before {\n    color: var(--gray-color);\n}\n\n\n.input-flag:hover::before,\n.flagged.input-flag::before {\n    color: var(--flag-color);\n}\n\n.input-flag:active {\n    box-shadow: var(--default-shadow);\n}\n\n.form>.item-container>.btn-container>.input-flag,\n.form>.item-container>.btn-container>.flagged {\n    background-color: var(--opposite-color-lighter) !important;\n}\n\n.item-date {\n    color: var(--main-color);\n    background-color: var(--font-color);\n    font-family: var(--rocko);\n    font-weight: 600;\n    font-size: 0.8rem;\n    padding: 0 10px;\n\n}\n\n.item-date::before {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    content: \"\\f133\";\n    padding-right: 8px;\n}\n\n\n/* edit, trash and save buttons */\n.edit,\n.trash,\n.save {\n    cursor: pointer;\n    border: none;\n    outline: none;\n    font-size: 1rem;\n    height: fit-content;\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    transition: var(--default-transition);\n}\n\n.edit:active,\n.trash:active,\n.save:active {\n    transform: scale(0.85);\n}\n\n.edit,\n.trash {\n    background-color: var(--main-color);\n}\n\n.form>.item-container>.btn-container>.trash {\n    background-color: var(--opposite-color) !important;\n    color: var(--font-color) !important;\n}\n\n\n.edit::before {\n    content: \"\\f303\";\n}\n\n.trash::before {\n    content: \"\\f2ed\";\n}\n\n.save {\n    background-color: var(--opposite-color);\n}\n\n.save::before {\n    font-size: 1.2rem;\n    content: \"\\f00c\";\n}\n\n\n\n/* item details */\n.item-details {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    max-height: 0;\n    transition: var(--default-transition);\n    overflow: hidden;\n    padding: 0 15px;\n}\n\n.form>.item-details {\n    max-height: fit-content;\n}\n\n.collapsed {\n    max-height: 0;\n    margin: 0;\n    padding: 0;\n}\n\n.item-description,\n.input-description {\n    white-space: pre-wrap !important;\n    font-family: 'Roboto', sans-serif;\n    font-weight: 400;\n    font-size: 1.2em;\n    margin-top: 15px;\n}\n\n.tag-container {\n    display: flex;\n    align-items: center;\n    padding: 10px 0;\n    flex-wrap: wrap;\n}\n\n.item-tag,\n.input-tag {\n    background-color: var(--flag-color);\n    font-family: 'Roboto', sans-serif;\n    font-weight: 500;\n    font-size: 0.8rem;\n    text-align: center;\n    padding: 5px 10px;\n    margin-right: 10px;\n    margin-top: 5px;\n    border-radius: 12.5px;\n    white-space: nowrap;\n    display: flex;\n    align-items: center;\n}\n\n.input-tag[contenteditable]:empty::before {\n    content: \"new tag\";\n  }\n  \n\n.item-tag:hover,\n.input-tag:hover {\n    cursor: pointer;\n    opacity: 0.7;\n}\n\n.item-tag::after {\n    padding-left: 10px;\n    content: \"\\f00d\";\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    font-size: 0.6rem;\n}\n\n.input-tag {\n    color: var(--opposite-color);\n    background-color: var(--opposite-color-lighter);\n    border: 1px dashed var(--opposite-color);\n    cursor: pointer;\n    min-width: 70px;\n}\n\n/* form <-> list item */\n\n.form>.item-container>.item-title,\n.form>.item-container>.btn-container>.item-date,\n.form>.item-container>.btn-container>.edit,\n\n.form>.item-details>.item-description,\n\n.todo>.item-container>.input-title,\n.todo>.item-container>.btn-container>.input-flag,\n.todo>.item-container>.btn-container>.input-date,\n.todo>.item-container>.btn-container>.save,\n\n.todo>.item-details>.input-description,\n.todo>.item-details>.tag-container>.input-tag {\n    display: none;\n}\n\n.todo>.item-container>.btn-container>.flagged {\n    display: flex;\n    background-color: var(--font-color);\n}\n\n.form>.item-details>.tag-container>.item-tag {\n    background-color: var(--opposite-color) !important;\n}\n\n/* form */\n\n.new-note {\n    color: var(--opposite-color);\n    background-color: var(--opposite-color-lighter);\n    height: 90px;\n    max-height: 150px;\n    text-align: center;\n    font-size: 3rem;\n    border: none;\n    border-radius: 20px;\n    width: 100%;\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    transition: var(--default-transition);\n    cursor: pointer;\n    overflow: hidden;\n    -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;\n    animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;\n}\n\n.new-note::before {\n    content: \"\\f055\";\n    overflow: hidden;\n\n}\n\n.new-note:active {\n    color: var(--opposite-color-lighter);\n    background-color: var(--opposite-color);\n    transform: scale(0.96);\n}\n\n.todo.form {\n    background-color: var(--opposite-color-lighter);\n}\n\n.form>.item-container {\n    background-color: var(--opposite-color) !important;\n}\n\n\n.input-title {\n    background-color: var(--opposite-color);\n    border: 0;\n    outline: 0;\n    border-radius: 0;\n    min-width: 120px;\n}\n\n.input-date {\n    border: 1px solid var(--opposite-color);\n    color: var(--opposite-color);\n    background-color: var(--opposite-color-lighter) !important;\n    height: 25px;\n    width: 120px;\n    font-family: var(--rocko);\n    cursor: pointer;\n\n    border-radius: 5px;\n    background-color: #fff;\n    padding: 3px 5px;\n}\n\n.input-date:active {\n    box-shadow: var(--default-shadow);\n\n}\n\n.input-description {\n    border: 1px dashed var(--opposite-color);\n    border-radius: 5px;\n    outline: none;\n    background-color: var(--opposite-color-lighter);\n    resize: none;\n}\n\n\n\n/* checked styles */\n.checked {\n    /* background-color: var(--gray-color); */\n}\n\n.checked>.item-container {\n    background-color: var(--font-color);\n}\n\n.checked>.item-container>.item-title {\n    color: var(--main-color);\n    text-decoration: line-through !important;\n}\n\n\n.checked>.item-container>.item-title::before {\n    color: var(--main-color);\n    content: \"\\f058\";\n    font-weight: 400;\n}\n\n.checked>.item-details>.tag-container>.item-tag {\n    background-color: var(--light-gray);\n}\n\n.checked>.item-container>.btn-container>.trash,\n.checked>.item-container>.btn-container>.edit {\n    color: var(--main-color);\n    background-color: var(--font-color);\n}\n\n.checked>.item-container>.btn-container>.flagged {\n    background-color: var(--main-color);\n}\n.checked>.item-container>.btn-container>.item-date {\n    color: var(--font-color);\n    background-color: var(--main-color);\n\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".todo,\n.form {\n    margin: 15px 0px;\n    border-radius: 20px;\n    position: relative;\n    transition: position 10s ease-out;\n}\n\n.todo {\n    background-color: var(--secondary-color);\n}\n\n.form {\n    background-color: var(--opposite-color-lighter);\n   \n}\n\n.item-container {\n    height: fit-content;\n    min-height: 40px;\n    border-radius: 20px;\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-start;\n    cursor: pointer;\n    position: relative;\n}\n\n.unchecked>.item-container {\n    background-color: var(--main-color);\n}\n\n.item-title,\n.input-title {\n    font-family: var(--rocko);\n    font-weight: bold;\n    font-size: 1.5rem;\n    padding: 3px 0;\n    margin-left: 40px;\n    transition: color 0.3s ease-in-out;\n}\n\n.item-title::before,\n.input-title::before {\n    position: absolute;\n    left: 0;\n    padding: 5px 10px;\n    font-family: \"Font Awesome 5 Free\";\n    color: var(--font-color);\n    font-weight: 400;\n    transition: transform 0.3s ease-in-out;\n}\n\n.item-title:active::before,\n.input-title:active::before {\n    transform: scale(0.8);\n}\n\n.item-title::before {\n    content: \"\\f111\";\n}\n\n\n.input-title::before {\n    content: \"\\f057\";\n}\n\n\n\n.btn-container {    \n    height: 40px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    gap: 10px;\n    margin-right: 12px;\n}\n\n/* flag */\n\n.input-flag,\n.item-date {\n    height: 25px;\n    width: fit-content;\n    border-radius: 5px;\n    white-space: nowrap;\n    text-align: center;\n    display: flex;\n    align-items: center;\n\n}\n\n.input-flag {\n    background-color: var(--opposite-color-lighter);\n}\n\n.input-flag::before {\n    content: \"\\f024\";\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    font-size: 0.6rem;\n    color: var(--flag-color);\n    padding: 0 10px;\n}\n\n.input-flag::before {\n    color: var(--gray-color);\n}\n\n\n.input-flag:hover::before,\n.flagged.input-flag::before {\n    color: var(--flag-color);\n}\n\n.input-flag:active {\n    box-shadow: var(--default-shadow);\n}\n\n.form>.item-container>.btn-container>.input-flag,\n.form>.item-container>.btn-container>.flagged {\n    background-color: var(--opposite-color-lighter) !important;\n}\n\n.item-date {\n    color: var(--main-color);\n    background-color: var(--font-color);\n    font-family: var(--rocko);\n    font-weight: 600;\n    font-size: 0.8rem;\n    padding: 0 10px;\n\n}\n\n.item-date::before {\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    content: \"\\f133\";\n    padding-right: 8px;\n}\n\n\n/* edit, trash and save buttons */\n.edit,\n.trash,\n.save {\n    cursor: pointer;\n    border: none;\n    outline: none;\n    font-size: 1rem;\n    height: fit-content;\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    transition: var(--default-transition);\n}\n\n.edit:active,\n.trash:active,\n.save:active {\n    transform: scale(0.85);\n}\n\n.edit,\n.trash {\n    background-color: var(--main-color);\n}\n\n.form>.item-container>.btn-container>.trash {\n    background-color: var(--opposite-color) !important;\n    color: var(--font-color) !important;\n}\n\n\n.edit::before {\n    content: \"\\f303\";\n}\n\n.trash::before {\n    content: \"\\f2ed\";\n}\n\n.save {\n    background-color: var(--opposite-color);\n}\n\n.save::before {\n    font-size: 1.2rem;\n    content: \"\\f00c\";\n}\n\n\n\n/* item details */\n.item-details {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    max-height: 0;\n    transition: var(--default-transition);\n    overflow: hidden;\n    padding: 0 15px;\n}\n\n.form>.item-details {\n    max-height: fit-content;\n}\n\n.collapsed {\n    max-height: 0;\n    margin: 0;\n    padding: 0;\n}\n\n.item-description,\n.input-description {\n    white-space: pre-wrap !important;\n    font-family: 'Roboto', sans-serif;\n    font-weight: 400;\n    font-size: 1.2em;\n    margin-top: 15px;\n}\n\n.tag-container {\n    display: flex;\n    align-items: center;\n    padding: 10px 0;\n    flex-wrap: wrap;\n}\n\n.item-tag,\n.input-tag {\n    background-color: var(--flag-color);\n    font-family: 'Roboto', sans-serif;\n    font-weight: 500;\n    font-size: 0.8rem;\n    text-align: center;\n    padding: 5px 10px;\n    margin-right: 10px;\n    margin-top: 5px;\n    border-radius: 12.5px;\n    white-space: nowrap;\n    display: flex;\n    align-items: center;\n}\n\n.input-tag[contenteditable]:empty::before {\n    content: \"new tag\";\n  }\n  \n\n.item-tag:hover,\n.input-tag:hover {\n    cursor: pointer;\n    opacity: 0.7;\n}\n\n.item-tag::after {\n    padding-left: 10px;\n    content: \"\\f00d\";\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    font-size: 0.6rem;\n}\n\n.input-tag {\n    color: var(--opposite-color);\n    background-color: var(--opposite-color-lighter);\n    border: 1px dashed var(--opposite-color);\n    cursor: pointer;\n    min-width: 70px;\n}\n\n/* form <-> list item */\n\n.form>.item-container>.item-title,\n.form>.item-container>.btn-container>.item-date,\n.form>.item-container>.btn-container>.edit,\n\n.form>.item-details>.item-description,\n\n.todo>.item-container>.input-title,\n.todo>.item-container>.btn-container>.input-flag,\n.todo>.item-container>.btn-container>.input-date,\n.todo>.item-container>.btn-container>.save,\n\n.todo>.item-details>.input-description,\n.todo>.item-details>.tag-container>.input-tag {\n    display: none;\n}\n\n.todo>.item-container>.btn-container>.flagged {\n    display: flex;\n    background-color: var(--font-color);\n}\n\n.form>.item-details>.tag-container>.item-tag {\n    background-color: var(--opposite-color) !important;\n}\n\n/* form */\n\n.new-note {\n    color: var(--opposite-color);\n    background-color: var(--opposite-color-lighter);\n    height: 90px;\n    max-height: 150px;\n    text-align: center;\n    font-size: 3rem;\n    border: none;\n    border-radius: 20px;\n    width: 100%;\n    font-family: \"Font Awesome 5 Free\";\n    font-weight: 900;\n    transition: var(--default-transition);\n    cursor: pointer;\n    overflow: hidden;\n    -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;\n    animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;\n}\n\n.new-note::before {\n    content: \"\\f055\";\n    overflow: hidden;\n\n}\n\n.new-note:active {\n    color: var(--opposite-color-lighter);\n    background-color: var(--opposite-color);\n    transform: scale(0.96);\n}\n\n.todo.form {\n    background-color: var(--opposite-color-lighter);\n}\n\n.form>.item-container {\n    background-color: var(--opposite-color) !important;\n}\n\n\n.input-title {\n    background-color: var(--opposite-color);\n    border: 0;\n    outline: 0;\n    border-radius: 0;\n    min-width: 120px;\n}\n\n.input-date {\n    border: 1px solid var(--opposite-color);\n    color: var(--opposite-color);\n    background-color: var(--opposite-color-lighter) !important;\n    height: 25px;\n    width: 120px;\n    font-family: var(--rocko);\n    cursor: pointer;\n\n    border-radius: 5px;\n    background-color: #fff;\n    padding: 3px 5px;\n}\n\n.input-date:active {\n    box-shadow: var(--default-shadow);\n\n}\n\n.input-description {\n    border: 1px dashed var(--opposite-color);\n    border-radius: 5px;\n    outline: none;\n    background-color: var(--opposite-color-lighter);\n    resize: none;\n}\n\n\n\n/* checked styles */\n.checked {\n    /* background-color: var(--gray-color); */\n}\n\n.checked>.item-container {\n    background-color: var(--font-color);\n}\n\n.checked>.item-container>.item-title {\n    color: var(--main-color);\n    text-decoration: line-through !important;\n}\n\n\n.checked>.item-container>.item-title::before {\n    color: var(--main-color);\n    content: \"\\f058\";\n    font-weight: 400;\n}\n\n.checked>.item-details>.tag-container>.item-tag {\n    background-color: var(--light-gray);\n}\n\n.checked>.item-container>.btn-container>.trash,\n.checked>.item-container>.btn-container>.edit {\n    color: var(--main-color);\n    background-color: var(--font-color);\n}\n\n.checked>.item-container>.btn-container>.flagged {\n    background-color: var(--main-color);\n}\n.checked>.item-container>.btn-container>.item-date {\n    color: var(--font-color);\n    background-color: var(--main-color);\n\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10463,7 +10463,8 @@ const controller = () => {
         //list events:
         //item title click
         if (clicked.id === "item-title"){
-            _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.publish("item-title-click", clicked);
+            let card = clicked.parentNode.parentNode.parentNode;
+            _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.publish("item-title-click", card);
         }
 
         //save button click
@@ -10481,7 +10482,7 @@ const controller = () => {
         //trash button click
         else if (clicked.id === "trash"){
             let card = clicked.parentNode.parentNode.parentNode;
-            _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.publish("trash-btn-click", card);
+            _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.publish("trash-btn-click", clicked);
         }
 
         //new note button click
@@ -10552,7 +10553,8 @@ const controller = () => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "data": () => (/* binding */ data)
+/* harmony export */   "data": () => (/* binding */ data),
+/* harmony export */   "getTodoInfo": () => (/* binding */ getTodoInfo)
 /* harmony export */ });
 /* harmony import */ var _pubsub_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pubsub.js */ "./src/modules/pubsub.js");
 /* harmony import */ var _todo_object_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./todo-object.js */ "./src/modules/todo-object.js");
@@ -10561,8 +10563,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const data = () => {
 
+const data = () => {
   //new note event
   _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("new-note-btn-click", (btn) => {
     let newNote = (0,_todo_object_js__WEBPACK_IMPORTED_MODULE_1__.todoFactory)(
@@ -10572,48 +10574,60 @@ const data = () => {
       undefined,
       undefined,
       undefined,
-      (0,uuid__WEBPACK_IMPORTED_MODULE_2__["default"])()
+      (0,uuid__WEBPACK_IMPORTED_MODULE_2__["default"])(),
+      "form",
+      "unchecked"
     );
-    _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.publish("todo-list-new", newNote);
-
+    _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.publish("update-todos", [undefined, undefined, newNote]);
   });
 
-  //new todo event
-  _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("todo-list-new", (todo) => {
-    _todo_object_js__WEBPACK_IMPORTED_MODULE_1__.todoStorage.push(todo);
-  });
-
-  //delete note event
-  _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("delete-note", (card) => {
-    let key = getKey(card);
-    let newArray = _todo_object_js__WEBPACK_IMPORTED_MODULE_1__.todoStorage.filter(function(item)
-    {
-     return item.data !== key;
-    });
-    (0,_todo_object_js__WEBPACK_IMPORTED_MODULE_1__.updateStorage)(newArray);
+  //update event
+  _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("update-todos", ([index, input, newNote]) => {
+    if (index > -1) {
+      (0,_todo_object_js__WEBPACK_IMPORTED_MODULE_1__.updateTodo)(index, input);
+    } else if (newNote){
+      _todo_object_js__WEBPACK_IMPORTED_MODULE_1__.todoStorage.push(newNote);
+      console.log("new note!")
+    }
+    _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.publish("dom-loop");
   });
 
   //update todo info event
   _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("save-btn-click", (card) => {
-    let key = getKey(card);
-    let input = getNoteInput(card, key);
-    let index = _todo_object_js__WEBPACK_IMPORTED_MODULE_1__.todoStorage.findIndex(i => i.data === key);
-    (0,_todo_object_js__WEBPACK_IMPORTED_MODULE_1__.updateTodo)(index, input);
+      let key = getKey(card);
+      let input = getNoteInput(card, key);
+      let index = _todo_object_js__WEBPACK_IMPORTED_MODULE_1__.todoStorage.findIndex(i => i.data === key);
+     input.type = "todo";
+      _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.publish("update-todos", [index, input, undefined]);
+    });
+
+  //check/uncheck event
+  _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("item-title-click", (card) => {
+
   });
+
+  //delete note event
+  _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("delete-note", (card) => {
+    //   let key = getKey(card);
+    //   let newArray = todoStorage.filter(function(item)
+    //   {
+    //    return item.data !== key;
+    //   });
+    //   updateStorage(newArray);
+    // });
+  });
+
+
 };
 
-
-
-
+//get card key
 function getKey(card) {
   return card.getAttribute("data-id");
 }
 
-
 //get input values
 function getNoteInput(card, key) {
   let items = getItems(card);
-
   //status
   let status = "";
   //title
@@ -10622,12 +10636,14 @@ function getNoteInput(card, key) {
   let date = items.inputDate.value;
   //flag
   let flagged;
-  items.inputFlag.classList.contains("flagged") ?   flagged = true : flagged = false;
+  items.inputFlag.classList.contains("flagged")
+    ? (flagged = true)
+    : (flagged = false);
   //description
   let description = items.inputDescription.value;
   //tags
   let tags = [];
-  for (let i=0; i<items.inputTags.length; i++){
+  for (let i = 0; i < items.inputTags.length; i++) {
     let name = items.inputTags[i].textContent;
     tags.push(name);
   }
@@ -10644,7 +10660,7 @@ function getNoteInput(card, key) {
     tags,
     project,
     data
-  }
+  };
 }
 
 function getItems(card) {
@@ -10658,9 +10674,16 @@ function getItems(card) {
     inputDescription,
     inputDate,
     inputFlag,
-    inputTags
+    inputTags,
   };
 }
+
+const getTodoInfo = (card) => {
+  let key = getKey(card);
+  let index = _todo_object_js__WEBPACK_IMPORTED_MODULE_1__.todoStorage.findIndex((i) => i.data === key);
+  return _todo_object_js__WEBPACK_IMPORTED_MODULE_1__.todoStorage[index];
+};
+
 
 /***/ }),
 
@@ -10678,10 +10701,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pubsub_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pubsub.js */ "./src/modules/pubsub.js");
 /* harmony import */ var _newNote_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./newNote.js */ "./src/modules/newNote.js");
 /* harmony import */ var _todo_object_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./todo-object.js */ "./src/modules/todo-object.js");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/parseISO/index.js");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/isToday/index.js");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/isTomorrow/index.js");
-/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
+/* harmony import */ var _data_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./data.js */ "./src/modules/data.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/parseISO/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/isToday/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/isTomorrow/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/format/index.js");
 
 
 
@@ -10691,34 +10715,17 @@ __webpack_require__.r(__webpack_exports__);
 
 const domControl = () => {
   const list = document.getElementById("list");
-
-
-//load existing todos
-_pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("on-load", () => {
-  console.log("loaded")
-})
-
-//update DOM
-_pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("change-in-todos", (index) => {
-  for (let i=0; i<_todo_object_js__WEBPACK_IMPORTED_MODULE_2__.todoStorage.length; i++){
-let props = _todo_object_js__WEBPACK_IMPORTED_MODULE_2__.todoStorage[i];
-console.log(props);
-
-// list.prepend(newNote(data));
-
-  }
-})
-
-//update DOM
-_pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("todo-list-new", (todo) => {
-  let props = []
-  props.data = todo.data;
-  list.prepend((0,_newNote_js__WEBPACK_IMPORTED_MODULE_1__.newNote)(props));
+  let count = 0
+  //dom loop
+  _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("dom-loop", () => {
+    removeAllCards(list);
+    for (let i=0; i<_todo_object_js__WEBPACK_IMPORTED_MODULE_2__.todoStorage.length; i++) {
+      list.prepend((0,_newNote_js__WEBPACK_IMPORTED_MODULE_1__.newNote)(_todo_object_js__WEBPACK_IMPORTED_MODULE_2__.todoStorage[i]))
+    }
   })
 
   //item title click event
-  _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("item-title-click", (data) => {
-    let card = data.parentNode.parentNode;
+  _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("item-title-click", (card) => {
     card.classList.toggle("checked");
     card.classList.toggle("unchecked");
   });
@@ -10726,6 +10733,7 @@ _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("todo-list-new", (todo)
   //save click event
   _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("save-btn-click", (card) => {
     changeColor(card);
+
   });
 
   //edit click event
@@ -10815,6 +10823,19 @@ _pubsub_js__WEBPACK_IMPORTED_MODULE_0__.pubsub.subscribe("todo-list-new", (todo)
 
 };
 
+function removeAllCards(list) {
+  let cards = list.querySelectorAll("#todo-card");
+  for (let i=0; i<cards.length; i++) {
+
+    cards[i].remove();
+    console.log("removed!")
+  
+  }
+  console.log(cards.length);
+
+}
+
+
 function updateTextareaHeight(textarea) {
     let content = textarea.value;
     let numberOfLines = (content.match(/\n/g) || []).length;
@@ -10825,20 +10846,17 @@ function updateTextareaHeight(textarea) {
 function changeColor(card) {
   card.classList.toggle("form");
   card.classList.toggle("todo");
-  if (!card.classList.contains("checked")) {
-    card.classList.add("unchecked");
-  }
 }
 function formatDate(newDate) {
 if (newDate) {
-  newDate = (0,date_fns__WEBPACK_IMPORTED_MODULE_3__["default"])(newDate);
+  newDate = (0,date_fns__WEBPACK_IMPORTED_MODULE_4__["default"])(newDate);
   items.itemDate.classList.remove("hidden");
-  if ((0,date_fns__WEBPACK_IMPORTED_MODULE_4__["default"])(newDate)) {
+  if ((0,date_fns__WEBPACK_IMPORTED_MODULE_5__["default"])(newDate)) {
     items.itemDate.textContent = "Today";
-  } else if ((0,date_fns__WEBPACK_IMPORTED_MODULE_5__["default"])(newDate)) {
+  } else if ((0,date_fns__WEBPACK_IMPORTED_MODULE_6__["default"])(newDate)) {
     items.itemDate.textContent = "Tomorrow";
   } else {
-    items.itemDate.textContent = (0,date_fns__WEBPACK_IMPORTED_MODULE_6__["default"])(new Date(newDate), "MMM d");
+    items.itemDate.textContent = (0,date_fns__WEBPACK_IMPORTED_MODULE_7__["default"])(new Date(newDate), "MMM d");
   }
 } else {
   items.itemDate.classList.add("hidden");
@@ -10907,75 +10925,92 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 
 
-const newNote = (data, type) => {
+const newNote = (props) => {
+  const container = document.createElement("section");
+  const itemContainer = document.createElement("div");
+  const itemTitle = document.createElement("h2");
+  const inputTitle = document.createElement("span");
+  const btnContainer = document.createElement("div");
+  const itemFlag = document.createElement("div");
+  const itemDate = document.createElement("div");
+  const inputFlag = document.createElement("div");
+  const inputDate = document.createElement("input");
+  const editBtn = document.createElement("button");
+  const trashBtn = document.createElement("button");
+  const saveBtn = document.createElement("button");
+  const itemDetails = document.createElement("div");
+  const itemDescription = document.createElement("span");
+  const inputDescription = document.createElement("textarea");
+  const tagContainer = document.createElement("div");
+  const inputTag = newInputTag();
 
-const container = document.createElement("section");
-const itemContainer = document.createElement("div");
-const itemTitle = document.createElement("h2");
-const inputTitle = document.createElement("span");
-const btnContainer = document.createElement("div");
-const itemFlag = document.createElement("div");
-const itemDate = document.createElement("div");
-const inputFlag = document.createElement("div");
-const inputDate = document.createElement("input");
-const editBtn = document.createElement("button");
-const trashBtn = document.createElement("button");
-const saveBtn = document.createElement("button");
-const itemDetails = document.createElement("div");
-const itemDescription = document.createElement("span");
-const inputDescription = document.createElement("textarea");
-const tagContainer = document.createElement("div");
-const inputTag = newInputTag();
 
-if (type === "form") {container.classList.add("form");}
-else if (type === "checked"){container.classList.add("todo", "checked")}
-else {container.classList.add("todo", "unchecked")}
-itemContainer.classList.add("item-container");
-itemTitle.classList.add("item-title");
-inputTitle.classList.add("input-title");
-btnContainer.classList.add("btn-container");
-itemFlag.classList.add("item-flag");
-itemDate.classList.add("item-date");
-inputFlag.classList.add("input-flag");
-inputDate.classList.add("input-date");
-itemDetails.classList.add("item-details");
-itemDescription.classList.add("item-description");
-inputDescription.classList.add("input-description");
-tagContainer.classList.add("tag-container");
-editBtn.classList.add("edit");
-saveBtn.classList.add("save");
-trashBtn.classList.add("trash");
+  if (props.type === "form") {
+    container.classList.add("form");
+  } else {
+    container.classList.add("todo");
+  }
 
-itemContainer.id = "item-container";
-itemTitle.id = "item-title";
-inputFlag.id = "input-flag";
-editBtn.id = "edit";
-saveBtn.id = "save";
-trashBtn.id = "trash";
-inputDescription.id = "input-description";
+  if (props.status === "checked") {
+    container.classList.remove("unchecked");
+    container.classList.add("checked");
+  } else {
+    container.classList.remove("checked");
+    container.classList.add("unchecked");
+  }
 
-inputTitle.contentEditable = true;
-inputDescription.contentEditable = true;
-inputDate.type = "date";
+  itemContainer.classList.add("item-container");
+  itemTitle.classList.add("item-title");
+  inputTitle.classList.add("input-title");
+  btnContainer.classList.add("btn-container");
+  itemFlag.classList.add("item-flag");
+  itemDate.classList.add("item-date");
+  inputFlag.classList.add("input-flag");
+  inputDate.classList.add("input-date");
+  itemDetails.classList.add("item-details");
+  itemDescription.classList.add("item-description");
+  inputDescription.classList.add("input-description");
+  tagContainer.classList.add("tag-container");
+  editBtn.classList.add("edit");
+  saveBtn.classList.add("save");
+  trashBtn.classList.add("trash");
 
-btnContainer.append(
-  itemDate,
-  // itemFlag,
-  inputDate,
-  inputFlag,
-  editBtn,
-  saveBtn,
-  trashBtn
-);
-itemContainer.append(itemTitle, inputTitle, btnContainer);
-tagContainer.append(inputTag);
-itemDetails.append(itemDescription, inputDescription, tagContainer);
-container.append(itemContainer, itemDetails);
+  itemContainer.id = "item-container";
+  itemTitle.id = "item-title";
+  inputFlag.id = "input-flag";
+  editBtn.id = "edit";
+  saveBtn.id = "save";
+  trashBtn.id = "trash";
+  inputDescription.id = "input-description";
 
-container.setAttribute('data-id', data);
+  inputTitle.contentEditable = true;
+  inputDescription.contentEditable = true;
+  inputDate.type = "date";
 
-return container;
-}
+  itemTitle.textContent = props.title;
+  inputTitle.textContent = props.title;
+  itemDescription.textContent = props.description;
+  inputDescription.textContent = props.description;
+
+  btnContainer.append(
+    itemDate,
+    // itemFlag,
+    inputDate,
+    inputFlag,
+    editBtn,
+    saveBtn,
+    trashBtn
+  );
+  itemContainer.append(itemTitle, inputTitle, btnContainer);
+  tagContainer.append(inputTag);
+  itemDetails.append(itemDescription, inputDescription, tagContainer);
+  container.append(itemContainer, itemDetails);
+
+  container.id = "todo-card";
+  container.setAttribute("data-id", props.data);
+
+  return container;
+};
 
 const newInputTag = () => {
   const inputTag = document.createElement("span");
@@ -10983,7 +11018,7 @@ const newInputTag = () => {
   inputTag.id = "input-tag";
   inputTag.contentEditable = true;
   return inputTag;
-}
+};
 
 
 /***/ }),
@@ -11023,8 +11058,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pubsub__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pubsub */ "./src/modules/pubsub.js");
 
 
-const todoFactory = (status = "", title = "", date = "", flagged = false, description = "", tags = "",  project = "", data = "") => {
-    return { status, title, date, flagged, description, tags,  project, data }
+const todoFactory = (title = "", date = "", flagged = false, description = "", tags = "",  project = "", data = "", type = "", status = "") => {
+    return { title, date, flagged, description, tags,  project, data, type, status }
   }
 
 let todoStorage = [];
@@ -11035,7 +11070,7 @@ const updateStorage = (newArray) => {
 
 const updateTodo = (index, input) => {
   todoStorage[index] = input;
-  _pubsub__WEBPACK_IMPORTED_MODULE_0__.pubsub.publish("change-in-todos", index);
+  console.log(todoStorage);
 }
 
 /***/ }),
