@@ -1,7 +1,7 @@
 import { pubsub } from "./pubsub";
 
-export const todoFactory = (status = "", title = "", date = "", flagged = false, description = "", tags = "",  project = "", data = "") => {
-    return { status, title, date, flagged, description, tags,  project, data }
+export const todoFactory = (title = "", date = "", flagged = false, description = "", tags = "",  project = "", data = "", type = "", status = "") => {
+    return { title, date, flagged, description, tags,  project, data, type, status }
   }
 
 export let todoStorage = [];
@@ -12,5 +12,5 @@ export const updateStorage = (newArray) => {
 
 export const updateTodo = (index, input) => {
   todoStorage[index] = input;
-  pubsub.publish("change-in-todos", index);
+  console.log(todoStorage);
 }

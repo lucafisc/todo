@@ -2,39 +2,22 @@ import { pubsub } from "./pubsub.js";
 import { newNote } from "./newNote.js";
 import { newInputTag } from "./newNote.js"
 import { todoStorage } from "./todo-object.js";
-
+import { getTodoInfo } from "./data.js";
 import { format, parseISO, isToday, isTomorrow } from "date-fns";
 
 export const domControl = () => {
   const list = document.getElementById("list");
-
-
-//load existing todos
-pubsub.subscribe("on-load", () => {
-  console.log("loaded")
-})
-
-//update DOM
-pubsub.subscribe("change-in-todos", (index) => {
-  for (let i=0; i<todoStorage.length; i++){
-let props = todoStorage[i];
-console.log(props);
-
-// list.prepend(newNote(data));
-
-  }
-})
-
-//update DOM
-pubsub.subscribe("todo-list-new", (todo) => {
-  let props = []
-  props.data = todo.data;
-  list.prepend(newNote(props));
+  let count = 0
+  //dom loop
+  pubsub.subscribe("dom-loop", () => {
+    removeAllCards(list);
+    for (let i=0; i<todoStorage.length; i++) {
+      list.prepend(newNote(todoStorage[i]))
+    }
   })
 
   //item title click event
-  pubsub.subscribe("item-title-click", (data) => {
-    let card = data.parentNode.parentNode;
+  pubsub.subscribe("item-title-click", (card) => {
     card.classList.toggle("checked");
     card.classList.toggle("unchecked");
   });
@@ -42,6 +25,7 @@ pubsub.subscribe("todo-list-new", (todo) => {
   //save click event
   pubsub.subscribe("save-btn-click", (card) => {
     changeColor(card);
+
   });
 
   //edit click event
@@ -131,6 +115,19 @@ pubsub.subscribe("todo-list-new", (todo) => {
 
 };
 
+function removeAllCards(list) {
+  let cards = list.querySelectorAll("#todo-card");
+  for (let i=0; i<cards.length; i++) {
+
+    cards[i].remove();
+    console.log("removed!")
+  
+  }
+  console.log(cards.length);
+
+}
+
+
 function updateTextareaHeight(textarea) {
     let content = textarea.value;
     let numberOfLines = (content.match(/\n/g) || []).length;
@@ -141,9 +138,6 @@ function updateTextareaHeight(textarea) {
 function changeColor(card) {
   card.classList.toggle("form");
   card.classList.toggle("todo");
-  if (!card.classList.contains("checked")) {
-    card.classList.add("unchecked");
-  }
 }
 function formatDate(newDate) {
 if (newDate) {

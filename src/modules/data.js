@@ -1,9 +1,14 @@
 import { pubsub } from "./pubsub.js";
-import { todoFactory, todoStorage, updateStorage, updateTodo } from "./todo-object.js";
+import {
+  todoFactory,
+  todoStorage,
+  updateStorage,
+  updateTodo,
+} from "./todo-object.js";
 import { v4 as uuidv4 } from "uuid";
+import { el } from "date-fns/locale";
 
 export const data = () => {
-
   //new note event
   pubsub.subscribe("new-note-btn-click", (btn) => {
     let newNote = todoFactory(
@@ -13,48 +18,60 @@ export const data = () => {
       undefined,
       undefined,
       undefined,
-      uuidv4()
+      uuidv4(),
+      "form",
+      "unchecked"
     );
-    pubsub.publish("todo-list-new", newNote);
-
+    pubsub.publish("update-todos", [undefined, undefined, newNote]);
   });
 
-  //new todo event
-  pubsub.subscribe("todo-list-new", (todo) => {
-    todoStorage.push(todo);
-  });
-
-  //delete note event
-  pubsub.subscribe("delete-note", (card) => {
-    let key = getKey(card);
-    let newArray = todoStorage.filter(function(item)
-    {
-     return item.data !== key;
-    });
-    updateStorage(newArray);
+  //update event
+  pubsub.subscribe("update-todos", ([index, input, newNote]) => {
+    if (index > -1) {
+      updateTodo(index, input);
+    } else if (newNote){
+      todoStorage.push(newNote);
+      console.log("new note!")
+    }
+    pubsub.publish("dom-loop");
   });
 
   //update todo info event
   pubsub.subscribe("save-btn-click", (card) => {
-    let key = getKey(card);
-    let input = getNoteInput(card, key);
-    let index = todoStorage.findIndex(i => i.data === key);
-    updateTodo(index, input);
+      let key = getKey(card);
+      let input = getNoteInput(card, key);
+      let index = todoStorage.findIndex(i => i.data === key);
+     input.type = "todo";
+      pubsub.publish("update-todos", [index, input, undefined]);
+    });
+
+  //check/uncheck event
+  pubsub.subscribe("item-title-click", (card) => {
+
   });
+
+  //delete note event
+  pubsub.subscribe("delete-note", (card) => {
+    //   let key = getKey(card);
+    //   let newArray = todoStorage.filter(function(item)
+    //   {
+    //    return item.data !== key;
+    //   });
+    //   updateStorage(newArray);
+    // });
+  });
+
+
 };
 
-
-
-
+//get card key
 function getKey(card) {
   return card.getAttribute("data-id");
 }
 
-
 //get input values
 function getNoteInput(card, key) {
   let items = getItems(card);
-
   //status
   let status = "";
   //title
@@ -63,12 +80,14 @@ function getNoteInput(card, key) {
   let date = items.inputDate.value;
   //flag
   let flagged;
-  items.inputFlag.classList.contains("flagged") ?   flagged = true : flagged = false;
+  items.inputFlag.classList.contains("flagged")
+    ? (flagged = true)
+    : (flagged = false);
   //description
   let description = items.inputDescription.value;
   //tags
   let tags = [];
-  for (let i=0; i<items.inputTags.length; i++){
+  for (let i = 0; i < items.inputTags.length; i++) {
     let name = items.inputTags[i].textContent;
     tags.push(name);
   }
@@ -85,7 +104,7 @@ function getNoteInput(card, key) {
     tags,
     project,
     data
-  }
+  };
 }
 
 function getItems(card) {
@@ -99,6 +118,12 @@ function getItems(card) {
     inputDescription,
     inputDate,
     inputFlag,
-    inputTags
+    inputTags,
   };
 }
+
+export const getTodoInfo = (card) => {
+  let key = getKey(card);
+  let index = todoStorage.findIndex((i) => i.data === key);
+  return todoStorage[index];
+};

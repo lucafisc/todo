@@ -15,7 +15,8 @@ export const controller = () => {
         //list events:
         //item title click
         if (clicked.id === "item-title"){
-            pubsub.publish("item-title-click", clicked);
+            let card = clicked.parentNode.parentNode.parentNode;
+            pubsub.publish("item-title-click", card);
         }
 
         //save button click
@@ -33,7 +34,7 @@ export const controller = () => {
         //trash button click
         else if (clicked.id === "trash"){
             let card = clicked.parentNode.parentNode.parentNode;
-            pubsub.publish("trash-btn-click", card);
+            pubsub.publish("trash-btn-click", clicked);
         }
 
         //new note button click
