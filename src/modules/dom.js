@@ -2,17 +2,29 @@ import { pubsub } from "./pubsub.js";
 import { newNote } from "./newNote.js";
 import { newInputTag } from "./newNote.js"
 import { todoStorage } from "./todo-object.js";
-import { getTodoInfo } from "./data.js";
-import { format, parseISO, isToday, isTomorrow } from "date-fns";
 
 export const domControl = () => {
   const list = document.getElementById("list");
   let count = 0
+
+  //dom loop on load
+  pubsub.subscribe("on-load", () => {
+    let page = undefined;
+for (let i=0; i<localStorage.length; i++) {
+  let storedItem = JSON.parse(window.localStorage.getItem(i))
+  if (storedItem.project === page){
+  list.prepend(newNote(storedItem))};
+}
+   
+  });
+
+
   //dom loop
-  pubsub.subscribe("dom-loop", () => {
+  pubsub.subscribe("dom-loop", (page) => {
     removeAllCards(list);
     for (let i=0; i<todoStorage.length; i++) {
-      list.prepend(newNote(todoStorage[i]))
+      if (todoStorage[i].project === page){
+      list.prepend(newNote(todoStorage[i]))}
     }
   })
 
@@ -34,20 +46,7 @@ export const domControl = () => {
 
   });
 
-  //trash click event
-  pubsub.subscribe("trash-btn-click", (card) => {
-    if(confirm("Are you sure you want to delete this note?")) {
-        pubsub.publish("delete-note", card);
-    }
-  })
 
-  //delete event
-  pubsub.subscribe("delete-note", (card) => {
-    card.classList.add("disappear");
-    card.onanimationend = function() {
-    card.remove();
-    };
-  })
 
   //input flag click event
   pubsub.subscribe("input-flag-click", (btn) => {
@@ -116,15 +115,10 @@ export const domControl = () => {
 };
 
 function removeAllCards(list) {
-  let cards = list.querySelectorAll("#todo-card");
+  let cards = list.querySelectorAll('[data-name="card"]');
   for (let i=0; i<cards.length; i++) {
-
-    cards[i].remove();
-    console.log("removed!")
-  
+    cards[i].remove();  
   }
-  console.log(cards.length);
-
 }
 
 
@@ -140,19 +134,7 @@ function changeColor(card) {
   card.classList.toggle("todo");
 }
 function formatDate(newDate) {
-if (newDate) {
-  newDate = parseISO(newDate);
-  items.itemDate.classList.remove("hidden");
-  if (isToday(newDate)) {
-    items.itemDate.textContent = "Today";
-  } else if (isTomorrow(newDate)) {
-    items.itemDate.textContent = "Tomorrow";
-  } else {
-    items.itemDate.textContent = format(new Date(newDate), "MMM d");
-  }
-} else {
-  items.itemDate.classList.add("hidden");
-}
+
 }
 
 // function getNoteInput(btn) {

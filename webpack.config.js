@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  devtool: false,
+  devtool: "eval-source-map",
   entry: './src/index.js',
   output: {
     filename: 'main.[contenthash].js',

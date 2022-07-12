@@ -13,32 +13,13 @@ export const controller = () => {
         let clicked = event.target;
 
         //list events:
-        //item title click
-        if (clicked.id === "item-title"){
-            let card = clicked.parentNode.parentNode.parentNode;
-            pubsub.publish("item-title-click", card);
-        }
+       
 
-        //save button click
-        else if (clicked.id === "save"){
-            let card = clicked.parentNode.parentNode.parentNode;
-            pubsub.publish("save-btn-click", card);
-        }
-
-        //edit button click
-        else if (clicked.id === "edit"){
-            let card = clicked.parentNode.parentNode.parentNode;
-            pubsub.publish("edit-btn-click", card);
-        }
-
-        //trash button click
-        else if (clicked.id === "trash"){
-            let card = clicked.parentNode.parentNode.parentNode;
-            pubsub.publish("trash-btn-click", clicked);
-        }
+       
+     
 
         //new note button click
-        else if (clicked.id === "new-note") {
+         if (clicked.id === "new-note") {
             pubsub.publish("new-note-btn-click", clicked);
         }
 
