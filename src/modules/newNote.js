@@ -21,18 +21,23 @@ export const newNote = (props) => {
   const inputDescription = document.createElement("textarea");
   const tagContainer = document.createElement("div");
   const inputTag = newInputTag("input");
+  const toolbar = document.createElement("div");
 
+  const projectContainer = document.createElement("div");
   const itemProject = document.createElement("div");
   const inputProject = document.createElement("select");
   const projectOption1 = document.createElement("option");
   const projectOption2 = document.createElement("option");
-  projectOption1.value = "default";
+  projectOption1.value = "inbox";
   projectOption2.value = "work";
-  projectOption1.textContent = "default";
+  projectOption1.textContent = "inbox";
   projectOption2.textContent = "work";
-
-  inputProject.append(projectOption1, projectOption2)
-
+  projectOption1.selected = true;
+  inputProject.classList.add("input-project");
+  projectContainer.classList.add("project-container");
+  toolbar.classList.add("toolbar");
+  inputProject.append(projectOption1, projectOption2);
+  projectContainer.append(inputProject, itemProject);
 
 //add classes
   if (props.type === "form") {
@@ -81,6 +86,8 @@ export const newNote = (props) => {
   inputTitle.textContent = props.title;
   itemDescription.textContent = props.description;
   inputDescription.textContent = props.description;
+  itemProject.textContent = props.project;
+  inputProject.value = props.project;
 
 
  //format date 
@@ -153,7 +160,8 @@ export const newNote = (props) => {
 
   itemContainer.append(itemTitle, inputTitle, btnContainer);
   tagContainer.append(inputTag);
-  itemDetails.append(itemDescription, inputDescription, tagContainer, inputProject);
+  toolbar.append(tagContainer, projectContainer);
+  itemDetails.append(itemDescription, inputDescription, toolbar);
   container.append(itemContainer, itemDetails);
 
   container.setAttribute("data-id", props.data);

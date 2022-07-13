@@ -12,7 +12,7 @@
 
 .form {
     background-color: var(--opposite-color-lighter);
-   
+
 }
 
 .item-container {
@@ -67,7 +67,7 @@
 
 
 
-.btn-container {    
+.btn-container {
     height: 40px;
     display: flex;
     justify-content: center;
@@ -220,9 +220,16 @@
     margin-top: 15px;
 }
 
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .tag-container {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     padding: 10px 0;
     flex-wrap: wrap;
 }
@@ -245,8 +252,8 @@
 
 .input-tag[contenteditable]:empty::before {
     content: "new tag";
-  }
-  
+}
+
 
 .item-tag:hover,
 .input-tag:hover {
@@ -270,6 +277,26 @@
     min-width: 70px;
 }
 
+.projectContainer {}
+
+.input-project {
+    appearance: none;
+    color: var(--opposite-color);
+    background-color: var(--opposite-color-lighter);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 5px;
+    margin-right: 10px;
+    margin-top: 5px;
+    border: 1px solid var(--opposite-color);
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+
+
 /* form <-> list item */
 
 .form>.item-container>.item-title,
@@ -277,14 +304,15 @@
 .form>.item-container>.btn-container>.edit,
 
 .form>.item-details>.item-description,
-
+.form>.item-details>.toolbar>.project-container>.item-project,
 .todo>.item-container>.input-title,
 .todo>.item-container>.btn-container>.input-flag,
 .todo>.item-container>.btn-container>.input-date,
 .todo>.item-container>.btn-container>.save,
 
 .todo>.item-details>.input-description,
-.todo>.item-details>.tag-container>.input-tag {
+.todo>.item-details>.toolbar>.tag-container>.input-tag,
+.todo>.item-details>.toolbar>.project-container>.input-project {
     display: none;
 }
 
@@ -293,7 +321,7 @@
     background-color: var(--font-color);
 }
 
-.form>.item-details>.tag-container>.item-tag {
+.form>.item-details>.toolbar>.tag-container>.item-tag {
     background-color: var(--opposite-color) !important;
 }
 
@@ -397,7 +425,7 @@
     font-weight: 400;
 }
 
-.checked>.item-details>.tag-container>.item-tag {
+.checked>.item-details>.toolbar>.tag-container>.item-tag {
     background-color: var(--light-gray);
 }
 
@@ -410,6 +438,7 @@
 .checked>.item-container>.btn-container>.flagged {
     background-color: var(--main-color);
 }
+
 .checked>.item-container>.btn-container>.item-date {
     color: var(--font-color);
     background-color: var(--main-color);

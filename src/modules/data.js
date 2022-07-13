@@ -83,6 +83,7 @@ export const data = () => {
       return item.data !== key;
     });
     updateStorage(newArray);
+    let rules = "todoStorage[i].project === page";
     pubsub.publish("dom-loop", (getCurrentPage()));
     pubsub.publish("local-store");
   });
@@ -120,9 +121,10 @@ function getNoteInput(card, key) {
     tags.push(name);
   }
 
+  let project = DomItems.inputProject.value;
+
   let itemInArray = getItemByIndex(key);
 
-  let project = itemInArray.project;
   let checked = itemInArray.checked;
   let data = key;
 
@@ -144,21 +146,20 @@ function getItems(card) {
   let inputDate = card.querySelector(".input-date");
   let inputFlag = card.querySelector(".input-flag");
   let inputTags = card.querySelectorAll(".item-tag");
+  let inputProject = card.querySelector(".input-project")
   return {
     inputTitle,
     inputDescription,
     inputDate,
     inputFlag,
     inputTags,
+    inputProject
   };
 }
 
 
 function getCurrentPage() {
   let page = document.getElementById("header").getAttribute("data-page");
-  console.log(typeof page);
-  if (page === "undefined") {page = undefined}
-  console.log(typeof page);
-
+  // if (page === "undefined") {page = undefined}
   return page;
 }

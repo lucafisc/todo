@@ -9,7 +9,7 @@ export const domControl = () => {
 
   //dom loop on load
   pubsub.subscribe("on-load", () => {
-    let page = undefined;
+    let page = "inbox";
 for (let i=0; i<localStorage.length; i++) {
   let storedItem = JSON.parse(window.localStorage.getItem(i))
   if (storedItem.project === page){
@@ -23,6 +23,8 @@ for (let i=0; i<localStorage.length; i++) {
   pubsub.subscribe("dom-loop", (page) => {
     removeAllCards(list);
     for (let i=0; i<todoStorage.length; i++) {
+      console.log(todoStorage[i].project);
+      console.log(page);
       if (todoStorage[i].project === page){
       list.prepend(newNote(todoStorage[i]))}
     }
@@ -88,7 +90,8 @@ for (let i=0; i<localStorage.length; i++) {
     tag.classList.add("item-tag");
     tag.id = "item-tag";
     let newInput = newInputTag()
-    tag.parentNode.append(newInput);
+    let tagContainer = tag.parentNode;
+    tagContainer.append(newInput);
     newInput.focus();}
   })
 
