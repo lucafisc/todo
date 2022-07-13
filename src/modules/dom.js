@@ -1,34 +1,31 @@
 import { pubsub } from "./pubsub.js";
-import { newNote } from "./newNote.js";
-import { newInputTag } from "./newNote.js"
+import { newNote, newInputTag } from "./newNote.js";
 import { todoStorage } from "./todo-object.js";
 
 export const domControl = () => {
   const list = document.getElementById("list");
-  let count = 0
 
-  //dom loop on load
+  //dom loop on load and retrieve localStorage
   pubsub.subscribe("on-load", () => {
+    console.log("onload")
     let page = "inbox";
-for (let i=0; i<localStorage.length; i++) {
-  let storedItem = JSON.parse(window.localStorage.getItem(i))
-  if (storedItem.project === page){
-  list.prepend(newNote(storedItem))};
-}
-   
+    for (let i = 0; i < localStorage.length; i++) {
+      let storedItem = JSON.parse(window.localStorage.getItem(i));
+      if (storedItem.project === page) {
+        list.prepend(newNote(storedItem));
+      }
+    }
   });
-
 
   //dom loop
   pubsub.subscribe("dom-loop", (page) => {
     removeAllCards(list);
-    for (let i=0; i<todoStorage.length; i++) {
-      console.log(todoStorage[i].project);
-      console.log(page);
-      if (todoStorage[i].project === page){
-      list.prepend(newNote(todoStorage[i]))}
+    for (let i = 0; i < todoStorage.length; i++) {
+      if (todoStorage[i].project === page) {
+        list.prepend(newNote(todoStorage[i]));
+      }
     }
-  })
+  });
 
   //item title click event
   pubsub.subscribe("item-title-click", (card) => {
@@ -39,63 +36,51 @@ for (let i=0; i<localStorage.length; i++) {
   //save click event
   pubsub.subscribe("save-btn-click", (card) => {
     changeColor(card);
-
   });
 
   //edit click event
   pubsub.subscribe("edit-btn-click", (card) => {
     changeColor(card);
-
   });
-
-
 
   //input flag click event
   pubsub.subscribe("input-flag-click", (btn) => {
-    btn.classList.toggle("flagged")
+    btn.classList.toggle("flagged");
   });
 
   //input description keydown event
   pubsub.subscribe("input-description-keydown", (textarea) => {
     updateTextareaHeight(textarea);
-})
-
-  //item tag click event
-  pubsub.subscribe("item-tag-click", (tag) => {
-   let card = tag.parentNode.parentNode.parentNode;
-   if (card.classList.contains("todo")) {
-    return
-   } else {
-    tag.remove();
-   }
-  })
+  });
 
   //input tag keydown event
-  pubsub.subscribe("input-tag-keydown", ([key, tag,]) => {
-
+  pubsub.subscribe("input-tag-keydown", ([key, tag]) => {
     if (key === "Enter" || key === "Tab" || key === " ") {
-        pubsub.publish("new-tag", [key,tag]);
+      pubsub.publish("new-tag", [key, tag]);
     }
-
   });
 
   //new tag
-  pubsub.subscribe("new-tag", ([key,tag]) => {
+  pubsub.subscribe("new-tag", ([key, tag]) => {
     if (tag.textContent === "") {
-        return
+      console.log("returned");
+      return;
+    } else {
+      tag.contentEditable = false;
+      tag.classList.remove("input-tag");
+      tag.classList.add("item-tag");
+      tag.id = "item-tag";
+      let newInput = newInputTag("input");
+      let tagContainer = tag.parentNode;
+      tagContainer.append(newInput);
+      newInput.focus();
     }
-    else {
-    tag.contentEditable = false;
-    tag.classList.remove("input-tag");
-    tag.classList.add("item-tag");
-    tag.id = "item-tag";
-    let newInput = newInputTag()
-    let tagContainer = tag.parentNode;
-    tagContainer.append(newInput);
-    newInput.focus();}
-  })
+  });
 
-
+  //remove tag event
+  pubsub.subscribe("remove-tag", ([card, tag]) => {
+    tag.remove();
+  });
 
   //item container click event
   pubsub.subscribe("item-container-click", (header) => {
@@ -112,33 +97,32 @@ for (let i=0; i<localStorage.length; i++) {
       }
     }
   });
-
-
-
 };
 
 function removeAllCards(list) {
   let cards = list.querySelectorAll('[data-name="card"]');
-  for (let i=0; i<cards.length; i++) {
-    cards[i].remove();  
+  for (let i = 0; i < cards.length; i++) {
+    cards[i].remove();
   }
 }
 
-
 function updateTextareaHeight(textarea) {
-    let content = textarea.value;
-    let numberOfLines = (content.match(/\n/g) || []).length;
-    let newHeight = 45 + numberOfLines * 22.5 + 2;
-    textarea.style.height = newHeight + "px";
+  let content = textarea.value;
+  let numberOfLines = (content.match(/\n/g) || []).length;
+  let newHeight = 45 + numberOfLines * 22.5 + 2;
+  textarea.style.height = newHeight + "px";
 }
 
 function changeColor(card) {
   card.classList.toggle("form");
   card.classList.toggle("todo");
 }
-function formatDate(newDate) {
 
-}
+//event listeners
+const newNoteBtn = document.querySelector("#new-note");
+newNoteBtn.onclick = (clicked) => {
+  pubsub.publish("new-note-btn-click", clicked.target);
+};
 
 // function getNoteInput(btn) {
 //   let card = btn.parentNode.parentNode.parentNode;
@@ -150,7 +134,7 @@ function formatDate(newDate) {
 //   items.itemDescription.textContent = items.inputDescription.value;
 //   //date
 //   let newDate = items.inputDate.value;
- 
+
 // }
 
 // function getItems(card) {
@@ -179,7 +163,6 @@ function formatDate(newDate) {
 //   });
 //   const changeTheme = pubsub.subscribe("theme", (event) => {
 //     let newColor = event.target.style.color;
-//     console.log(newColor);
 //   });
 
 // MMM d

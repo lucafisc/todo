@@ -3,7 +3,7 @@ import { format, parseISO, isToday, isTomorrow } from "date-fns";
 import { pubsub } from "./pubsub.js";
 
 export const newNote = (props) => {
-//create elements
+  //create elements
   const container = document.createElement("section");
   const itemContainer = document.createElement("div");
   const itemTitle = document.createElement("h2");
@@ -28,18 +28,8 @@ export const newNote = (props) => {
   const inputProject = document.createElement("select");
   const projectOption1 = document.createElement("option");
   const projectOption2 = document.createElement("option");
-  projectOption1.value = "inbox";
-  projectOption2.value = "work";
-  projectOption1.textContent = "inbox";
-  projectOption2.textContent = "work";
-  projectOption1.selected = true;
-  inputProject.classList.add("input-project");
-  projectContainer.classList.add("project-container");
-  toolbar.classList.add("toolbar");
-  inputProject.append(projectOption1, projectOption2);
-  projectContainer.append(inputProject, itemProject);
 
-//add classes
+  //add classes
   if (props.type === "form") {
     container.classList.add("form");
   } else {
@@ -68,8 +58,11 @@ export const newNote = (props) => {
   editBtn.classList.add("edit");
   saveBtn.classList.add("save");
   trashBtn.classList.add("trash");
+  inputProject.classList.add("input-project");
+  projectContainer.classList.add("project-container");
+  toolbar.classList.add("toolbar");
 
- //add ids 
+  //add ids
   itemContainer.id = "item-container";
   itemTitle.id = "item-title";
   inputFlag.id = "input-flag";
@@ -78,7 +71,7 @@ export const newNote = (props) => {
   trashBtn.id = "trash";
   inputDescription.id = "input-description";
 
- //add properties 
+  //add properties
   inputTitle.contentEditable = true;
   inputDescription.contentEditable = true;
   inputDate.type = "date";
@@ -88,9 +81,13 @@ export const newNote = (props) => {
   inputDescription.textContent = props.description;
   itemProject.textContent = props.project;
   inputProject.value = props.project;
+  projectOption1.value = "inbox";
+  projectOption2.value = "work";
+  projectOption1.textContent = "inbox";
+  projectOption2.textContent = "work";
+  projectOption1.selected = true;
 
-
- //format date 
+  //format date
   if (props.date) {
     let newDate = parseISO(props.date);
     inputDate.value = props.date;
@@ -111,17 +108,18 @@ export const newNote = (props) => {
   }
 
   if (props.tags) {
-    let tags = [];
     for (let i = 0; i < props.tags.length; i++) {
-      let tag = newInputTag("item");
-      tag.textContent = props.tags[i];
-      tags.push(tag);
+      if (props.tags[i] !== "") {
+        let tag = newInputTag("item");
+        tag.textContent = props.tags[i];
+        tag.contentEditable = false;
+
+        tagContainer.append(tag);
+      }
     }
-    console.log(tags);
   }
 
-
-//add event listeners
+  //add event listeners
 
   //item title click
   itemTitle.onclick = (clicked) => {
@@ -145,8 +143,22 @@ export const newNote = (props) => {
   trashBtn.onclick = (clicked) => {
     let card = clicked.target.parentNode.parentNode.parentNode;
     pubsub.publish("trash-btn-click", card);
-  }
- 
+  };
+
+  //input flag click
+  inputFlag.onclick = (clicked) => {
+    pubsub.publish("input-flag-click", clicked.target);
+  };
+
+  //item container click
+  itemContainer.onclick = (clicked) => {
+    pubsub.publish("item-container-click", clicked.target);
+  };
+
+  //input description keydown
+  inputDescription.addEventListener("keydown", (event => {
+    pubsub.publish("input-description-keydown", event.target)
+}));
 
   //append elements
   btnContainer.append(
@@ -158,6 +170,8 @@ export const newNote = (props) => {
     trashBtn
   );
 
+  inputProject.append(projectOption1, projectOption2);
+  projectContainer.append(inputProject, itemProject);
   itemContainer.append(itemTitle, inputTitle, btnContainer);
   tagContainer.append(inputTag);
   toolbar.append(tagContainer, projectContainer);
@@ -175,9 +189,20 @@ export const newInputTag = (type) => {
   if (type === "input") {
     inputTag.classList.add("input-tag");
     inputTag.contentEditable = true;
+    inputTag.addEventListener("keydown", (event) => {
+      let clicked = event.target;
+      let key = event.key;
+      if (!key.match(/[a-zA-Z0-9,]/) || key === "Enter") {
+        event.preventDefault();
+      }
+      pubsub.publish("input-tag-keydown", [key, clicked]);
+    });
   } else {
     inputTag.classList.add("item-tag");
     inputTag.contentEditable = true;
+    inputTag.onclick = (clicked) => {
+      pubsub.publish("item-tag-click", clicked.target);
+    };
   }
 
   inputTag.id = "input-tag";

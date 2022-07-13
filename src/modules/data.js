@@ -20,10 +20,8 @@ export const data = () => {
   pubsub.subscribe("update-todos", ([index, input, newNote]) => {
     if (index > -1) {
       updateTodo(index, input);
-      console.log(todoStorage);
     } else if (newNote) {
       todoStorage.push(newNote);
-      console.log("new note!");
     }
     
     pubsub.publish("local-store");
@@ -43,7 +41,6 @@ export const data = () => {
     let newNote = todoFactory({
       data: uuidv4(),
     });
-    console.log(newNote);
     pubsub.publish("update-todos", [undefined, undefined, newNote]);
   });
 
@@ -61,16 +58,13 @@ export const data = () => {
     let key = getKey(card);
     let input = getNoteInput(card, key);
     let index = todoStorage.findIndex((i) => i.data === key);
-    console.log(input.checked);
     input.checked === true ? (input.checked = false) : (input.checked = true);
-    console.log(input.checked);
 
     pubsub.publish("update-todos", [index, input, undefined]);
   });
 
-  //trash button  event
+  //trash button event
   pubsub.subscribe("trash-btn-click", (card) => {
-    console.log(card);
     if (confirm("Are you sure you want to delete this note?")) {
       pubsub.publish("delete-note", card);
     }
@@ -87,6 +81,25 @@ export const data = () => {
     pubsub.publish("dom-loop", (getCurrentPage()));
     pubsub.publish("local-store");
   });
+
+  //item tag click event
+  pubsub.subscribe("item-tag-click", (tag) => {
+   let card = tag.parentNode.parentNode.parentNode.parentNode;
+   if (card.classList.contains("todo") || tag.classList.contains("input-tag")) {
+    return
+   } else {
+    pubsub.publish("remove-tag", [card, tag,]);
+   }
+  })
+
+  //remove tag event
+  pubsub.subscribe("remove-tag", ([card, tag,]) => {
+    let key = getKey(card);
+    let index = todoStorage.findIndex((i) => i.data === key);
+    let input = getNoteInput(card, key);
+    console.log(todoStorage[index].tags)
+  })
+  
 };
 
 function getItemByIndex(key) {
@@ -102,7 +115,6 @@ function getKey(card) {
 //get input values
 function getNoteInput(card, key) {
   let DomItems = getItems(card);
-
   //title
   let title = DomItems.inputTitle.textContent;
   //date
@@ -122,9 +134,7 @@ function getNoteInput(card, key) {
   }
 
   let project = DomItems.inputProject.value;
-
   let itemInArray = getItemByIndex(key);
-
   let checked = itemInArray.checked;
   let data = key;
 
@@ -157,9 +167,7 @@ function getItems(card) {
   };
 }
 
-
 function getCurrentPage() {
   let page = document.getElementById("header").getAttribute("data-page");
-  // if (page === "undefined") {page = undefined}
   return page;
 }
