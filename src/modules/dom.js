@@ -1,6 +1,11 @@
 import { pubsub } from "./pubsub.js";
 import { newNote, newInputTag } from "./newNote.js";
 import { todoStorage } from "./todo-object.js";
+import { doc } from "prettier";
+import {parseISO, isToday } from "date-fns";
+import { getCurrentPage } from "./data.js"
+
+
 
 export const domControl = () => {
   const list = document.getElementById("list");
@@ -17,6 +22,12 @@ export const domControl = () => {
     }
   });
 
+  pubsub.subscribe("on-load", () => {
+  let inboxProject = document.querySelector("#inbox");
+  inboxProject.classList.add("current-project");  
+    console.log(inboxProject)
+});
+
   //dom loop
   pubsub.subscribe("dom-loop", (page) => {
     removeAllCards(list);
@@ -26,6 +37,38 @@ export const domControl = () => {
       }
     }
   });
+
+  //dom loop flagged
+  pubsub.subscribe("important-project-btn-click", (btn) => {
+    removeAllCards(list);
+    for (let i = 0; i < todoStorage.length; i++) {
+      if (todoStorage[i].flagged === true) {
+        list.prepend(newNote(todoStorage[i]));
+      }}
+    }
+  )
+
+  //dom loop today
+  pubsub.subscribe("today-project-btn-click", (btn) => {
+    removeAllCards(list);
+    for (let i = 0; i < todoStorage.length; i++) {
+      let date = parseISO(todoStorage[i].date);
+      if (isToday(date)) {
+        list.prepend(newNote(todoStorage[i]));
+      }
+       
+    }
+    }
+  )
+
+    //current page event
+    pubsub.subscribe("new-current-page", (container) => {
+      let pages = document.querySelectorAll(".menu-container");
+      for (let i=0; i<pages.length; i++) {
+        pages[i].classList.remove("current-project");
+      }
+      container.classList.add("current-project");
+    })
 
   //item title click event
   pubsub.subscribe("item-title-click", (card) => {
@@ -123,6 +166,32 @@ const newNoteBtn = document.querySelector("#new-note");
 newNoteBtn.onclick = (clicked) => {
   pubsub.publish("new-note-btn-click", clicked.target);
 };
+
+const newProjectBtn = document.querySelector("#new-project");
+newProjectBtn.onclick = (clicked) => {
+  pubsub.publish("new-project-btn-click", clicked.target);
+}
+
+const inboxProjectBtn = document.querySelector("#inbox");
+inboxProjectBtn.onclick = (clicked) => {
+  pubsub.publish("new-current-page", clicked.target);
+  pubsub.publish("dom-loop", getCurrentPage());
+
+}
+
+const todayProjectBtn = document.querySelector("#today");
+todayProjectBtn.onclick = (clicked) => {
+  pubsub.publish("new-current-page", clicked.target);
+  pubsub.publish("today-project-btn-click", clicked.target);
+}
+
+const importantProjectBtn = document.querySelector("#important");
+importantProjectBtn.onclick = (clicked) => {
+  pubsub.publish("new-current-page", clicked.target);
+  pubsub.publish("important-project-btn-click", clicked.target);
+}
+
+
 
 // function getNoteInput(btn) {
 //   let card = btn.parentNode.parentNode.parentNode;

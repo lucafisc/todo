@@ -167,7 +167,7 @@ function getItems(card) {
   };
 }
 
-function getCurrentPage() {
+export const getCurrentPage = () => {
   let page = document.getElementById("header").getAttribute("data-page");
   return page;
 }

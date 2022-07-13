@@ -1,0 +1,44 @@
+.sidebar {
+    padding: 30px;
+}
+
+.menu-container {
+    display: flex;
+    padding: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    border: 1px solid hsl(241deg 10% 98%);
+    border-radius: 10px;
+}
+
+.menu-container:hover,
+.current-project {
+    background-color: white;
+    border: 1px solid var(--gray-color);    
+}
+
+.menu-container:active {
+   box-shadow:  var(--default-shadow);
+}
+
+.project-icon {
+ margin-right: 10px;
+}
+
+#inbox-icon {
+    color: var(--main-color);
+}
+
+#today-icon {
+    color: var(--opposite-color);
+}
+
+#flag-icon {
+    color: var(--flag-color);
+}
+
+.project-title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}

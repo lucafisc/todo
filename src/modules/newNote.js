@@ -59,6 +59,7 @@ export const newNote = (props) => {
   saveBtn.classList.add("save");
   trashBtn.classList.add("trash");
   inputProject.classList.add("input-project");
+  itemProject.classList.add("item-project");
   projectContainer.classList.add("project-container");
   toolbar.classList.add("toolbar");
 

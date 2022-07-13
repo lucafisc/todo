@@ -11,32 +11,46 @@
 <body>
     <div class="content">
         <nav class="sidebar">
-            <h1>Inbox</h1>
+            <div id="inbox" class="menu-container">
+                <i id="inbox-icon" class="fa-solid fa-inbox project-icon"> </i>
+                <h4 class="project-title">Inbox</h4>
+                <h4 class="project-unchecked"></h4>
+            </div>
+            <div id="today" class="menu-container">
+                <i id="today-icon" class="fa-solid fa-calendar-day project-icon"></i>
+                <h4 class="project-title">Today</h4>
+                <h4 class="project-unchecked"></h4>
+            </div>
+            <div id="important" class="menu-container">
+                <i id="flag-icon" class="fa-solid fa-flag project-icon"></i>
+                <h4 class="project-title">Important</h4>
+                <h4 class="project-unchecked"></h4>
+            </div>
             <button id="new-project" class="new-project">new project</button>
         </nav>
         <main>
-        <div id="header" class="header" data-page= "inbox">
-            <div class="main">
-            <div class="hamburger"></div>
-            <h1 class="title">Inbox</h1>
-        </div>
-            <div id="set-theme" class="settings">
-                <div id="theme-1" class="theme current-theme"></div>
-                <div id="theme-2" class="theme"></div>
-                <div id="theme-3" class="theme"></div>
- 
+            <div id="header" class="header" data-page="inbox">
+                <div class="main">
+                    <div class="hamburger"></div>
+                    <h1 class="title">Inbox</h1>
+                </div>
+                <div id="set-theme" class="settings">
+                    <div id="theme-1" class="theme current-theme"></div>
+                    <div id="theme-2" class="theme"></div>
+                    <div id="theme-3" class="theme"></div>
 
+
+                </div>
             </div>
-        </div>
-        <div id="list" class="list">
-
-    
+            <div id="list" class="list">
 
 
 
-            <button id="new-note" class="new-note"></button>
-        </div>
-    </main>
+
+
+                <button id="new-note" class="new-note"></button>
+            </div>
+        </main>
     </div>
 </body>
 

@@ -277,22 +277,34 @@
     min-width: 70px;
 }
 
-.projectContainer {}
 
+.item-project,
 .input-project {
-    appearance: none;
-    color: var(--opposite-color);
-    background-color: var(--opposite-color-lighter);
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 0.8rem;
     text-align: center;
     padding: 5px;
-    margin-right: 10px;
-    margin-top: 5px;
-    border: 1px solid var(--opposite-color);
+    margin: 5px 10px;
+    margin-right: 0;
     border-radius: 5px;
     white-space: nowrap;
+}
+
+.item-project {
+    color: var(--flag-color);
+    background-color: var(--secondary-color);
+    border: 1px solid var(--flag-color);
+
+}
+
+.input-project {
+    appearance: none;
+    color: var(--opposite-color);
+    background-color: var(--opposite-color-lighter);
+    border: 1px solid var(--opposite-color);
+
+    
 }
 
 

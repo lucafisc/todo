@@ -2,6 +2,7 @@ import "./styles/main.css";
 import "./styles/nav.css";
 import "./styles/list-items.css";
 import "./styles/form.css";
+import "./styles/projects.css";
 import { pubsub } from "./modules/pubsub.js";
 import { domControl } from "./modules/dom.js";
 import { data } from "./modules/data.js"
@@ -10,13 +11,11 @@ import "@fortawesome/fontawesome-free/css/all.css";
 
 //on load
 window.onload = function() {
+  data();
+  domControl();
   pubsub.publish("on-load");
 }
 
-pubsub.subscribe("on-load", () => {
-domControl();
-data();
-});
 
 const colorControl = (() => {
     let root = document.documentElement;
