@@ -1,9 +1,9 @@
 import { pubsub } from "./pubsub.js";
 import { newNote, newInputTag } from "./newNote.js";
-import { todoStorage } from "./todo-object.js";
+import { tagStorage, todoStorage } from "./todo-object.js";
 import { doc } from "prettier";
 import {parseISO, isToday } from "date-fns";
-import { getCurrentPage } from "./data.js"
+import { getCurrentPage, isTagInUse } from "./data.js"
 
 
 
@@ -12,7 +12,6 @@ export const domControl = () => {
 
   //dom loop on load and retrieve localStorage
   pubsub.subscribe("on-load", () => {
-    console.log("onload")
     let page = "inbox";
     for (let i = 0; i < localStorage.length; i++) {
       let storedItem = JSON.parse(window.localStorage.getItem(i));
@@ -25,7 +24,6 @@ export const domControl = () => {
   pubsub.subscribe("on-load", () => {
   let inboxProject = document.querySelector("#inbox");
   inboxProject.classList.add("current-project");  
-    console.log(inboxProject)
 });
 
   //dom loop
@@ -67,6 +65,7 @@ export const domControl = () => {
       for (let i=0; i<pages.length; i++) {
         pages[i].classList.remove("current-project");
       }
+    
       container.classList.add("current-project");
     })
 
@@ -99,16 +98,18 @@ export const domControl = () => {
   //input tag keydown event
   pubsub.subscribe("input-tag-keydown", ([key, tag]) => {
     if (key === "Enter" || key === "Tab" || key === " ") {
-      pubsub.publish("new-tag", [key, tag]);
+      if (tag.textContent === "" || isTagInUse(tag)) {
+        return
+      }
+      else {
+      pubsub.publish("new-tag", tag);
+      }
     }
   });
 
   //new tag
-  pubsub.subscribe("new-tag", ([key, tag]) => {
-    if (tag.textContent === "") {
-      console.log("returned");
-      return;
-    } else {
+  pubsub.subscribe("new-tag", (tag) => {
+   
       tag.contentEditable = false;
       tag.classList.remove("input-tag");
       tag.classList.add("item-tag");
@@ -117,7 +118,7 @@ export const domControl = () => {
       let tagContainer = tag.parentNode;
       tagContainer.append(newInput);
       newInput.focus();
-    }
+    
   });
 
   //remove tag event

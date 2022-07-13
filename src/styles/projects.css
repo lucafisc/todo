@@ -42,3 +42,30 @@
     font-weight: 400;
     font-size: 1rem;
 }
+
+.menu-divider {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+
+}
+
+.divider-title {
+    margin-left: 38px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+}
+.divider-btn{
+    background-color: hsl(241deg 10% 98%);
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+
+}
+
+.divider-btn::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\2b";
+}

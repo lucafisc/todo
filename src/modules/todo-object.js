@@ -5,7 +5,7 @@ export const todoFactory = ({
   date = "",
   flagged = false,
   description = "",
-  tags = "",
+  tags = [""],
   project = "inbox",
   data = "",
   type = "form",
@@ -25,6 +25,8 @@ export const todoFactory = ({
 };
 
 export let todoStorage = [];
+
+export let tagStorage = [];
 
 export const updateStorage = (newArray) => {
   todoStorage = newArray;

@@ -4,6 +4,7 @@ import {
   todoStorage,
   updateStorage,
   updateTodo,
+  tagStorage,
 } from "./todo-object.js";
 import { v4 as uuidv4 } from "uuid";
 
@@ -23,9 +24,9 @@ export const data = () => {
     } else if (newNote) {
       todoStorage.push(newNote);
     }
-    
+
     pubsub.publish("local-store");
-    pubsub.publish("dom-loop", (getCurrentPage()) );
+    pubsub.publish("dom-loop", getCurrentPage());
   });
 
   //local storate
@@ -42,6 +43,8 @@ export const data = () => {
       data: uuidv4(),
     });
     pubsub.publish("update-todos", [undefined, undefined, newNote]);
+    console.log(todoStorage)
+
   });
 
   //update todo info event
@@ -78,28 +81,43 @@ export const data = () => {
     });
     updateStorage(newArray);
     let rules = "todoStorage[i].project === page";
-    pubsub.publish("dom-loop", (getCurrentPage()));
+    pubsub.publish("dom-loop", getCurrentPage());
     pubsub.publish("local-store");
   });
 
   //item tag click event
   pubsub.subscribe("item-tag-click", (tag) => {
-   let card = tag.parentNode.parentNode.parentNode.parentNode;
-   if (card.classList.contains("todo") || tag.classList.contains("input-tag")) {
-    return
-   } else {
-    pubsub.publish("remove-tag", [card, tag,]);
-   }
-  })
+    let card = tag.parentNode.parentNode.parentNode.parentNode;
+    if (
+      card.classList.contains("todo") ||
+      tag.classList.contains("input-tag")
+    ) {
+      return;
+    } else {
+      pubsub.publish("remove-tag", [card, tag]);
+    }
+  });
 
   //remove tag event
-  pubsub.subscribe("remove-tag", ([card, tag,]) => {
+  pubsub.subscribe("remove-tag", ([card, tag]) => {
     let key = getKey(card);
     let index = todoStorage.findIndex((i) => i.data === key);
     let input = getNoteInput(card, key);
-    console.log(todoStorage[index].tags)
-  })
-  
+  });
+
+  //create new tag
+  pubsub.subscribe("new-tag", (tag) => {
+    let tagName = tag.textContent;
+    if (!tagStorage.includes(tagName)) {
+      tagStorage.push(tagName);
+    }
+    let card = tag.parentNode.parentNode.parentNode.parentNode;
+    let key = getKey(card);
+    let index = todoStorage.findIndex((i) => i.data === key);
+    console.log(todoStorage[index].tags);
+    todoStorage[index].tags.push(tag.textContent);
+    pubsub.publish("update-tags", tagStorage);
+  });
 };
 
 function getItemByIndex(key) {
@@ -156,18 +174,30 @@ function getItems(card) {
   let inputDate = card.querySelector(".input-date");
   let inputFlag = card.querySelector(".input-flag");
   let inputTags = card.querySelectorAll(".item-tag");
-  let inputProject = card.querySelector(".input-project")
+  let inputProject = card.querySelector(".input-project");
   return {
     inputTitle,
     inputDescription,
     inputDate,
     inputFlag,
     inputTags,
-    inputProject
+    inputProject,
   };
 }
 
 export const getCurrentPage = () => {
   let page = document.getElementById("header").getAttribute("data-page");
   return page;
-}
+};
+
+export const isTagInUse = (tag) => {
+  let card = tag.parentNode.parentNode.parentNode.parentNode;
+  let key = getKey(card);
+  let index = todoStorage.findIndex((i) => i.data === key);
+  if (todoStorage[index].tags.includes(tag.textContent)) {
+    return true
+  }
+  else {
+    return false
+  };
+};
