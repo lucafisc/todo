@@ -11,27 +11,27 @@ import { newTagProject } from "./newProject.js";
 export const domControl = () => {
   const list = document.getElementById("list");
 
-  //dom loop on load and retrieve localStorage
-  pubsub.subscribe("on-load", () => {
-    let page = "inbox";
-    for (let i = 0; i < localStorage.length; i++) {
-      let storedItem = JSON.parse(window.localStorage.getItem("todo" + i));
-      if (storedItem !== null && storedItem.project === page) {
-        list.prepend(newNote(storedItem));
-      }
-    }
-  });
-
-  pubsub.subscribe("on-load", () => {
-  let inboxProject = document.querySelector("#inbox");
-  inboxProject.classList.add("current-project");  
-});
+  // //dom loop on load and retrieve localStorage
+  // pubsub.subscribe("on-load", () => {
+  //   let page = "inbox";
+  //   for (let i = 0; i < localStorage.length; i++) {
+  //     let storedItem = JSON.parse(window.localStorage.getItem("todo" + i));
+  //     if (storedItem !== null && storedItem.project === page) {
+  //       list.prepend(newNote(storedItem));
+  //     }
+  //   }
+  // });
 
   //dom loop
   pubsub.subscribe("dom-loop", (page) => {
+    console.log( "hi")
+    console.log(todoStorage);
+
     let rule = '[data-name="card"]'
     removeAllCards(list, rule);
     for (let i = 0; i < todoStorage.length; i++) {
+      console.log(todoStorage[i]);
+
       if (todoStorage[i].project === page) {
         list.prepend(newNote(todoStorage[i]));
       }
@@ -68,6 +68,7 @@ export const domControl = () => {
       let pageTitle = document.querySelector("#page-title");
       let title = container.getElementsByTagName('h4')[0];
       pageTitle.textContent = title.textContent;
+      pageTitle.setAttribute("data-page", pageTitle.textContent.toLowerCase());
       let pages = document.querySelectorAll(".menu-container");
       for (let i=0; i<pages.length; i++) {
         pages[i].classList.remove("current-project");

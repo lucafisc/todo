@@ -11,11 +11,9 @@ import { v4 as uuidv4 } from "uuid";
 export const data = () => {
   //on load
   pubsub.subscribe("on-load", () => {
-    for (let i = 0; i < localStorage.length; i++) {
-      let storedItem = JSON.parse(window.localStorage.getItem("todo" + i));
-      if (storedItem !== null) {
-      todoStorage.push(storedItem)};
-    }
+    retrieveFromLocalStorage("todo");
+    retrieveFromLocalStorage("tag");
+    pubsub.publish("dom-loop", getCurrentPage());
   });
 
   //update event
@@ -43,8 +41,6 @@ export const data = () => {
       data: uuidv4(),
     });
     pubsub.publish("update-todos", [undefined, undefined, newNote]);
-    console.log(todoStorage)
-
   });
 
   //update todo info event
@@ -79,7 +75,7 @@ export const data = () => {
     let newArray = todoStorage.filter(function (item) {
       return item.data !== key;
     });
-    updateStorage(newArray);
+    updateStorage("todo", newArray);
     let rules = "todoStorage[i].project === page";
     pubsub.publish("dom-loop", getCurrentPage());
     pubsub.publish("local-store");
@@ -121,10 +117,13 @@ export const data = () => {
   });
 };
 
+function retrieveFromLocalStorage(key) {
+let stored = JSON.parse(window.localStorage.getItem(key));
+updateStorage(key, stored);
+}
+
 function addToLocalStorage(array, key) {
-  for (let i = 0; i < array.length; i++) {
-    localStorage.setItem((key + i), JSON.stringify(array[i]));
-  }
+  localStorage.setItem(key, JSON.stringify(array));
 }
 
 function getItemByIndex(key) {
@@ -193,7 +192,8 @@ function getItems(card) {
 }
 
 export const getCurrentPage = () => {
-  let page = document.getElementById("header").getAttribute("data-page");
+  let pageTitle = document.querySelector("#page-title");
+  let page = pageTitle.getAttribute("data-page");
   return page;
 };
 

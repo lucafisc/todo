@@ -28,8 +28,16 @@ export let todoStorage = [];
 
 export let tagStorage = [];
 
-export const updateStorage = (newArray) => {
-  todoStorage = newArray;
+export const updateStorage = (key, newArray) => {
+  switch (key) {
+    case "todo":
+      todoStorage = newArray;
+      break;
+    case "tag":
+      tagStorage = newArray;
+      break;
+  }
+
 };
 
 export const updateTodo = (index, input) => {
