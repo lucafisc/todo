@@ -11,26 +11,24 @@ import { newTagProject } from "./newProject.js";
 export const domControl = () => {
   const list = document.getElementById("list");
 
-  //dom loop
+  //list loop page/project
   pubsub.subscribe("update-list", (page) => {
-    console.log( "hi")
-    console.log(todoStorage);
 
     let rule = '[data-name="card"]'
     removeAllCards(list, rule);
-    for (let i = 0; i < todoStorage.length; i++) {
-      console.log(todoStorage[i]);
 
+    for (let i = 0; i < todoStorage.length; i++) {
       if (todoStorage[i].project === page) {
         list.prepend(newNote(todoStorage[i]));
       }
     }
   });
 
-  //dom loop flagged
+  //list loop flagged
   pubsub.subscribe("important-project-btn-click", (btn) => {
     let rule = '[data-name="card"]'
     removeAllCards(list, rule);
+
     for (let i = 0; i < todoStorage.length; i++) {
       if (todoStorage[i].flagged === true) {
         list.prepend(newNote(todoStorage[i]));
@@ -38,7 +36,7 @@ export const domControl = () => {
     }
   )
 
-  //dom loop today
+  //list loop today
   pubsub.subscribe("today-project-btn-click", (btn) => {
     let rule = '[data-name="card"]'
     removeAllCards(list, rule);
@@ -52,13 +50,40 @@ export const domControl = () => {
     }
   )
 
+  //list loop tag
+  pubsub.subscribe("side-bar-tag-click", (container) => {
+    let rule = '[data-name="card"]'
+    removeAllCards(list, rule);
+    let title = container.getElementsByTagName('h4')[0];
+    let tag = title.textContent;
+
+    for (let i = 0; i < todoStorage.length; i++) {
+      if (todoStorage[i].tags.includes(tag)) {
+        list.prepend(newNote(todoStorage[i]));
+      }}
+
+    
+  })
+
+    // tag list loop
+    pubsub.subscribe("update-tags", () => {
+      const tagsList = document.querySelector("#tags-list");
+      let rule = ".tag-project-container"
+      removeAllCards(tagsList, rule);
+      for (let i=0; i<tagStorage.length; i++) {
+        let name = tagStorage[i];
+        tagsList.append(newTagProject(name));
+      }
+    })
+
     //current page event
     pubsub.subscribe("new-current-page", (container) => {
       let pageTitle = document.querySelector("#page-title");
       let title = container.getElementsByTagName('h4')[0];
       pageTitle.textContent = title.textContent;
       pageTitle.setAttribute("data-page", pageTitle.textContent.toLowerCase());
-      let pages = document.querySelectorAll(".menu-container");
+
+      let pages = document.querySelectorAll(".menu-container, .tag-project-container, .project-title-container");
       for (let i=0; i<pages.length; i++) {
         pages[i].classList.remove("current-project");
       }
@@ -119,17 +144,6 @@ export const domControl = () => {
   pubsub.subscribe("remove-tag", ([card, tag]) => {
     tag.remove();
   });
-
-  //render tag list
-  pubsub.subscribe("update-tags", () => {
-    const tagsList = document.querySelector("#tags-list");
-    let rule = ".tag-project-container"
-    removeAllCards(tagsList, rule);
-    for (let i=0; i<tagStorage.length; i++) {
-      let name = tagStorage[i];
-      tagsList.append(newTagProject(name));
-    }
-  })
 
   //item container click event
   pubsub.subscribe("item-container-click", (header) => {

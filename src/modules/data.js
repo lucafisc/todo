@@ -111,7 +111,6 @@ export const data = () => {
     let card = tag.parentNode.parentNode.parentNode.parentNode;
     let key = getKey(card);
     let index = todoStorage.findIndex((i) => i.data === key);
-    console.log(todoStorage[index].tags);
     todoStorage[index].tags.push(tag.textContent);
     pubsub.publish("update-tags");
     pubsub.publish("local-store");
@@ -195,6 +194,7 @@ function getItems(card) {
 export const getCurrentPage = () => {
   let pageTitle = document.querySelector("#page-title");
   let page = pageTitle.getAttribute("data-page");
+  console.log(page);
   return page;
 };
 
