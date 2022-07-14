@@ -13,7 +13,9 @@ export const data = () => {
   pubsub.subscribe("on-load", () => {
     retrieveFromLocalStorage("todo");
     retrieveFromLocalStorage("tag");
-    pubsub.publish("dom-loop", getCurrentPage());
+    pubsub.publish("update-list", getCurrentPage());
+    pubsub.publish("update-tags");
+
   });
 
   //update event
@@ -23,9 +25,8 @@ export const data = () => {
     } else if (newNote) {
       todoStorage.push(newNote);
     }
-
     pubsub.publish("local-store");
-    pubsub.publish("dom-loop", getCurrentPage());
+    pubsub.publish("update-list", getCurrentPage());
   });
 
   //local storate
@@ -77,7 +78,7 @@ export const data = () => {
     });
     updateStorage("todo", newArray);
     let rules = "todoStorage[i].project === page";
-    pubsub.publish("dom-loop", getCurrentPage());
+    pubsub.publish("update-list", getCurrentPage());
     pubsub.publish("local-store");
   });
 
@@ -112,7 +113,7 @@ export const data = () => {
     let index = todoStorage.findIndex((i) => i.data === key);
     console.log(todoStorage[index].tags);
     todoStorage[index].tags.push(tag.textContent);
-    pubsub.publish("update-tags", tagStorage);
+    pubsub.publish("update-tags");
     pubsub.publish("local-store");
   });
 };

@@ -11,19 +11,8 @@ import { newTagProject } from "./newProject.js";
 export const domControl = () => {
   const list = document.getElementById("list");
 
-  // //dom loop on load and retrieve localStorage
-  // pubsub.subscribe("on-load", () => {
-  //   let page = "inbox";
-  //   for (let i = 0; i < localStorage.length; i++) {
-  //     let storedItem = JSON.parse(window.localStorage.getItem("todo" + i));
-  //     if (storedItem !== null && storedItem.project === page) {
-  //       list.prepend(newNote(storedItem));
-  //     }
-  //   }
-  // });
-
   //dom loop
-  pubsub.subscribe("dom-loop", (page) => {
+  pubsub.subscribe("update-list", (page) => {
     console.log( "hi")
     console.log(todoStorage);
 
@@ -73,7 +62,6 @@ export const domControl = () => {
       for (let i=0; i<pages.length; i++) {
         pages[i].classList.remove("current-project");
       }
-    
       container.classList.add("current-project");
     })
 
@@ -117,7 +105,6 @@ export const domControl = () => {
 
   //new tag
   pubsub.subscribe("new-tag", (tag) => {
-   
       tag.contentEditable = false;
       tag.classList.remove("input-tag");
       tag.classList.add("item-tag");
@@ -126,7 +113,6 @@ export const domControl = () => {
       let tagContainer = tag.parentNode;
       tagContainer.append(newInput);
       newInput.focus();
-    
   });
 
   //remove tag event
@@ -135,7 +121,7 @@ export const domControl = () => {
   });
 
   //render tag list
-  pubsub.subscribe("update-tags",(tagStorage) => {
+  pubsub.subscribe("update-tags", () => {
     const tagsList = document.querySelector("#tags-list");
     let rule = ".tag-project-container"
     removeAllCards(tagsList, rule);
@@ -190,7 +176,7 @@ newNoteBtn.onclick = (clicked) => {
 const inboxProjectBtn = document.querySelector("#inbox");
 inboxProjectBtn.onclick = (clicked) => {
   pubsub.publish("new-current-page", clicked.target);
-  pubsub.publish("dom-loop", getCurrentPage());
+  pubsub.publish("update-list", getCurrentPage());
 
 }
 
