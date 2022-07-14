@@ -3,7 +3,8 @@ import { newNote, newInputTag } from "./newNote.js";
 import { tagStorage, todoStorage } from "./todo-object.js";
 import { doc } from "prettier";
 import {parseISO, isToday } from "date-fns";
-import { getCurrentPage, isTagInUse } from "./data.js"
+import { getCurrentPage, isTagInUse } from "./data.js";
+import { newTagProject } from "./newProject.js";
 
 
 
@@ -14,8 +15,8 @@ export const domControl = () => {
   pubsub.subscribe("on-load", () => {
     let page = "inbox";
     for (let i = 0; i < localStorage.length; i++) {
-      let storedItem = JSON.parse(window.localStorage.getItem(i));
-      if (storedItem.project === page) {
+      let storedItem = JSON.parse(window.localStorage.getItem("todo" + i));
+      if (storedItem !== null && storedItem.project === page) {
         list.prepend(newNote(storedItem));
       }
     }
@@ -28,7 +29,8 @@ export const domControl = () => {
 
   //dom loop
   pubsub.subscribe("dom-loop", (page) => {
-    removeAllCards(list);
+    let rule = '[data-name="card"]'
+    removeAllCards(list, rule);
     for (let i = 0; i < todoStorage.length; i++) {
       if (todoStorage[i].project === page) {
         list.prepend(newNote(todoStorage[i]));
@@ -38,7 +40,8 @@ export const domControl = () => {
 
   //dom loop flagged
   pubsub.subscribe("important-project-btn-click", (btn) => {
-    removeAllCards(list);
+    let rule = '[data-name="card"]'
+    removeAllCards(list, rule);
     for (let i = 0; i < todoStorage.length; i++) {
       if (todoStorage[i].flagged === true) {
         list.prepend(newNote(todoStorage[i]));
@@ -48,7 +51,8 @@ export const domControl = () => {
 
   //dom loop today
   pubsub.subscribe("today-project-btn-click", (btn) => {
-    removeAllCards(list);
+    let rule = '[data-name="card"]'
+    removeAllCards(list, rule);
     for (let i = 0; i < todoStorage.length; i++) {
       let date = parseISO(todoStorage[i].date);
       if (isToday(date)) {
@@ -61,6 +65,9 @@ export const domControl = () => {
 
     //current page event
     pubsub.subscribe("new-current-page", (container) => {
+      let pageTitle = document.querySelector("#page-title");
+      let title = container.getElementsByTagName('h4')[0];
+      pageTitle.textContent = title.textContent;
       let pages = document.querySelectorAll(".menu-container");
       for (let i=0; i<pages.length; i++) {
         pages[i].classList.remove("current-project");
@@ -126,6 +133,17 @@ export const domControl = () => {
     tag.remove();
   });
 
+  //render tag list
+  pubsub.subscribe("update-tags",(tagStorage) => {
+    const tagsList = document.querySelector("#tags-list");
+    let rule = ".tag-project-container"
+    removeAllCards(tagsList, rule);
+    for (let i=0; i<tagStorage.length; i++) {
+      let name = tagStorage[i];
+      tagsList.append(newTagProject(name));
+    }
+  })
+
   //item container click event
   pubsub.subscribe("item-container-click", (header) => {
     if (header.parentNode.classList.contains("form")) {
@@ -143,8 +161,8 @@ export const domControl = () => {
   });
 };
 
-function removeAllCards(list) {
-  let cards = list.querySelectorAll('[data-name="card"]');
+function removeAllCards(list, rule) {
+  let cards = list.querySelectorAll(rule);
   for (let i = 0; i < cards.length; i++) {
     cards[i].remove();
   }
@@ -167,11 +185,6 @@ const newNoteBtn = document.querySelector("#new-note");
 newNoteBtn.onclick = (clicked) => {
   pubsub.publish("new-note-btn-click", clicked.target);
 };
-
-const newProjectBtn = document.querySelector("#new-project");
-newProjectBtn.onclick = (clicked) => {
-  pubsub.publish("new-project-btn-click", clicked.target);
-}
 
 const inboxProjectBtn = document.querySelector("#inbox");
 inboxProjectBtn.onclick = (clicked) => {

@@ -12,8 +12,9 @@ export const data = () => {
   //on load
   pubsub.subscribe("on-load", () => {
     for (let i = 0; i < localStorage.length; i++) {
-      let storedItem = JSON.parse(window.localStorage.getItem(i));
-      todoStorage.push(storedItem);
+      let storedItem = JSON.parse(window.localStorage.getItem("todo" + i));
+      if (storedItem !== null) {
+      todoStorage.push(storedItem)};
     }
   });
 
@@ -32,9 +33,8 @@ export const data = () => {
   //local storate
   pubsub.subscribe("local-store", () => {
     localStorage.clear();
-    for (let i = 0; i < todoStorage.length; i++) {
-      localStorage.setItem([i], JSON.stringify(todoStorage[i]));
-    }
+    addToLocalStorage(todoStorage,"todo");
+    addToLocalStorage(tagStorage,"tag");
   });
 
   //new note event
@@ -117,8 +117,15 @@ export const data = () => {
     console.log(todoStorage[index].tags);
     todoStorage[index].tags.push(tag.textContent);
     pubsub.publish("update-tags", tagStorage);
+    pubsub.publish("local-store");
   });
 };
+
+function addToLocalStorage(array, key) {
+  for (let i = 0; i < array.length; i++) {
+    localStorage.setItem((key + i), JSON.stringify(array[i]));
+  }
+}
 
 function getItemByIndex(key) {
   let index = todoStorage.findIndex((i) => i.data === key);
