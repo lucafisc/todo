@@ -16,17 +16,17 @@
 .tag-project-container:hover,
 .current-project {
     background-color: white;
-    border: 1px solid var(--gray-color);    
+    border: 1px solid var(--gray-color);
 }
 
 .menu-container:active,
 .tag-project-container:active {
-   box-shadow:  var(--default-shadow);
+    box-shadow: var(--default-shadow);
 }
 
 .project-icon,
 .tag-icon {
- margin-right: 10px;
+    margin-right: 10px;
 }
 
 #inbox-icon {
@@ -43,7 +43,7 @@
 
 .project-title,
 .tag-title {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-size: 1rem;
 }
@@ -52,21 +52,20 @@
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
-
 }
 
 .divider-title {
     margin-left: 38px;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-size: 1rem;
 }
-.divider-btn{
+
+.divider-btn {
     background-color: hsl(241deg 10% 98%);
     border: none;
     cursor: pointer;
     padding: 5px;
-
 }
 
 .divider-btn::before {
@@ -75,13 +74,8 @@
     content: "\2b";
 }
 
-
-
 .tag-icon {
     color: var(--flag-color);
-
 }
 
-.tag-title {
-    
-}
+.tag-title {}

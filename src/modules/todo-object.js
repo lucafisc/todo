@@ -9,24 +9,22 @@ export const todoFactory = ({
   project = "inbox",
   data = "",
   type = "form",
-  checked = false
-}) => {
-  return {
-    title,
-    date,
-    flagged,
-    description,
-    tags,
-    project,
-    data,
-    type,
-    checked
-  };
-};
+  checked = false,
+}) => ({
+  title,
+  date,
+  flagged,
+  description,
+  tags,
+  project,
+  data,
+  type,
+  checked,
+});
 
 export let todoStorage = [];
-
 export let tagStorage = [];
+export const projectStorage = [];
 
 export const updateStorage = (key, newArray) => {
   switch (key) {
@@ -37,7 +35,6 @@ export const updateStorage = (key, newArray) => {
       tagStorage = newArray;
       break;
   }
-
 };
 
 export const updateTodo = (index, input) => {

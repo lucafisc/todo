@@ -1,64 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="content">
-        <nav class="sidebar">
-            <div id="inbox" class="menu-container current-project">
-                <i id="inbox-icon" class="fa-solid fa-inbox project-icon"> </i>
-                <h4 class="project-title">Inbox</h4>
-                <h4 class="project-unchecked"></h4>
-            </div>
-            <div id="today" class="menu-container">
-                <i id="today-icon" class="fa-solid fa-calendar-day project-icon"></i>
-                <h4 class="project-title">Today</h4>
-                <h4 class="project-unchecked"></h4>
-            </div>
-            <div id="important" class="menu-container">
-                <i id="flag-icon" class="fa-solid fa-flag project-icon"></i>
-                <h4 class="project-title">Important</h4>
-                <h4 class="project-unchecked"></h4>
-            </div>
-            <div class="menu-divider">
-                <h4 class="divider-title">Projects</h4>
-                <button class="divider-btn"></button>
-            </div>
-            <div class="menu-divider">
-                <h4 class="divider-title">Tags</h4>
-            </div>
-            <div id="tags-list"></div>
-        </nav>
-        <main>
-            <div id="header" class="header">
-                <div class="main">
-                    <div class="hamburger"></div>
-                    <h1 id="page-title" class="title" data-page="inbox">Inbox</h1>
-                </div>
-                <div id="set-theme" class="settings">
-                    <div id="theme-1" class="theme current-theme"></div>
-                    <div id="theme-2" class="theme"></div>
-                    <div id="theme-3" class="theme"></div>
-
-
-                </div>
-            </div>
-            <div id="list" class="list">
-
-
-
-
-
-                <button id="new-note" class="new-note"></button>
-            </div>
-        </main>
+      <nav class="sidebar">
+        <div id="inbox" class="menu-container current-project">
+          <i id="inbox-icon" class="fa-solid fa-inbox project-icon"> </i>
+          <h4 class="project-title">Inbox</h4>
+          <h4 class="project-unchecked"></h4>
+        </div>
+        <div id="today" class="menu-container">
+          <i id="today-icon" class="fa-solid fa-calendar-day project-icon"></i>
+          <h4 class="project-title">Today</h4>
+          <h4 class="project-unchecked"></h4>
+        </div>
+        <div id="important" class="menu-container">
+          <i id="flag-icon" class="fa-solid fa-flag project-icon"></i>
+          <h4 class="project-title">Important</h4>
+          <h4 class="project-unchecked"></h4>
+        </div>
+        <div class="menu-divider">
+          <h4 class="divider-title">Projects</h4>
+          <button id="new-project-btn" class="divider-btn"></button>
+        </div>
+        <div class="menu-divider">
+          <h4 class="divider-title">Tags</h4>
+        </div>
+        <div id="tags-list"></div>
+      </nav>
+      <main>
+        <div id="header" class="header">
+          <div class="main">
+            <div class="hamburger"></div>
+            <h1 id="page-title" class="title" data-page="inbox">Inbox</h1>
+          </div>
+          <div id="set-theme" class="settings">
+            <div id="theme-1" class="theme current-theme"></div>
+            <div id="theme-2" class="theme"></div>
+            <div id="theme-3" class="theme"></div>
+          </div>
+        </div>
+        <div id="list" class="list">
+          <button id="new-note" class="new-note"></button>
+        </div>
+      </main>
     </div>
-</body>
-
+  </body>
 </html>

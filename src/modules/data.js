@@ -1,4 +1,5 @@
-import { pubsub } from "./pubsub.js";
+import { v4 as uuidv4 } from "uuid";
+import { pubsub } from "./pubsub";
 import {
   todoFactory,
   todoStorage,
@@ -6,19 +7,17 @@ import {
   updateTodo,
   tagStorage,
 } from "./todo-object.js";
-import { v4 as uuidv4 } from "uuid";
 
 export const data = () => {
-  //on load
+  // on load
   pubsub.subscribe("on-load", () => {
     retrieveFromLocalStorage("todo");
     retrieveFromLocalStorage("tag");
     pubsub.publish("update-list", getCurrentPage());
     pubsub.publish("update-tags");
-
   });
 
-  //update event
+  // update event
   pubsub.subscribe("update-todos", ([index, input, newNote]) => {
     if (index > -1) {
       updateTodo(index, input);
@@ -29,88 +28,85 @@ export const data = () => {
     pubsub.publish("update-list", getCurrentPage());
   });
 
-  //local storate
+  // local storate
   pubsub.subscribe("local-store", () => {
     localStorage.clear();
-    addToLocalStorage(todoStorage,"todo");
-    addToLocalStorage(tagStorage,"tag");
+    addToLocalStorage(todoStorage, "todo");
+    addToLocalStorage(tagStorage, "tag");
   });
 
-  //new note event
+  // new note event
   pubsub.subscribe("new-note-btn-click", (btn) => {
-    let newNote = todoFactory({
+    const newNote = todoFactory({
       data: uuidv4(),
     });
     pubsub.publish("update-todos", [undefined, undefined, newNote]);
   });
 
-  //update todo info event
+  // update todo info event
   pubsub.subscribe("save-btn-click", (card) => {
-    let key = getKey(card);
-    let input = getNoteInput(card, key);
-    let index = todoStorage.findIndex((i) => i.data === key);
+    const key = getKey(card);
+    const input = getNoteInput(card, key);
+    const index = todoStorage.findIndex((i) => i.data === key);
     input.type = "todo";
     pubsub.publish("update-todos", [index, input, undefined]);
   });
 
-  //check/uncheck event
+  // check/uncheck event
   pubsub.subscribe("item-title-click", (card) => {
-    let key = getKey(card);
-    let input = getNoteInput(card, key);
-    let index = todoStorage.findIndex((i) => i.data === key);
+    const key = getKey(card);
+    const input = getNoteInput(card, key);
+    const index = todoStorage.findIndex((i) => i.data === key);
     input.checked === true ? (input.checked = false) : (input.checked = true);
 
     pubsub.publish("update-todos", [index, input, undefined]);
   });
 
-  //trash button event
+  // trash button event
   pubsub.subscribe("trash-btn-click", (card) => {
     if (confirm("Are you sure you want to delete this note?")) {
       pubsub.publish("delete-note", card);
     }
   });
 
-  //delete note event
+  // delete note event
   pubsub.subscribe("delete-note", (card) => {
-    let key = getKey(card);
-    let newArray = todoStorage.filter(function (item) {
-      return item.data !== key;
-    });
+    const key = getKey(card);
+    const newArray = todoStorage.filter((item) => item.data !== key);
     updateStorage("todo", newArray);
-    let rules = "todoStorage[i].project === page";
+    const rules = "todoStorage[i].project === page";
     pubsub.publish("update-list", getCurrentPage());
     pubsub.publish("local-store");
   });
 
-  //item tag click event
+  // item tag click event
   pubsub.subscribe("item-tag-click", (tag) => {
-    let card = tag.parentNode.parentNode.parentNode.parentNode;
+    const card = tag.parentNode.parentNode.parentNode.parentNode;
     if (
       card.classList.contains("todo") ||
       tag.classList.contains("input-tag")
     ) {
-      return;
     } else {
       pubsub.publish("remove-tag", [card, tag]);
     }
   });
 
-  //remove tag event
+  // remove tag event
   pubsub.subscribe("remove-tag", ([card, tag]) => {
-    let key = getKey(card);
-    let index = todoStorage.findIndex((i) => i.data === key);
-    let input = getNoteInput(card, key);
+    const key = getKey(card);
+    const index = todoStorage.findIndex((i) => i.data === key);
+    const input = getNoteInput(card, key);
   });
 
-  //create new tag
+  // create new tag
   pubsub.subscribe("new-tag", (tag) => {
-    let tagName = tag.textContent;
+    const tagName = tag.textContent;
     if (!tagStorage.includes(tagName)) {
       tagStorage.push(tagName);
     }
-    let card = tag.parentNode.parentNode.parentNode.parentNode;
-    let key = getKey(card);
-    let index = todoStorage.findIndex((i) => i.data === key);
+    const card = tag.parentNode.parentNode.parentNode.parentNode;
+    const key = getKey(card);
+    const index = todoStorage.findIndex((i) => i.data === key);
     todoStorage[index].tags.push(tag.textContent);
     pubsub.publish("update-tags");
     pubsub.publish("local-store");
@@ -118,8 +114,8 @@ export const data = () => {
 };
 
 function retrieveFromLocalStorage(key) {
-let stored = JSON.parse(window.localStorage.getItem(key));
-updateStorage(key, stored);
+  const stored = JSON.parse(window.localStorage.getItem(key));
+  updateStorage(key, stored);
 }
 
 function addToLocalStorage(array, key) {
@@ -127,40 +123,40 @@ function addToLocalStorage(array, key) {
 }
 
 function getItemByIndex(key) {
-  let index = todoStorage.findIndex((i) => i.data === key);
+  const index = todoStorage.findIndex((i) => i.data === key);
   return todoStorage[index];
 }
 
-//get card key
+// get card key
 function getKey(card) {
   return card.getAttribute("data-id");
 }
 
-//get input values
+// get input values
 function getNoteInput(card, key) {
-  let DomItems = getItems(card);
-  //title
-  let title = DomItems.inputTitle.textContent;
-  //date
-  let date = DomItems.inputDate.value;
-  //flag
+  const DomItems = getItems(card);
+  // title
+  const title = DomItems.inputTitle.textContent;
+  // date
+  const date = DomItems.inputDate.value;
+  // flag
   let flagged;
   DomItems.inputFlag.classList.contains("flagged")
     ? (flagged = true)
     : (flagged = false);
-  //description
-  let description = DomItems.inputDescription.value;
-  //tags
-  let tags = [];
+  // description
+  const description = DomItems.inputDescription.value;
+  // tags
+  const tags = [];
   for (let i = 0; i < DomItems.inputTags.length; i++) {
-    let name = DomItems.inputTags[i].textContent;
+    const name = DomItems.inputTags[i].textContent;
     tags.push(name);
   }
 
-  let project = DomItems.inputProject.value;
-  let itemInArray = getItemByIndex(key);
-  let checked = itemInArray.checked;
-  let data = key;
+  const project = DomItems.inputProject.value;
+  const itemInArray = getItemByIndex(key);
+  const { checked } = itemInArray;
+  const data = key;
 
   return {
     title,
@@ -175,12 +171,12 @@ function getNoteInput(card, key) {
 }
 
 function getItems(card) {
-  let inputTitle = card.querySelector(".input-title");
-  let inputDescription = card.querySelector(".input-description");
-  let inputDate = card.querySelector(".input-date");
-  let inputFlag = card.querySelector(".input-flag");
-  let inputTags = card.querySelectorAll(".item-tag");
-  let inputProject = card.querySelector(".input-project");
+  const inputTitle = card.querySelector(".input-title");
+  const inputDescription = card.querySelector(".input-description");
+  const inputDate = card.querySelector(".input-date");
+  const inputFlag = card.querySelector(".input-flag");
+  const inputTags = card.querySelectorAll(".item-tag");
+  const inputProject = card.querySelector(".input-project");
   return {
     inputTitle,
     inputDescription,
@@ -192,20 +188,19 @@ function getItems(card) {
 }
 
 export const getCurrentPage = () => {
-  let pageTitle = document.querySelector("#page-title");
-  let page = pageTitle.getAttribute("data-page");
+  const pageTitle = document.querySelector("#page-title");
+  const page = pageTitle.getAttribute("data-page");
   console.log(page);
   return page;
 };
 
 export const isTagInUse = (tag) => {
-  let card = tag.parentNode.parentNode.parentNode.parentNode;
-  let key = getKey(card);
-  let index = todoStorage.findIndex((i) => i.data === key);
+  const card = tag.parentNode.parentNode.parentNode.parentNode;
+  const key = getKey(card);
+  const index = todoStorage.findIndex((i) => i.data === key);
   if (todoStorage[index].tags.includes(tag.textContent)) {
-    return true
+    return true;
   }
-  else {
-    return false
-  };
+
+  return false;
 };

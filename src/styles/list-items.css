@@ -12,7 +12,6 @@
 
 .form {
     background-color: var(--opposite-color-lighter);
-
 }
 
 .item-container {
@@ -60,12 +59,9 @@
     content: "\f111";
 }
 
-
 .input-title::before {
     content: "\f057";
 }
-
-
 
 .btn-container {
     height: 40px;
@@ -87,7 +83,6 @@
     text-align: center;
     display: flex;
     align-items: center;
-
 }
 
 .input-flag {
@@ -106,7 +101,6 @@
 .input-flag::before {
     color: var(--gray-color);
 }
-
 
 .input-flag:hover::before,
 .flagged.input-flag::before {
@@ -129,7 +123,6 @@
     font-weight: 600;
     font-size: 0.8rem;
     padding: 0 10px;
-
 }
 
 .item-date::before {
@@ -138,7 +131,6 @@
     content: "\f133";
     padding-right: 8px;
 }
-
 
 /* edit, trash and save buttons */
 .edit,
@@ -170,7 +162,6 @@
     color: var(--font-color) !important;
 }
 
-
 .edit::before {
     content: "\f303";
 }
@@ -187,8 +178,6 @@
     font-size: 1.2rem;
     content: "\f00c";
 }
-
-
 
 /* item details */
 .item-details {
@@ -214,7 +203,7 @@
 .item-description,
 .input-description {
     white-space: pre-wrap !important;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-size: 1.2em;
     margin-top: 15px;
@@ -237,7 +226,7 @@
 .item-tag,
 .input-tag {
     background-color: var(--flag-color);
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-size: 0.8rem;
     text-align: center;
@@ -253,7 +242,6 @@
 .input-tag[contenteditable]:empty::before {
     content: "new tag";
 }
-
 
 .item-tag:hover,
 .input-tag:hover {
@@ -277,10 +265,9 @@
     min-width: 70px;
 }
 
-
 .item-project,
 .input-project {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-size: 0.8rem;
     text-align: center;
@@ -295,7 +282,6 @@
     color: var(--flag-color);
     background-color: var(--secondary-color);
     border: 1px solid var(--flag-color);
-
 }
 
 .input-project {
@@ -303,25 +289,19 @@
     color: var(--opposite-color);
     background-color: var(--opposite-color-lighter);
     border: 1px solid var(--opposite-color);
-
-    
 }
-
-
 
 /* form <-> list item */
 
 .form>.item-container>.item-title,
 .form>.item-container>.btn-container>.item-date,
 .form>.item-container>.btn-container>.edit,
-
 .form>.item-details>.item-description,
 .form>.item-details>.toolbar>.project-container>.item-project,
 .todo>.item-container>.input-title,
 .todo>.item-container>.btn-container>.input-flag,
 .todo>.item-container>.btn-container>.input-date,
 .todo>.item-container>.btn-container>.save,
-
 .todo>.item-details>.input-description,
 .todo>.item-details>.toolbar>.tag-container>.input-tag,
 .todo>.item-details>.toolbar>.project-container>.input-project {
@@ -354,14 +334,13 @@
     transition: var(--default-transition);
     cursor: pointer;
     overflow: hidden;
-    -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    -webkit-animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .new-note::before {
     content: "\f055";
     overflow: hidden;
-
 }
 
 .new-note:active {
@@ -377,7 +356,6 @@
 .form>.item-container {
     background-color: var(--opposite-color) !important;
 }
-
 
 .input-title {
     background-color: var(--opposite-color);
@@ -403,7 +381,6 @@
 
 .input-date:active {
     box-shadow: var(--default-shadow);
-
 }
 
 .input-description {
@@ -413,8 +390,6 @@
     background-color: var(--opposite-color-lighter);
     resize: none;
 }
-
-
 
 /* checked styles */
 .checked {
@@ -429,7 +404,6 @@
     color: var(--main-color);
     text-decoration: line-through !important;
 }
-
 
 .checked>.item-container>.item-title::before {
     color: var(--main-color);
@@ -454,5 +428,4 @@
 .checked>.item-container>.btn-container>.item-date {
     color: var(--font-color);
     background-color: var(--main-color);
-
 }

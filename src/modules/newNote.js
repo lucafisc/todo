@@ -1,9 +1,9 @@
 import { el } from "date-fns/locale";
 import { format, parseISO, isToday, isTomorrow } from "date-fns";
-import { pubsub } from "./pubsub.js";
+import { pubsub } from "./pubsub";
 
 export const newNote = (props) => {
-  //create elements
+  // create elements
   const container = document.createElement("section");
   const itemContainer = document.createElement("div");
   const itemTitle = document.createElement("h2");
@@ -29,7 +29,7 @@ export const newNote = (props) => {
   const projectOption1 = document.createElement("option");
   const projectOption2 = document.createElement("option");
 
-  //add classes
+  // add classes
   if (props.type === "form") {
     container.classList.add("form");
   } else {
@@ -63,7 +63,7 @@ export const newNote = (props) => {
   projectContainer.classList.add("project-container");
   toolbar.classList.add("toolbar");
 
-  //add ids
+  // add ids
   itemContainer.id = "item-container";
   itemTitle.id = "item-title";
   inputFlag.id = "input-flag";
@@ -72,7 +72,7 @@ export const newNote = (props) => {
   trashBtn.id = "trash";
   inputDescription.id = "input-description";
 
-  //add properties
+  // add properties
   inputTitle.contentEditable = true;
   inputDescription.contentEditable = true;
   inputDate.type = "date";
@@ -88,9 +88,9 @@ export const newNote = (props) => {
   projectOption2.textContent = "work";
   projectOption1.selected = true;
 
-  //format date
+  // format date
   if (props.date) {
-    let newDate = parseISO(props.date);
+    const newDate = parseISO(props.date);
     inputDate.value = props.date;
     itemDate.classList.remove("hidden");
     if (isToday(newDate)) {
@@ -111,7 +111,7 @@ export const newNote = (props) => {
   if (props.tags) {
     for (let i = 0; i < props.tags.length; i++) {
       if (props.tags[i] !== "") {
-        let tag = newInputTag("item");
+        const tag = newInputTag("item");
         tag.textContent = props.tags[i];
         tag.contentEditable = false;
 
@@ -120,48 +120,48 @@ export const newNote = (props) => {
     }
   }
 
-  //add event listeners
+  // add event listeners
 
-  //item title click
+  // item title click
   itemTitle.onclick = (clicked) => {
-    let card = clicked.target.parentNode.parentNode;
+    const card = clicked.target.parentNode.parentNode;
     pubsub.publish("item-title-click", card);
   };
 
-  //save button click
+  // save button click
   saveBtn.onclick = (clicked) => {
-    let card = clicked.target.parentNode.parentNode.parentNode;
+    const card = clicked.target.parentNode.parentNode.parentNode;
     pubsub.publish("save-btn-click", card);
   };
 
-  //edit button click
+  // edit button click
   editBtn.onclick = (clicked) => {
-    let card = clicked.target.parentNode.parentNode.parentNode;
+    const card = clicked.target.parentNode.parentNode.parentNode;
     pubsub.publish("edit-btn-click", card);
   };
 
-  //trash button click
+  // trash button click
   trashBtn.onclick = (clicked) => {
-    let card = clicked.target.parentNode.parentNode.parentNode;
+    const card = clicked.target.parentNode.parentNode.parentNode;
     pubsub.publish("trash-btn-click", card);
   };
 
-  //input flag click
+  // input flag click
   inputFlag.onclick = (clicked) => {
     pubsub.publish("input-flag-click", clicked.target);
   };
 
-  //item container click
+  // item container click
   itemContainer.onclick = (clicked) => {
     pubsub.publish("item-container-click", clicked.target);
   };
 
-  //input description keydown
-  inputDescription.addEventListener("keydown", (event => {
-    pubsub.publish("input-description-keydown", event.target)
-}));
+  // input description keydown
+  inputDescription.addEventListener("keydown", (event) => {
+    pubsub.publish("input-description-keydown", event.target);
+  });
 
-  //append elements
+  // append elements
   btnContainer.append(
     itemDate,
     inputDate,
@@ -191,8 +191,8 @@ export const newInputTag = (type) => {
     inputTag.classList.add("input-tag");
     inputTag.contentEditable = true;
     inputTag.addEventListener("keydown", (event) => {
-      let clicked = event.target;
-      let key = event.key;
+      const clicked = event.target;
+      const { key } = event;
       if (!key.match(/[a-zA-Z0-9,]/) || key === "Enter") {
         event.preventDefault();
       }

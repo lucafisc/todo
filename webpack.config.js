@@ -1,13 +1,13 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
 
 module.exports = {
-  mode: 'development',
+  mode: "development",
   devtool: "eval-source-map",
-  entry: './src/index.js',
+  entry: "./src/index.js",
   output: {
-    filename: 'main.[contenthash].js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: "main.[contenthash].js",
+    path: path.resolve(__dirname, "dist"),
     clean: true,
   },
   module: {
@@ -26,13 +26,15 @@ module.exports = {
           loader: "file-loader",
           options: {
             name: "[name].[hash].[ext]",
-            outputPath: "imgs"
-          }
-        }
-      }
+            outputPath: "imgs",
+          },
+        },
+      },
     ],
   },
-  plugins: [new HtmlWebpackPlugin({
-    template: "./src/template.html"
-  })],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./src/template.html",
+    }),
+  ],
 };
