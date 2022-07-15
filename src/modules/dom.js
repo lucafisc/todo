@@ -15,7 +15,7 @@ export const domControl = () => {
   const list = document.getElementById("list");
 
   // list loop page/project
-  pubsub.subscribe("update-list", (page) => {
+  pubsub.subscribe("update-list", () => {
     const rule = '[data-name="card"]';
     removeAllCards(list, rule);
     const condition = "Array[i].project === currentPage";
@@ -24,7 +24,7 @@ export const domControl = () => {
   });
 
   // list loop flagged
-  pubsub.subscribe("important-project-btn-click", (btn) => {
+  pubsub.subscribe("important-project-btn-click", () => {
     const rule = '[data-name="card"]';
     removeAllCards(list, rule);
     const condition = "Array[i].flagged === true";
@@ -33,7 +33,7 @@ export const domControl = () => {
   });
 
   // list loop today
-  pubsub.subscribe("today-project-btn-click", (btn) => {
+  pubsub.subscribe("today-project-btn-click", () => {
     const rule = '[data-name="card"]';
     removeAllCards(list, rule);
     for (let i = 0; i < todoStorage.length; i++) {
@@ -225,20 +225,20 @@ newNoteBtn.onclick = (clicked) => {
 const inboxProjectBtn = document.querySelector("#inbox");
 inboxProjectBtn.onclick = (clicked) => {
   pubsub.publish("new-current-page", clicked.target);
-  pubsub.publish("update-list", getCurrentPage());
+  pubsub.publish("update-list");
 };
 
 const todayProjectBtn = document.querySelector("#today");
 todayProjectBtn.onclick = (clicked) => {
   clicked.stopPropagation();
   pubsub.publish("new-current-page", clicked.target);
-  pubsub.publish("today-project-btn-click", clicked.target);
+  pubsub.publish("today-project-btn-click");
 };
 
 const importantProjectBtn = document.querySelector("#important");
 importantProjectBtn.onclick = (clicked) => {
   pubsub.publish("new-current-page", clicked.target);
-  pubsub.publish("important-project-btn-click", clicked.target);
+  pubsub.publish("important-project-btn-click");
 };
 
 const newProjectBtn = document.querySelector("#new-project-btn");

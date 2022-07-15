@@ -18,7 +18,7 @@ export const data = () => {
     if (!projectStorage.includes("inbox")) {
       projectStorage.push("inbox");
     }
-    pubsub.publish("update-list", getCurrentPage());
+    pubsub.publish("update-list");
     pubsub.publish("update-projects-tags");
   });
 
@@ -30,7 +30,7 @@ export const data = () => {
       todoStorage.push(newNote);
     }
     pubsub.publish("local-store");
-    pubsub.publish("update-list", getCurrentPage());
+    renderCorrectItems();
   });
 
   // local storate
@@ -92,8 +92,8 @@ export const data = () => {
     const newArray = todoStorage.filter((item) => item.data !== key);
     updateStorage("todo", newArray);
     const rules = "todoStorage[i].project === page";
-    pubsub.publish("update-list", getCurrentPage());
     pubsub.publish("local-store");
+    renderCorrectItems();
   });
 
   // item tag click event
@@ -129,6 +129,17 @@ export const data = () => {
     pubsub.publish("local-store");
   });
 };
+
+function renderCorrectItems() {
+  const page = getCurrentPage();
+  if (page === "today") {
+    pubsub.publish("today-project-btn-click");
+  } else if (page === "important") {
+    pubsub.publish("important-project-btn-click");
+  } else if (page === "inbox") {
+    pubsub.publish("update-list");
+  }
+}
 
 function retrieveFromLocalStorage(key) {
   const stored = JSON.parse(window.localStorage.getItem(key));
