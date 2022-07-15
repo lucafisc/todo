@@ -1,4 +1,5 @@
 import { pubsub } from "./pubsub";
+import { getKey, getNoteInput, todoStorage } from "./data";
 
 export const newProject = () => {
   // create elements
@@ -58,11 +59,19 @@ export const newTodoProject = (name) => {
   return container;
 };
 
-export const newSelectOption = (name) => {
+export const newSelectOption = (name, card) => {
   // eslint-disable-next-line prefer-const
   let option = document.createElement("option");
   option.classList.add("project-option");
   option.value = name;
   option.textContent = name;
+  console.log(card);
+
+  const key = getKey(card);
+  const input = getNoteInput(card, key);
+  if (input.project === name) {
+    option.selected = true;
+  }
+
   return option;
 };

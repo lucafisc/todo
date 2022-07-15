@@ -22,12 +22,9 @@ export const newNote = (props) => {
   const tagContainer = document.createElement("div");
   const inputTag = newInputTag("input");
   const toolbar = document.createElement("div");
-
   const projectContainer = document.createElement("div");
   const itemProject = document.createElement("div");
   const inputProject = document.createElement("select");
-  const projectOption1 = document.createElement("option");
-  const projectOption2 = document.createElement("option");
 
   // add classes
   if (props.type === "form") {
@@ -62,8 +59,7 @@ export const newNote = (props) => {
   itemProject.classList.add("item-project");
   projectContainer.classList.add("project-container");
   toolbar.classList.add("toolbar");
-  projectOption1.classList.add("project-option");
-  projectOption2.classList.add("project-option");
+
   // add ids
   itemContainer.id = "item-container";
   itemTitle.id = "item-title";
@@ -83,11 +79,6 @@ export const newNote = (props) => {
   inputDescription.textContent = props.description;
   itemProject.textContent = props.project;
   inputProject.value = props.project;
-  projectOption1.value = "inbox";
-  projectOption2.value = "work";
-  projectOption1.textContent = "inbox";
-  projectOption2.textContent = "work";
-  projectOption1.selected = true;
 
   // format date
   if (props.date) {
@@ -172,7 +163,6 @@ export const newNote = (props) => {
     trashBtn
   );
 
-  inputProject.append(projectOption1, projectOption2);
   projectContainer.append(inputProject, itemProject);
   itemContainer.append(itemTitle, inputTitle, btnContainer);
   tagContainer.append(inputTag);

@@ -15,6 +15,7 @@ export const data = () => {
     retrieveFromLocalStorage("todo");
     retrieveFromLocalStorage("tag");
     retrieveFromLocalStorage("project");
+    projectStorage.push("inbox");
     pubsub.publish("update-list", getCurrentPage());
     pubsub.publish("update-projects-tags");
   });
@@ -141,12 +142,10 @@ function getItemByIndex(key) {
 }
 
 // get card key
-function getKey(card) {
-  return card.getAttribute("data-id");
-}
+export const getKey = (card) => card.getAttribute("data-id");
 
 // get input values
-function getNoteInput(card, key) {
+export const getNoteInput = (card, key) => {
   const DomItems = getItems(card);
   // title
   const title = DomItems.inputTitle.textContent;
@@ -167,6 +166,7 @@ function getNoteInput(card, key) {
   }
 
   const project = DomItems.inputProject.value;
+  console.log(project);
   const itemInArray = getItemByIndex(key);
   const { checked } = itemInArray;
   const data = key;
@@ -181,7 +181,7 @@ function getNoteInput(card, key) {
     data,
     checked,
   };
-}
+};
 
 function getItems(card) {
   const inputTitle = card.querySelector(".input-title");
@@ -203,7 +203,6 @@ function getItems(card) {
 export const getCurrentPage = () => {
   const pageTitle = document.querySelector("#page-title");
   const page = pageTitle.getAttribute("data-page");
-  console.log(page);
   return page;
 };
 

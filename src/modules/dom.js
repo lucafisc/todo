@@ -79,19 +79,24 @@ export const domControl = () => {
     removeAllCards(projectsList, ruleProject);
     for (let i = 0; i < projectStorage.length; i++) {
       const name = projectStorage[i];
-      projectsList.append(newTodoProject(name));
+      if (name !== "inbox") {
+        projectsList.append(newTodoProject(name));
+      }
     }
-
     const selectProjectElements = document.querySelectorAll(".input-project");
-    console.log(selectProjectElements);
+    console.log("a");
+
     for (let i = 0; i < selectProjectElements.length; i++) {
       const ruleOptions = ".project-option";
-      console.log("sasas");
+
       removeAllCards(selectProjectElements[i], ruleOptions);
 
       for (let j = 0; j < projectStorage.length; j++) {
+        const card =
+          selectProjectElements[i].parentNode.parentNode.parentNode.parentNode;
         const name = projectStorage[j];
-        selectProjectElements[i].append(newSelectOption(name));
+
+        selectProjectElements[i].append(newSelectOption(name, card));
       }
     }
   });
@@ -252,6 +257,5 @@ projectTitleInput.addEventListener("keydown", (event) => {
 
 const confirmNewProjectBtn = document.querySelector("#confirm-new-project-btn");
 confirmNewProjectBtn.onclick = (clicked) => {
-  console.log("mae");
   pubsub.publish("confirm-new-project", clicked.target);
 };
