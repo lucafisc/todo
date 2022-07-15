@@ -18,24 +18,18 @@ export const domControl = () => {
   pubsub.subscribe("update-list", (page) => {
     const rule = '[data-name="card"]';
     removeAllCards(list, rule);
-
-    for (let i = 0; i < todoStorage.length; i++) {
-      if (todoStorage[i].project === page) {
-        list.prepend(newNote(todoStorage[i]));
-      }
-    }
+    const condition = "Array[i].project === currentPage";
+    domListRender(getCurrentPage(), list, todoStorage, condition);
+    selectOptionsRender();
   });
 
   // list loop flagged
   pubsub.subscribe("important-project-btn-click", (btn) => {
     const rule = '[data-name="card"]';
     removeAllCards(list, rule);
-
-    for (let i = 0; i < todoStorage.length; i++) {
-      if (todoStorage[i].flagged === true) {
-        list.prepend(newNote(todoStorage[i]));
-      }
-    }
+    const condition = "Array[i].flagged === true";
+    domListRender(getCurrentPage(), list, todoStorage, condition);
+    selectOptionsRender();
   });
 
   // list loop today
@@ -83,22 +77,8 @@ export const domControl = () => {
         projectsList.append(newTodoProject(name));
       }
     }
-    const selectProjectElements = document.querySelectorAll(".input-project");
-    console.log("a");
 
-    for (let i = 0; i < selectProjectElements.length; i++) {
-      const ruleOptions = ".project-option";
-
-      removeAllCards(selectProjectElements[i], ruleOptions);
-
-      for (let j = 0; j < projectStorage.length; j++) {
-        const card =
-          selectProjectElements[i].parentNode.parentNode.parentNode.parentNode;
-        const name = projectStorage[j];
-
-        selectProjectElements[i].append(newSelectOption(name, card));
-      }
-    }
+    selectOptionsRender();
   });
 
   // current page event
@@ -109,7 +89,7 @@ export const domControl = () => {
     pageTitle.setAttribute("data-page", pageTitle.textContent.toLowerCase());
 
     const pages = document.querySelectorAll(
-      ".menu-container, .tag-project-container, .project-title-container"
+      ".menu-container, .tag-project-container, .todo-project-container"
     );
     for (let i = 0; i < pages.length; i++) {
       pages[i].classList.remove("current-project");
@@ -194,6 +174,28 @@ export const domControl = () => {
     }
   });
 };
+
+function selectOptionsRender() {
+  const selectProjectElements = document.querySelectorAll(".input-project");
+  for (let i = 0; i < selectProjectElements.length; i++) {
+    const ruleOptions = ".project-option";
+    removeAllCards(selectProjectElements[i], ruleOptions);
+    for (let j = 0; j < projectStorage.length; j++) {
+      const card =
+        selectProjectElements[i].parentNode.parentNode.parentNode.parentNode;
+      const name = projectStorage[j];
+      selectProjectElements[i].append(newSelectOption(name, card));
+    }
+  }
+}
+
+function domListRender(currentPage, parentDiv, Array, condition) {
+  for (let i = 0; i < Array.length; i++) {
+    if (eval(condition)) {
+      parentDiv.prepend(newNote(Array[i]));
+    }
+  }
+}
 
 function removeAllCards(list, rule) {
   const cards = list.querySelectorAll(rule);

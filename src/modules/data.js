@@ -15,7 +15,9 @@ export const data = () => {
     retrieveFromLocalStorage("todo");
     retrieveFromLocalStorage("tag");
     retrieveFromLocalStorage("project");
-    projectStorage.push("inbox");
+    if (!projectStorage.includes("inbox")) {
+      projectStorage.push("inbox");
+    }
     pubsub.publish("update-list", getCurrentPage());
     pubsub.publish("update-projects-tags");
   });
@@ -43,6 +45,7 @@ export const data = () => {
   pubsub.subscribe("new-note-btn-click", (btn) => {
     const newNote = todoFactory({
       data: uuidv4(),
+      project: getCurrentPage(),
     });
     pubsub.publish("update-todos", [undefined, undefined, newNote]);
   });
@@ -166,7 +169,6 @@ export const getNoteInput = (card, key) => {
   }
 
   const project = DomItems.inputProject.value;
-  console.log(project);
   const itemInArray = getItemByIndex(key);
   const { checked } = itemInArray;
   const data = key;
@@ -203,6 +205,7 @@ function getItems(card) {
 export const getCurrentPage = () => {
   const pageTitle = document.querySelector("#page-title");
   const page = pageTitle.getAttribute("data-page");
+  console.log(page);
   return page;
 };
 

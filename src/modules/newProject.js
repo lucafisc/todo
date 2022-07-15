@@ -65,12 +65,15 @@ export const newSelectOption = (name, card) => {
   option.classList.add("project-option");
   option.value = name;
   option.textContent = name;
-  console.log(card);
 
   const key = getKey(card);
   const input = getNoteInput(card, key);
+  console.log(input.project);
   if (input.project === name) {
+    console.log("been here");
     option.selected = true;
+  } else {
+    option.selected = false;
   }
 
   return option;

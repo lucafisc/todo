@@ -28,6 +28,9 @@ export let tagStorage = [];
 export let projectStorage = [];
 
 export const updateStorage = (key, newArray) => {
+  if (!newArray) {
+    newArray = [];
+  }
   switch (key) {
     case "todo":
       todoStorage = newArray;
