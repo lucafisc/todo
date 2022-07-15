@@ -1,3 +1,4 @@
-import PubSub from 'PubSub';
+/* eslint-disable import/prefer-default-export */
+import PubSub from "PubSub";
 
-export default const pubsub = new PubSub();
+export const pubsub = new PubSub();

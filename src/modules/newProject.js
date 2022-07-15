@@ -36,3 +36,33 @@ export const newTagProject = (name) => {
   container.append(icon, title);
   return container;
 };
+
+export const newTodoProject = (name) => {
+  // create elements
+  const container = document.createElement("div");
+  const icon = document.createElement("i");
+  const title = document.createElement("h4");
+
+  // add classes
+  container.classList.add("todo-project-container");
+  icon.classList.add("fa-circle", "fa-solid", "project-icon");
+  title.classList.add("tag-title");
+
+  title.textContent = name;
+  container.onclick = (clicked) => {
+    pubsub.publish("side-bar-tag-click", clicked.target);
+    pubsub.publish("new-current-page", clicked.target);
+  };
+
+  container.append(icon, title);
+  return container;
+};
+
+export const newSelectOption = (name) => {
+  // eslint-disable-next-line prefer-const
+  let option = document.createElement("option");
+  option.classList.add("project-option");
+  option.value = name;
+  option.textContent = name;
+  return option;
+};

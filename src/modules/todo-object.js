@@ -24,7 +24,8 @@ export const todoFactory = ({
 
 export let todoStorage = [];
 export let tagStorage = [];
-export const projectStorage = [];
+// eslint-disable-next-line prefer-const
+export let projectStorage = [];
 
 export const updateStorage = (key, newArray) => {
   switch (key) {
@@ -33,6 +34,9 @@ export const updateStorage = (key, newArray) => {
       break;
     case "tag":
       tagStorage = newArray;
+      break;
+    case "project":
+      projectStorage = newArray;
       break;
   }
 };

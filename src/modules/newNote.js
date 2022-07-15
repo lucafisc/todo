@@ -62,7 +62,8 @@ export const newNote = (props) => {
   itemProject.classList.add("item-project");
   projectContainer.classList.add("project-container");
   toolbar.classList.add("toolbar");
-
+  projectOption1.classList.add("project-option");
+  projectOption2.classList.add("project-option");
   // add ids
   itemContainer.id = "item-container";
   itemTitle.id = "item-title";

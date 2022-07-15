@@ -6,6 +6,7 @@ import {
   updateStorage,
   updateTodo,
   tagStorage,
+  projectStorage,
 } from "./todo-object.js";
 
 export const data = () => {
@@ -13,8 +14,9 @@ export const data = () => {
   pubsub.subscribe("on-load", () => {
     retrieveFromLocalStorage("todo");
     retrieveFromLocalStorage("tag");
+    retrieveFromLocalStorage("project");
     pubsub.publish("update-list", getCurrentPage());
-    pubsub.publish("update-tags");
+    pubsub.publish("update-projects-tags");
   });
 
   // update event
@@ -33,6 +35,7 @@ export const data = () => {
     localStorage.clear();
     addToLocalStorage(todoStorage, "todo");
     addToLocalStorage(tagStorage, "tag");
+    addToLocalStorage(projectStorage, "project");
   });
 
   // new note event
@@ -41,6 +44,16 @@ export const data = () => {
       data: uuidv4(),
     });
     pubsub.publish("update-todos", [undefined, undefined, newNote]);
+  });
+
+  // new project event
+  pubsub.subscribe("confirm-new-project", (name) => {
+    if (!projectStorage.includes(name)) {
+      projectStorage.push(name);
+    }
+
+    pubsub.publish("update-projects-tags");
+    pubsub.publish("local-store");
   });
 
   // update todo info event
@@ -108,7 +121,7 @@ export const data = () => {
     const key = getKey(card);
     const index = todoStorage.findIndex((i) => i.data === key);
     todoStorage[index].tags.push(tag.textContent);
-    pubsub.publish("update-tags");
+    pubsub.publish("update-projects-tags");
     pubsub.publish("local-store");
   });
 };
