@@ -84,7 +84,6 @@ export const domControl = () => {
     const title = container.getElementsByTagName("h4")[0];
     pageTitle.textContent = title.textContent;
     pageTitle.setAttribute("data-page", pageTitle.textContent.toLowerCase());
-    console.log(container);
     if (container.classList.contains("tag-project-container")) {
       pageTitle.setAttribute("data-type", "tag");
     } else {

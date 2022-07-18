@@ -143,20 +143,23 @@ export const data = () => {
     pubsub.publish("update-projects-tags");
     pubsub.publish("local-store");
   });
+
+  // remove project event
+  pubsub.subscribe("delete-project", (clicked) => {
+    console.log(clicked);
+  });
 };
 
 function renderCorrectItems() {
   const page = getCurrentPage();
   const type = getPageType();
   if (page === "today") {
-    console.log("hello");
     pubsub.publish("today-project-btn-click");
   } else if (page === "important") {
     pubsub.publish("important-project-btn-click");
   } else if (type === "tag") {
     pubsub.publish("side-bar-tag-click");
   } else {
-    console.log(page);
     pubsub.publish("update-list");
   }
 }

@@ -31,6 +31,7 @@
 .project-icon,
 .tag-icon {
     margin-right: 10px;
+    pointer-events: none;
 }
 
 #inbox-icon {
@@ -50,6 +51,9 @@
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-size: 1rem;
+    margin-right: auto;
+    height: 100%;
+    pointer-events: none;
 }
 
 .menu-divider {
@@ -66,12 +70,28 @@
     font-size: 1rem;
 }
 
-.divider-btn {
+.sidebar-btn {
     background-color: hsl(241deg 10% 98%);
     border: none;
     cursor: pointer;
     padding: 5px;
 }
+
+.x-btn {
+    background-color: white;
+    transform: scale(0.8);
+    opacity: 0;
+}
+
+.todo-project-container:hover>.x-btn {
+    opacity: 1;
+}
+
+.x-btn:hover {
+    color: var(--opposite-color);
+}
+
+
 
 .divider-btn::before {
     font-family: "Font Awesome 5 Free";

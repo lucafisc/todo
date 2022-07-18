@@ -44,11 +44,12 @@ export const newTodoProject = (name) => {
   const container = document.createElement("div");
   const icon = document.createElement("i");
   const title = document.createElement("h4");
-
+  const removeBtn = document.createElement("div");
   // add classes
   container.classList.add("todo-project-container");
   icon.classList.add("fa-circle", "fa-solid", "project-icon");
   title.classList.add("tag-title");
+  removeBtn.classList.add("fa-solid", "fa-xmark", "sidebar-btn", "x-btn");
 
   title.textContent = name;
   container.onclick = (clicked) => {
@@ -56,7 +57,7 @@ export const newTodoProject = (name) => {
     pubsub.publish("update-list", clicked.target);
   };
 
-  container.append(icon, title);
+  container.append(icon, title, removeBtn);
   return container;
 };
 
