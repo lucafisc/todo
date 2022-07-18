@@ -62,7 +62,15 @@ export const domControl = () => {
     removeAllCards(tagsList, ruleTag);
     for (let i = 0; i < tagStorage.length; i++) {
       const name = tagStorage[i];
-      tagsList.append(newTagProject(name));
+      let shouldInclude = false;
+      for (let j = 0; j < todoStorage.length; j++) {
+        if (todoStorage[j].tags.includes(name)) {
+          shouldInclude = true;
+        }
+      }
+      if (shouldInclude) {
+        tagsList.append(newTagProject(name));
+      }
     }
 
     const projectsList = document.querySelector("#projects-list");
@@ -161,6 +169,7 @@ export const domControl = () => {
   // remove tag event
   pubsub.subscribe("remove-tag", ([card, tag]) => {
     tag.remove();
+    pubsub.publish("tag-removed", [card, tag]);
   });
 
   // item container click event
