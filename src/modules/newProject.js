@@ -51,10 +51,19 @@ export const newTodoProject = (name) => {
   title.classList.add("tag-title");
   removeBtn.classList.add("fa-solid", "fa-xmark", "sidebar-btn", "x-btn");
 
+  removeBtn.id = "remove-btn";
   title.textContent = name;
+
   container.onclick = (clicked) => {
-    pubsub.publish("new-current-page", clicked.target);
-    pubsub.publish("update-list", clicked.target);
+    if (
+      clicked.target.id === "remove-btn" ||
+      clicked.target.parentNode.id === "remove-btn"
+    ) {
+      pubsub.publish("delete-project", clicked.target);
+    } else {
+      pubsub.publish("new-current-page", clicked.target);
+      pubsub.publish("update-list", clicked.target);
+    }
   };
 
   container.append(icon, title, removeBtn);

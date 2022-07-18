@@ -142,11 +142,32 @@ export const data = () => {
     todoStorage[index].tags.push(tag.textContent);
     pubsub.publish("update-projects-tags");
     pubsub.publish("local-store");
+    renderCorrectItems();
   });
 
   // remove project event
   pubsub.subscribe("delete-project", (clicked) => {
-    console.log(clicked);
+    console.log(clicked.previousSibling.textContent);
+    const removedProject = clicked.previousSibling.textContent;
+    console.log(projectStorage);
+    if (
+      confirm(
+        "Are you sure you want to delete this project? This action will delete all associated todos as well."
+      )
+    ) {
+      const newProjectArray = projectStorage.filter(
+        (item) => item !== removedProject
+      );
+      updateStorage("project", newProjectArray);
+      const newTodoArray = todoStorage.filter(
+        (item) => item.project !== removedProject
+      );
+      updateStorage("todo", newTodoArray);
+      pubsub.publish("local-store");
+      pubsub.publish("update-projects-tags");
+      pubsub.publish("new-current-page", document.getElementById("inbox"));
+      pubsub.publish("today-project-btn-click");
+    }
   });
 };
 
