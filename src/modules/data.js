@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
+import { endOfToday, format } from "date-fns";
 import { pubsub } from "./pubsub";
 import {
   todoFactory,
@@ -45,13 +46,18 @@ export const data = () => {
   pubsub.subscribe("new-note-btn-click", (btn) => {
     let currentTags = [""];
     let currentProject = "inbox";
+    let currentDate = "";
     const currentType = getPageType();
-    if (currentType == "tag") {
-      currentTags = [getCurrentPage()];
+    const currentPage = getCurrentPage();
+    if (currentPage === "today") {
+      currentDate = format(new Date(endOfToday()), "yyyy-MM-dd");
+    } else if (currentType == "tag") {
+      currentTags = [currentPage];
     } else {
-      currentProject = getCurrentPage();
+      currentProject = currentPage;
     }
     const newNote = todoFactory({
+      date: currentDate,
       data: uuidv4(),
       project: currentProject,
       tags: currentTags,
@@ -143,6 +149,7 @@ function renderCorrectItems() {
   const page = getCurrentPage();
   const type = getPageType();
   if (page === "today") {
+    console.log("hello");
     pubsub.publish("today-project-btn-click");
   } else if (page === "important") {
     pubsub.publish("important-project-btn-click");
