@@ -136,7 +136,7 @@ function renderCorrectItems() {
     pubsub.publish("today-project-btn-click");
   } else if (page === "important") {
     pubsub.publish("important-project-btn-click");
-  } else if (page === "inbox") {
+  } else {
     pubsub.publish("update-list");
   }
 }
@@ -161,6 +161,7 @@ export const getKey = (card) => card.getAttribute("data-id");
 // get input values
 export const getNoteInput = (card, key) => {
   const DomItems = getItems(card);
+
   // title
   const title = DomItems.inputTitle.textContent;
   // date
@@ -203,6 +204,7 @@ function getItems(card) {
   const inputFlag = card.querySelector(".input-flag");
   const inputTags = card.querySelectorAll(".item-tag");
   const inputProject = card.querySelector(".input-project");
+
   return {
     inputTitle,
     inputDescription,
@@ -216,7 +218,6 @@ function getItems(card) {
 export const getCurrentPage = () => {
   const pageTitle = document.querySelector("#page-title");
   const page = pageTitle.getAttribute("data-page");
-  console.log(page);
   return page;
 };
 

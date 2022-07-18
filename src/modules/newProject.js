@@ -1,5 +1,6 @@
 import { pubsub } from "./pubsub";
-import { getKey, getNoteInput, todoStorage } from "./data";
+import { getKey, getNoteInput } from "./data";
+import { todoStorage } from "./todo-object.js";
 
 export const newProject = () => {
   // create elements
@@ -51,8 +52,8 @@ export const newTodoProject = (name) => {
 
   title.textContent = name;
   container.onclick = (clicked) => {
-    pubsub.publish("side-bar-tag-click", clicked.target);
     pubsub.publish("new-current-page", clicked.target);
+    pubsub.publish("update-list", clicked.target);
   };
 
   container.append(icon, title);
@@ -67,10 +68,10 @@ export const newSelectOption = (name, card) => {
   option.textContent = name;
 
   const key = getKey(card);
-  const input = getNoteInput(card, key);
-  console.log(input.project);
-  if (input.project === name) {
-    console.log("been here");
+
+  const index = todoStorage.findIndex((i) => i.data === key);
+
+  if (todoStorage[index].project === name) {
     option.selected = true;
   } else {
     option.selected = false;

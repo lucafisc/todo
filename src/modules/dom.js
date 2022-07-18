@@ -32,6 +32,17 @@ export const domControl = () => {
     selectOptionsRender();
   });
 
+  // list loop tag
+  pubsub.subscribe("side-bar-tag-click", (container) => {
+    const rule = '[data-name="card"]';
+    removeAllCards(list, rule);
+    const title = container.getElementsByTagName("h4")[0];
+    const tag = title.textContent;
+    const condition = "Array[i].tags.includes(myVar)";
+    domListRender(getCurrentPage(), list, todoStorage, condition, tag);
+    selectOptionsRender();
+  });
+
   // list loop today
   pubsub.subscribe("today-project-btn-click", () => {
     const rule = '[data-name="card"]';
@@ -42,20 +53,7 @@ export const domControl = () => {
         list.prepend(newNote(todoStorage[i]));
       }
     }
-  });
-
-  // list loop tag
-  pubsub.subscribe("side-bar-tag-click", (container) => {
-    const rule = '[data-name="card"]';
-    removeAllCards(list, rule);
-    const title = container.getElementsByTagName("h4")[0];
-    const tag = title.textContent;
-
-    for (let i = 0; i < todoStorage.length; i++) {
-      if (todoStorage[i].tags.includes(tag)) {
-        list.prepend(newNote(todoStorage[i]));
-      }
-    }
+    selectOptionsRender();
   });
 
   // tag list loop
@@ -189,7 +187,7 @@ function selectOptionsRender() {
   }
 }
 
-function domListRender(currentPage, parentDiv, Array, condition) {
+function domListRender(currentPage, parentDiv, Array, condition, myVar) {
   for (let i = 0; i < Array.length; i++) {
     if (eval(condition)) {
       parentDiv.prepend(newNote(Array[i]));
