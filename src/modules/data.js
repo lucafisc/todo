@@ -124,10 +124,20 @@ export const data = () => {
   });
 
   // remove tag event
-  pubsub.subscribe("remove-tag", ([card, tag]) => {
+  pubsub.subscribe("tag-removed", ([card, tag]) => {
     const key = getKey(card);
-    const index = todoStorage.findIndex((i) => i.data === key);
     const input = getNoteInput(card, key);
+    const index = todoStorage.findIndex((i) => i.data === key);
+    input.type = "todo";
+    pubsub.publish("update-todos", [index, input, undefined]);
+  });
+
+  pubsub.subscribe("save-btn-click", (card) => {
+    const key = getKey(card);
+    const input = getNoteInput(card, key);
+    const index = todoStorage.findIndex((i) => i.data === key);
+    input.type = "todo";
+    pubsub.publish("update-todos", [index, input, undefined]);
   });
 
   // create new tag
