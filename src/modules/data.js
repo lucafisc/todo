@@ -130,6 +130,7 @@ export const data = () => {
     const index = todoStorage.findIndex((i) => i.data === key);
     input.type = "todo";
     pubsub.publish("update-todos", [index, input, undefined]);
+    pubsub.publish("update-projects-tags");
   });
 
   pubsub.subscribe("save-btn-click", (card) => {
