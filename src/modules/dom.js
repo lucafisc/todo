@@ -36,8 +36,7 @@ export const domControl = () => {
   pubsub.subscribe("side-bar-tag-click", (container) => {
     const rule = '[data-name="card"]';
     removeAllCards(list, rule);
-    const title = container.getElementsByTagName("h4")[0];
-    const tag = title.textContent;
+    const tag = getCurrentPage();
     const condition = "Array[i].tags.includes(myVar)";
     domListRender(getCurrentPage(), list, todoStorage, condition, tag);
     selectOptionsRender();

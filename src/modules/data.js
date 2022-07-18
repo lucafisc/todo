@@ -43,9 +43,18 @@ export const data = () => {
 
   // new note event
   pubsub.subscribe("new-note-btn-click", (btn) => {
+    let currentTags = [""];
+    let currentProject = "inbox";
+    const currentType = getPageType();
+    if (currentType == "tag") {
+      currentTags = [getCurrentPage()];
+    } else {
+      currentProject = getCurrentPage();
+    }
     const newNote = todoFactory({
       data: uuidv4(),
-      project: getCurrentPage(),
+      project: currentProject,
+      tags: currentTags,
     });
     pubsub.publish("update-todos", [undefined, undefined, newNote]);
   });
@@ -227,7 +236,7 @@ export const getCurrentPage = () => {
 
 export const getPageType = () => {
   const pageTitle = document.querySelector("#page-title");
-  const page = pageTitle.getAttribute("data-type");
+  const type = pageTitle.getAttribute("data-type");
   return type;
 };
 
