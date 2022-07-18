@@ -32,8 +32,8 @@ export const newTagProject = (name) => {
 
   title.textContent = name;
   container.onclick = (clicked) => {
-    pubsub.publish("side-bar-tag-click", clicked.target);
     pubsub.publish("new-current-page", clicked.target);
+    pubsub.publish("side-bar-tag-click", clicked.target);
   };
   container.append(icon, title);
   return container;

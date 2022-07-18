@@ -132,11 +132,15 @@ export const data = () => {
 
 function renderCorrectItems() {
   const page = getCurrentPage();
+  const type = getPageType();
   if (page === "today") {
     pubsub.publish("today-project-btn-click");
   } else if (page === "important") {
     pubsub.publish("important-project-btn-click");
+  } else if (type === "tag") {
+    pubsub.publish("side-bar-tag-click");
   } else {
+    console.log(page);
     pubsub.publish("update-list");
   }
 }
@@ -219,6 +223,12 @@ export const getCurrentPage = () => {
   const pageTitle = document.querySelector("#page-title");
   const page = pageTitle.getAttribute("data-page");
   return page;
+};
+
+export const getPageType = () => {
+  const pageTitle = document.querySelector("#page-title");
+  const page = pageTitle.getAttribute("data-type");
+  return type;
 };
 
 export const isTagInUse = (tag) => {
