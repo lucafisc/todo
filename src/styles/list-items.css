@@ -430,9 +430,9 @@
     color: var(--opposite-color);
     background-color: var(--opposite-color-lighter);
     text-align: center;
-    font-size: 4rem;
+    font-size: 2rem;
     border: none;
-    height: 90px;
+    height: 60px;
     aspect-ratio: 1;
     max-height: 150px;
     position: fixed;

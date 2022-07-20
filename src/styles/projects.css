@@ -80,10 +80,11 @@
 
 
 .divider-title {
-    margin-left: 38px;
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-size: 1rem;
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 .sidebar-btn {
@@ -130,6 +131,10 @@
     background-color: hsl(241deg 10% 98%);
     border: 1px solid hsl(241deg 10% 98%);
     box-shadow: none;
+}
+
+.menu-input {
+    display: flex;
 }
 
 
@@ -203,5 +208,11 @@
     .project-title,
     .tag-title {
         margin-right: auto;
+    }
+
+
+    .divider-title {
+        margin-left: 38px;
+        display: block;
     }
 }
