@@ -421,10 +421,7 @@
     background-color: var(--main-color);
 }
 
-.list {
-    position: relative;
-    height: calc(100vh - 164.5px);
-}
+
 
 .new-note {
     color: var(--opposite-color);
@@ -436,7 +433,7 @@
     aspect-ratio: 1;
     max-height: 150px;
     position: absolute;
-    bottom: 80px;
+    bottom: 120px;
     right: 20px;
 
     border-radius: 50%;
