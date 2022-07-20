@@ -171,9 +171,7 @@ body {
   color: hsl(14, 86%, 59%);
 }
 
-nav {
-  display: none;
-}
+
 
 @media only screen and (min-width: 800px) {
   .content {
@@ -185,23 +183,12 @@ nav {
     margin: 0 20px 0 0;
   }
 
-  nav {
-    display: block;
-    height: 100vh;
-    position: fixed;
-    grid-area: nav;
-    width: 300px;
-    z-index: 1;
-    overflow-x: hidden;
-    top: 0;
-    left: 0;
-  }
+
 
   main {
     grid-area: main;
   }
 
-  .hamburger {
-    display: none;
-  }
+
+
 }
