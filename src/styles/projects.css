@@ -40,7 +40,8 @@
     left: 0;
     width: 100%;
     overflow: scroll;
-    /* background-color: lightgreen; */
+    z-index: 999;
+    background-color: hsl(241deg 10% 98%);
 }
 
 #projects-list,
