@@ -50,7 +50,7 @@ Users should be able to:
 
 
 ## Features
-- Simple edit
+- Simple editing
 <img src="https://i.imgur.com/7TV0ZB9.gif" alt="drawing" width="400"/>
 
 - Easily add tags
