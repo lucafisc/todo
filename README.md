@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to Shopping Cart 👋 🛒</h1>
+<h1 align="center">Welcome to the ToDo App 👋 🛒</h1>
 
 
 
